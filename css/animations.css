@@ -1,0 +1,219 @@
+/* Animation Styles */
+/* Entrance animations */
+.animate {
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.animate.active {
+    opacity: 1;
+}
+
+/* Slide animations */
+.slide-up {
+    transform: translateY(50px);
+}
+
+.slide-up.active {
+    transform: translateY(0);
+}
+
+.slide-down {
+    transform: translateY(-50px);
+}
+
+.slide-down.active {
+    transform: translateY(0);
+}
+
+.slide-left {
+    transform: translateX(-50px);
+}
+
+.slide-left.active {
+    transform: translateX(0);
+}
+
+.slide-right {
+    transform: translateX(50px);
+}
+
+.slide-right.active {
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    transform: translateX(100px);
+}
+
+.slide-in-right.active {
+    transform: translateX(0);
+}
+
+/* Fade animations */
+.fade-in {
+    opacity: 0;
+}
+
+.fade-in.active {
+    opacity: 1;
+}
+
+/* Scale animations */
+.scale-up {
+    transform: scale(0.8);
+}
+
+.scale-up.active {
+    transform: scale(1);
+}
+
+/* Delay classes */
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.delay-5 {
+    transition-delay: 0.5s;
+}
+
+.delay-6 {
+    transition-delay: 0.6s;
+}
+
+/* Liquid animation specific styles */
+.liquid-animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Typing effect animation */
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: var(--color-primary);
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Floating animation for metrics */
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Pulse animation for CTA buttons */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(138, 43, 226, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+    }
+}
+
+/* Base Animation Classes */
+.reveal {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide Directions */
+.reveal.slide-left {
+    transform: translateX(-100px);
+}
+
+.reveal.slide-right {
+    transform: translateX(100px);
+}
+
+.reveal.slide-up {
+    transform: translateY(50px);
+}
+
+.reveal.active {
+    transform: translateX(0);
+    transform: translateY(0);
+}
+
+/* Animation Delays */
+.reveal.delay-1 { transition-delay: 0.1s; }
+.reveal.delay-2 { transition-delay: 0.2s; }
+.reveal.delay-3 { transition-delay: 0.3s; }
+.reveal.delay-4 { transition-delay: 0.4s; }
+.reveal.delay-5 { transition-delay: 0.5s; }
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .animate,
+    .slide-up,
+    .slide-down,
+    .slide-left,
+    .slide-right,
+    .fade-in,
+    .scale-up,
+    .float,
+    .pulse {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+    
+    .tool-stack-track {
+        animation: none !important;
+    }
+    
+    .typing-cursor {
+        animation: none !important;
+    }
+}

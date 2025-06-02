@@ -1,0 +1,252 @@
+/* Policy Page Styles */
+:root {
+    --text-black: var(--text-primary);
+    --text-grey: var(--text-secondary);
+}
+
+/* Hero Section */
+.section.dark {
+    padding: 100px 0;
+    background-color: var(--darker-bg);
+}
+
+.center-block {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.text-large {
+    font-size: 1.25rem;
+    line-height: 1.7;
+}
+
+/* Policy Content */
+.section.light {
+    padding: 6rem 0;
+    background-color: var(--background-light);
+    min-height: 100vh;
+}
+
+.section.overflow-visible {
+    overflow: visible;
+}
+
+.row.flex {
+    display: flex;
+    margin: 0 -15px;
+    flex-wrap: wrap;
+}
+
+/* Policy Navigation */
+.policy-nav-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 15px;
+}
+
+.policy-nav {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.policy-nav-link {
+    color: var(--text-grey);
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+.policy-nav-link:hover {
+    color: var(--text-black);
+}
+
+/* Policy Content Column */
+.policy-content-col {
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding: 0 15px;
+    color: #1a1a1a; /* Dark gray, almost black for maximum contrast */
+}
+
+.policy-content-col p,
+.policy-content-col li {
+    color: #2a2a2a; /* Very dark gray for body text */
+    line-height: 1.7;
+}
+
+.policy-content-col h2 {
+    color: #1a1a1a;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.policy-content-col h3 {
+    color: #1a1a1a;
+    font-size: 2rem;
+    margin: 2rem 0 1rem;
+}
+
+.policy-content-col h4 {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.policy-section {
+    margin-bottom: 100px;
+}
+
+.policy-section:last-child {
+    margin-bottom: 0;
+}
+
+.text-black {
+    color: var(--text-black);
+}
+
+.text-grey {
+    color: #7c6f3c; /* Darker grey for better contrast */
+}
+
+.text-medium {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+/* Rich Text Content */
+.rich-black {
+    color: #2a2a2a;
+}
+
+.rich-black p {
+    color: #2a2a2a;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.rich-black h2,
+.rich-black h3,
+.rich-black h4 {
+    color: #1a1a1a;
+    margin: 2.5rem 0 1.5rem;
+}
+
+.rich-black h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.rich-black h4 {
+    font-size: 1.125rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.rich-black ul {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.rich-black ul li {
+    color: #2a2a2a;
+    margin-bottom: 0.75rem;
+}
+
+.rich-black li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: #2a2a2a;
+}
+
+.rich-black li strong {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.policy-section + .policy-section {
+    margin-top: 80px;
+    padding-top: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rich-black a {
+    color: #6a0dad; /* Purple that matches your theme */
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.rich-black a:hover {
+    opacity: 0.8;
+}
+
+/* Modification dates */
+.text-light-grey.text-medium {
+    color: #666666;
+}
+
+/* Links */
+.policy-content-col a {
+    color: #6a0dad;
+    text-decoration: none;
+}
+
+.policy-content-col a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .policy-nav-col {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+    
+    .policy-content-col {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 767px) {
+    .policy-nav-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .policy-content-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .policy-nav {
+        position: relative;
+        top: 0;
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .section.dark {
+        padding: 60px 0;
+    }
+    
+    .policy-section {
+        margin-bottom: 60px;
+    }
+}
