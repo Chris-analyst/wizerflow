@@ -11,6 +11,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
       html { scroll-behavior: smooth; }
+
+      .b2c-banner {
+        background-color: #FF6B00;
+        overflow: hidden;
+        width: 100%;
+        padding: 8px 0;
+      }
+
+      .b2c-content {
+        white-space: nowrap;
+        display: inline-block;
+        animation: scroll-left 20s linear infinite;
+        color: white;
+        font-weight: 500;
+      }
+
+      .b2c-link {
+        color: white;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      .b2c-link:hover {
+        text-decoration: none;
+      }
+
+      @keyframes scroll-left {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
     </style>
     <!-- Cal.com Widget -->
     <script type="text/javascript">
@@ -19,6 +49,13 @@
     </script>
 </head>
 <body>
+    <!-- B2C Banner -->
+    <div class="b2c-banner">
+        <div class="b2c-content">
+            Looking for B2C solutions? Visit <a href="https://wizerscale.com" class="b2c-link">wizerscale.com</a> for consumer-focused growth tools
+        </div>
+    </div>
+
     <!-- Header/Navigation -->
     <header class="header">
         <div class="container">
