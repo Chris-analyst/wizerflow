@@ -42,8 +42,8 @@ function initFAQDropdowns() {
     const faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(item => {
-        const title = item.querySelector('.faq-item-title, button[aria-expanded]');
-        const content = item.querySelector('.faq-item-content, p');
+        const title = item.querySelector('.faq-item-title');
+        const content = item.querySelector('.faq-item-content');
 
         if (title && content) {
             // Set initial closed state with inline styles
@@ -59,17 +59,18 @@ function initFAQDropdowns() {
                 // Close all other items
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
-                        const otherContent = otherItem.querySelector('.faq-item-content, p');
+                        const otherContent = otherItem.querySelector('.faq-item-content');
+                        const otherTitle = otherItem.querySelector('.faq-item-title');
                         otherItem.classList.remove('active');
+
                         if (otherContent) {
                             otherContent.style.maxHeight = '0px';
                             otherContent.style.opacity = '0';
                             otherContent.style.transform = 'translateY(-10px)';
                         }
 
-                        // Update aria-expanded if it's a button
-                        const otherTitle = otherItem.querySelector('button[aria-expanded]');
-                        if (otherTitle) {
+                        // Update aria-expanded
+                        if (otherTitle && otherTitle.hasAttribute('aria-expanded')) {
                             otherTitle.setAttribute('aria-expanded', 'false');
                         }
                     }
@@ -78,12 +79,13 @@ function initFAQDropdowns() {
                 // Toggle current item
                 if (!isActive) {
                     item.classList.add('active');
-                    // Calculate the actual content height
-                    content.style.maxHeight = content.scrollHeight + 'px';
+                    // Calculate the actual content height (including padding)
+                    const actualHeight = content.scrollHeight;
+                    content.style.maxHeight = actualHeight + 'px';
                     content.style.opacity = '1';
                     content.style.transform = 'translateY(0px)';
 
-                    // Update aria-expanded if it's a button
+                    // Update aria-expanded
                     if (title.hasAttribute('aria-expanded')) {
                         title.setAttribute('aria-expanded', 'true');
                     }
@@ -93,7 +95,7 @@ function initFAQDropdowns() {
                     content.style.opacity = '0';
                     content.style.transform = 'translateY(-10px)';
 
-                    // Update aria-expanded if it's a button
+                    // Update aria-expanded
                     if (title.hasAttribute('aria-expanded')) {
                         title.setAttribute('aria-expanded', 'false');
                     }
