@@ -79,11 +79,18 @@ function initFAQDropdowns() {
                 // Toggle current item
                 if (!isActive) {
                     item.classList.add('active');
-                    // Calculate the actual content height (including padding)
+
+                    // Temporarily set to auto to measure full height
+                    content.style.maxHeight = 'none';
                     const actualHeight = content.scrollHeight;
-                    content.style.maxHeight = actualHeight + 'px';
-                    content.style.opacity = '1';
-                    content.style.transform = 'translateY(0px)';
+                    content.style.maxHeight = '0px';
+
+                    // Force reflow then animate to actual height
+                    setTimeout(() => {
+                        content.style.maxHeight = actualHeight + 'px';
+                        content.style.opacity = '1';
+                        content.style.transform = 'translateY(0px)';
+                    }, 10);
 
                     // Update aria-expanded
                     if (title.hasAttribute('aria-expanded')) {
