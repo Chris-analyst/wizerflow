@@ -10,11 +10,19 @@
     <link rel="stylesheet" href="css/demo.css">
     <link rel="stylesheet" href="css/case-studies.css">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Cal.com Widget -->
+    <!-- Cal element-click embed code begins -->
     <script type="text/javascript">
-        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-        Cal("init", "intro-call-25", {origin:"https://cal.com"});
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://cal.gowizerflow.com/embed/embed.js", "init");
+        Cal("init", "25min", {origin:"https://cal.gowizerflow.com"});
+
+        // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+        // `data-cal-link="chrisnjonjo/25min"`
+        // data-cal-namespace="25min"
+        // `data-cal-config='{"layout":"month_view"}'`
+
+        Cal.ns["25min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
     </script>
+    <!-- Cal element-click embed code ends -->
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -36,10 +44,10 @@
                     <ul class="nav-group-right">
                         <li><a href="index.html#how-it-works">How we work</a></li>
                         <li>
-                            <a href="#" 
+                            <a href="#"
                                class="btn btn-primary"
-                               data-cal-link="wizerflow/intro-call-25"
-                               data-cal-namespace="intro-call-25"
+                               data-cal-link="chrisnjonjo/25min"
+                               data-cal-namespace="25min"
                                data-cal-config='{"layout":"month_view"}'>
                                Book more meetings
                             </a>
@@ -149,10 +157,10 @@
         <div class="container">
             <div class="center-block mb-60">
                 <h3 class="mb-40">Ready to scale your operations?</h3>
-                <a href="#" 
-                   class="btn btn-primary btn-large mb-40" 
-                   data-cal-link="wizerflow/intro-call-25"
-                   data-cal-namespace="intro-call-25"
+                <a href="#"
+                   class="btn btn-primary btn-large mb-40"
+                   data-cal-link="chrisnjonjo/25min"
+                   data-cal-namespace="25min"
                    data-cal-config='{"layout":"month_view"}'>
                    Book more meetings
                 </a>

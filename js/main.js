@@ -125,7 +125,7 @@ function initMobileMenu() {
 function initCalWidget() {
     if (typeof Cal !== 'undefined') {
         // Initialize Cal.com UI
-        Cal.ns["intro-call-45"]("ui", {
+        Cal.ns["25min"]("ui", {
             "hideEventTypeDetails": false,
             "layout": "month_view"
         });
@@ -135,7 +135,7 @@ function initCalWidget() {
         ctaButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                Cal.ns["intro-call-45"]("showModal");
+                Cal.ns["25min"]("showModal");
             });
         });
     }

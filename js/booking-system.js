@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initCalWidget() {
     if (typeof Cal !== 'undefined') {
         // Initialize Cal.com UI with custom styling
-        Cal.ns["intro-call-45"]("ui", {
+        Cal.ns["25min"]("ui", {
             "hideEventTypeDetails": false,
             "layout": "month_view",
             "styles": {
@@ -32,7 +32,7 @@ function initCalWidget() {
         ctaButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                
+
                 // Track button click for analytics
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'booking_click', {
@@ -40,11 +40,11 @@ function initCalWidget() {
                         'event_label': button.innerText || 'Book Meeting'
                     });
                 }
-                
+
                 // Show Cal.com modal
-                Cal.ns["intro-call-45"]("showModal", {
+                Cal.ns["25min"]("showModal", {
                     // Optional custom configuration for specific buttons
-                    calLink: "wizerflow/intro-call-45",
+                    calLink: "chrisnjonjo/25min",
                     config: {
                         "layout": "month_view"
                     }
@@ -93,16 +93,16 @@ function initFloatingBookingButton() {
         floatingBtn.innerHTML = '<span>Book a Call</span>';
         
         // Add Cal.com attributes
-        floatingBtn.setAttribute('data-cal-link', 'wizerflow/intro-call-45');
-        floatingBtn.setAttribute('data-cal-namespace', 'intro-call-45');
+        floatingBtn.setAttribute('data-cal-link', 'chrisnjonjo/25min');
+        floatingBtn.setAttribute('data-cal-namespace', '25min');
         floatingBtn.setAttribute('data-cal-config', '{"layout":"month_view"}');
-        
+
         document.body.appendChild(floatingBtn);
-        
+
         // Add event listener
         floatingBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            Cal.ns["intro-call-45"]("showModal");
+            Cal.ns["25min"]("showModal");
             
             // Track floating button click
             if (typeof gtag !== 'undefined') {
