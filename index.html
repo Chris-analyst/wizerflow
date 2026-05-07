@@ -11,17 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
       html { scroll-behavior: smooth; }
-
+      #particle-canvas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 0;
+      }
     </style>
     <!-- Cal element-click embed code begins -->
     <script type="text/javascript">
         (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://cal.gowizerflow.com/embed/embed.js", "init");
         Cal("init", "25min", {origin:"https://cal.gowizerflow.com"});
-
-        // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
-        // `data-cal-link="chrisnjonjo/25min"`
-        // data-cal-namespace="25min"
-        // `data-cal-config='{"layout":"month_view"}'`
 
         Cal.ns["25min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
     </script>
@@ -30,17 +33,6 @@
 <body>
     <!-- Particle Network Background -->
     <canvas id="particle-canvas"></canvas>
-    <style>
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-    </style>
 
     <!-- Header/Navigation -->
     <header class="header">
@@ -52,7 +44,7 @@
                     </a>
                     <span>Wizerflow</span>
                 </div>
-                
+
                 <nav class="main-nav">
                     <ul class="nav-group-left">
                     </ul>
@@ -80,7 +72,7 @@
         </div>
     </header>
 
-    <!-- Initial Section for proper spacing -->
+    <!-- Hero Section -->
     <section class="demo-section hero dark" id="demo-intro">
         <div class="container">
             <div class="content">
@@ -117,17 +109,17 @@
         </div>
     </section>
 
-    <!-- How it Works Section -->
+    <!-- How it Works Section (Timeline Pipeline) -->
     <section class="demo-section dark" id="how-it-works">
         <div class="container">
-            <div class="center-block">
+            <div class="center-block reveal">
                 <div class="subtitle text-primary mb-20">How it works</div>
-                <h2>Onboard.Automate.Scale.</h2>
+                <h2>Onboard. Automate. Scale.</h2>
                 <p class="text-light-grey mb-60"><em>We streamline your path from first contact to full pipeline. Our automation-first system turns execution into acceleration.</em></p>
             </div>
             <div class="max-900">
                 <div class="row flex">
-                    <div class="w-col">
+                    <div class="w-col reveal reveal-delay-1">
                         <div class="how-it-works-links">
                             <div class="step-number mb-10">01</div>
                             <div class="align-center mb-20">
@@ -136,10 +128,10 @@
                                 </div>
                             </div>
                             <h3>Share ICP</h3>
-                            <p class="text-light-grey text-medium mb-20"><em>Connect with high-value clients using AI-powered outreach. Tell us about your ideal customer profile.</em></p>
+                            <p class="text-light-grey text-medium mb-20"><em>Tell us about your ideal customer profile. We connect with high-value clients using AI-powered outreach tailored to your niche.</em></p>
                         </div>
                     </div>
-                    <div class="w-col">
+                    <div class="w-col reveal reveal-delay-2">
                         <div class="how-it-works-links">
                             <div class="step-number mb-10">02</div>
                             <div class="align-center mb-20">
@@ -148,10 +140,10 @@
                                 </div>
                             </div>
                             <h3>AI Sniffs Pain</h3>
-                            <p class="text-light-grey text-medium mb-20"><em>Our AI identifies prospects with pain signals and streamlines operations to eliminate bottlenecks.</em></p>
+                            <p class="text-light-grey text-medium mb-20"><em>Our AI identifies prospects with active pain signals and streamlines operations to eliminate bottlenecks in your pipeline.</em></p>
                         </div>
                     </div>
-                    <div class="w-col">
+                    <div class="w-col reveal reveal-delay-3">
                         <div class="how-it-works-links">
                             <div class="step-number mb-10">03</div>
                             <div class="align-center mb-20">
@@ -163,7 +155,7 @@
                             <p class="text-light-grey text-medium mb-20"><em>Keep leads warm with smart follow-ups. Our AI handles timing, tone, and personalized messaging that gets responses.</em></p>
                         </div>
                     </div>
-                    <div class="w-col">
+                    <div class="w-col reveal reveal-delay-4">
                         <div class="how-it-works-links">
                             <div class="step-number mb-10">04</div>
                             <div class="align-center mb-20">
@@ -180,27 +172,14 @@
         </div>
     </section>
 
-    <!-- Pipeline Automation Section -->
-    <section class="inner-section white">
-        <div class="container">
-            <div class="center-block">
-                <div class="subtitle text-primary mb-20">Pipeline Automation</div>
-                <h3 class="text-black">
-                    <strong>Smarter automation,<br>better conversions</strong>
-                </h3>
-                <p class="text-grey mb-60">Wizerflow automates client outreach, organizes leads, and ensures no opportunity slips through the cracks. Our AI-powered system lets you focus on what you do best — closing deals — while we handle the rest.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Email Comparison Section -->
     <section class="demo-section dark" id="advantage">
         <div class="container">
-            <div class="center-block mb-60">
+            <div class="center-block mb-60 reveal">
                 <h2>AI "Pain Sniffing" advantage</h2>
             </div>
             <div class="email-comparison">
-                <div class="email-card">
+                <div class="email-card reveal reveal-delay-1">
                     <div class="email-header generic">
                         <h3 class="text-black">Generic Agency Email</h3>
                         <p class="text-grey">(What Your Competitors Send)</p>
@@ -233,7 +212,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="email-card featured">
+                <div class="email-card featured reveal reveal-delay-2">
                     <div class="email-header featured">
                         <h3 class="text-black">Wizerflow Email</h3>
                         <p class="text-grey">(What We'll Send For You)</p>
@@ -274,29 +253,29 @@
     <!-- Values Section -->
     <section class="demo-section dark" id="values">
         <div class="container">
-            <div class="center-block mb-60">
+            <div class="center-block mb-60 reveal">
                 <h2 class="text-black mb-20">Wizerflow Core Values</h2>
                 <p class="text-grey text-medium">At Wizerflow, we prioritize efficiency, transparency, and results — helping businesses scale through AI-powered automation and precision outreach.</p>
             </div>
-            
+
             <div class="values-grid">
-                <div class="value-card">
+                <div class="value-card reveal reveal-delay-1">
                     <div class="value-content">
                         <img src="images/Tool Stack/solutions.svg" width="50" alt="" class="mb-30">
                         <h3>Value Minded Solutions</h3>
                         <p>We're obsessed with results. Every strategy is designed to foster new business opportunities.</p>
                     </div>
                 </div>
-                
-                <div class="value-card">
+
+                <div class="value-card reveal reveal-delay-2">
                     <div class="value-content">
                         <img src="images/Tool Stack/buit_transparency.svg" width="50" alt="" class="mb-30">
                         <h3>Build Trust Through Transparency</h3>
                         <p>No fluff — just clear communication, insights, data-backed decisions, and honest reporting.</p>
                     </div>
                 </div>
-                
-                <div class="value-card">
+
+                <div class="value-card reveal reveal-delay-3">
                     <div class="value-content">
                         <img src="images/Tool Stack/aligned.svg" width="50" alt="" class="mb-30">
                         <h3>Aligned Incentives</h3>
@@ -306,23 +285,23 @@
             </div>
 
             <div class="values-grid mt-40">
-                <div class="value-card">
+                <div class="value-card reveal reveal-delay-1">
                     <div class="value-content">
                         <img src="images/Tool Stack/radical_transparency.svg" width="50" alt="" class="mb-30">
                         <h3>Radical Transparency</h3>
                         <p>We don't hide behind dashboards. You'll always know what's working and why.</p>
                     </div>
                 </div>
-                
-                <div class="value-card">
+
+                <div class="value-card reveal reveal-delay-2">
                     <div class="value-content">
                         <img src="images/Tool Stack/transparency.svg" width="50" alt="" class="mb-30">
                         <h3>Deliver Predictable Growth</h3>
                         <p>Systems built to drive consistent meetings, new revenue, and scalable momentum.</p>
                     </div>
                 </div>
-                
-                <div class="value-card">
+
+                <div class="value-card reveal reveal-delay-3">
                     <div class="value-content">
                         <img src="images/Tool Stack/growing.svg" width="50" alt="" class="mb-30">
                         <h3>Always Optimizing + Growing</h3>
@@ -333,27 +312,25 @@
         </div>
     </section>
 
-    <!-- New 3-Column FAQ Section -->
+    <!-- FAQ Section -->
     <section class="inner-section white" id="faq-section">
         <div class="container">
-            <div class="faq-row" style="display: flex; width: 100%; gap: 2rem;">
-              <!-- Column 1 (30% + 4% padding) -->
-<div class="faq-col-left" style="width: 30%; padding: 0 4% 0 4%; display: flex; flex-direction: column; align-items: flex-start;">
-    <img src="updates/faq.svg" alt="FAQ" class="faq-title-icon" style="width: 80px; margin-bottom: 20px;">
-    <h4 class="mb-40">Commonly<br>Asked<br>Questions</h4>
-</div>
+            <div class="faq-row">
+                <div class="faq-col-left">
+                    <img src="updates/faq.svg" alt="FAQ" class="faq-title-icon">
+                    <h4 class="mb-40">Commonly<br>Asked<br>Questions</h4>
+                </div>
 
-                <!-- Column 2 (2%) -->
-                <div class="faq-col-middle" style="width: 2%;"></div>
-                <!-- Column 3 (60% + 4% padding) -->
-                <div class="faq-col-right" style="width: 60%; padding: 0 4% 0 4%;">
+                <div class="faq-col-middle"></div>
+
+                <div class="faq-col-right">
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
                         <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
                             <div class="faq-icon dark"></div>
                             <div class="text-medium text-semi">Why choose Wizerflow over an SDR?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">Get 17x more output at 30% of the cost of an in-house SDR ($8,595/mo). No benefits or severance costs, just predictable results.</p>
+                            <p class="text-light-grey text-medium mb-0">Get 17x more output at 30% of the cost of an in-house SDR ($8,595/mo). No benefits or severance costs, just predictable results.</p>
                         </div>
                     </div>
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
@@ -362,7 +339,7 @@
                             <div class="text-medium text-semi">5 meetings/month sounds specific. What if we need more?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">5 is our baseline guarantee for the standard program, ensuring you a consistent flow while fine tuning our AI outreach system to your niche. We typically deliver more and will customize your package for higher volume once we establish the successful calibration.</p>
+                            <p class="text-light-grey text-medium mb-0">5 is our baseline guarantee for the standard program, ensuring you a consistent flow while fine tuning our AI outreach system to your niche. We typically deliver more and will customize your package for higher volume once we establish the successful calibration.</p>
                         </div>
                     </div>
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
@@ -371,7 +348,7 @@
                             <div class="text-medium text-semi">How much more cost-effective is this, really?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">When you take into account payroll, benefits, severance, and the opportunity cost of hiring, our service is ~30% of the price of hiring in-house, and ~70% of the price of hiring an agency. You also get access to two world-class ops executives that have helped scale several 8-figure companies, as well as a 100% satisfaction guarantee.</p>
+                            <p class="text-light-grey text-medium mb-0">When you take into account payroll, benefits, severance, and the opportunity cost of hiring, our service is ~30% of the price of hiring in-house, and ~70% of the price of hiring an agency. You also get access to two world-class ops executives that have helped scale several 8-figure companies, as well as a 100% satisfaction guarantee.</p>
                         </div>
                     </div>
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
@@ -380,7 +357,7 @@
                             <div class="text-medium text-semi">How does payment work?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">Our pricing is mostly based on results. After our FREE consultation and agreement on the project scope, investment and guarantee, you'll be taken to a Stripe Checkout page. After you pay, we'll automatically create a subscription for you that renews on the same day every month. You can cancel or pause at any time.</p>
+                            <p class="text-light-grey text-medium mb-0">Our pricing is mostly based on results. After our FREE consultation and agreement on the project scope, investment and guarantee, you'll be taken to a Stripe Checkout page. After you pay, we'll automatically create a subscription for you that renews on the same day every month. You can cancel or pause at any time.</p>
                         </div>
                     </div>
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
@@ -389,7 +366,7 @@
                             <div class="text-medium text-semi">How quickly do we see results?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">First campaign results varies by plan. With our Standard plan, clients typically begin seeing meaningful results within 21-28 days as we optimize targeting and messaging. Pro plan clients benefit from accelerated implementation and dedicated resources, often achieving significant results in as little as 10 days. Both plans include our proven methodology and continuous optimization to ensure sustainable growth.</p>
+                            <p class="text-light-grey text-medium mb-0">First campaign results varies by plan. With our Standard plan, clients typically begin seeing meaningful results within 21-28 days as we optimize targeting and messaging. Pro plan clients benefit from accelerated implementation and dedicated resources, often achieving significant results in as little as 10 days. Both plans include our proven methodology and continuous optimization to ensure sustainable growth.</p>
                         </div>
                     </div>
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
@@ -398,22 +375,22 @@
                             <div class="text-medium text-semi">What's your refund policy?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">If you're not 100% satisfied with your service, we'll keep working for free until you are. We are committed to ensuring your satisfaction and will work diligently to address any concerns during your notice period.</p>
+                            <p class="text-light-grey text-medium mb-0">If you're not 100% satisfied with your service, we'll keep working for free until you are. We are committed to ensuring your satisfaction and will work diligently to address any concerns during your notice period.</p>
                         </div>
                     </div>
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
                         <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
                             <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">"Guaranteed meetings" sounds too good to be true. What’s the catch? How do you define a ‘qualified’ meeting for payment?</div>
+                            <div class="text-medium text-semi">"Guaranteed meetings" sounds too good to be true. What's the catch? How do you define a 'qualified' meeting for payment?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">No catch — just a clear standard. You only pay when a prospect not only books a call but shows up and meets strict qualification criteria. Here's what qualifies:</p>
-                            <ul class="text-light-grey text-medium mb-0 new" style="margin-left: 1em;">
-                                <li>✅ <strong>Booked:</strong> The decision-maker booked the call.</li>
-                                <li>✅ <strong>Attended:</strong> The decision-maker attend the meeting. (unless your team don't show up).</li>
-                                <li>✅ <strong>Relevant:</strong> They previously openly discuss pain points your solution addresses.</li>
+                            <p class="text-light-grey text-medium mb-0">No catch — just a clear standard. You only pay when a prospect not only books a call but shows up and meets strict qualification criteria. Here's what qualifies:</p>
+                            <ul class="text-light-grey text-medium mb-0" style="margin-left: 1em;">
+                                <li><strong>Booked:</strong> The decision-maker booked the call.</li>
+                                <li><strong>Attended:</strong> The decision-maker attend the meeting. (unless your team don't show up).</li>
+                                <li><strong>Relevant:</strong> They previously openly discuss pain points your solution addresses.</li>
                             </ul>
-                            <p class="text-light-grey text-medium mb-0 new">No-shows? Unqualified prospects? You're not charged — and if prepaid, we refund that meeting. You pay only for real, attended opportunities.</p>
+                            <p class="text-light-grey text-medium mb-0">No-shows? Unqualified prospects? You're not charged — and if prepaid, we refund that meeting. You pay only for real, attended opportunities.</p>
                         </div>
                     </div>
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
@@ -422,12 +399,12 @@
                             <div class="text-medium text-semi">How do you integrate with our existing CRM and sales process?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">We aim for seamless integration. Typically:</p>
-                            <ul class="text-light-grey text-medium mb-0 new" style="margin-left: 1em;">
+                            <p class="text-light-grey text-medium mb-0">We aim for seamless integration. Typically:</p>
+                            <ul class="text-light-grey text-medium mb-0" style="margin-left: 1em;">
                                 <li>Booking: We can book directly into your sales reps' calendars via tools like Calendly or Chili Piper.</li>
                                 <li>CRM Entry: Depending on your preference and CRM (HubSpot, Salesforce, etc.), we can either manually provide meeting details for your team to log or explore lightweight integration options (like BCC'ing emails or using Zapier) to push basic contact/meeting info.</li>
                             </ul>
-                            <p class="text-light-grey text-medium mb-0 new">Our goal is to feed qualified meetings into your existing funnel with minimal friction.</p>
+                            <p class="text-light-grey text-medium mb-0">Our goal is to feed qualified meetings into your existing funnel with minimal friction.</p>
                         </div>
                     </div>
                     <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
@@ -436,7 +413,7 @@
                             <div class="text-medium text-semi">What happen after I sign up?</div>
                         </div>
                         <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0 new">We onboard you within 24 hours, tailor outreach strategies to your needs, and start booking ideal clients ASAP</p>
+                            <p class="text-light-grey text-medium mb-0">We onboard you within 24 hours, tailor outreach strategies to your needs, and start booking ideal clients ASAP</p>
                         </div>
                     </div>
                 </div>
@@ -453,7 +430,7 @@
                         <img src="images/white-removebg.png" alt="Wizerflow Logo" width="105">
                     </a>
                     <div>
-                        <div class="mb-20 text-grey text-medium">
+                        <div class="mb-20 text-white text-medium">
                             Guaranteed sales-ready meetings for<br>B2B Leaders.
                         </div>
                     </div>
@@ -474,8 +451,8 @@
 
             <div class="footer-legal">
                 <div style="text-align: center;">
-                    <div class="text-grey text-extra-small">
-                        Created with <span class="text-white heart">❤</span> © Wizerflow Inc. All Rights Reserved.
+                    <div class="text-white text-extra-small">
+                        Created with <span class="text-white heart">&#x2764;</span> &copy; Wizerflow Inc. All Rights Reserved.
                     </div>
                 </div>
             </div>

@@ -1,214 +1,157 @@
-// Main JavaScript for Wizerflow website
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Typed.js for typing effect
-    initTypingEffect();
-    
-    // Initialize intersection observer for animations
-    initAnimationObserver();
-    
-    // Initialize mobile menu toggle
+/* ================================
+   WizerFlow - Main JavaScript
+   ================================ */
+
+document.addEventListener('DOMContentLoaded', function () {
+    initScrollReveal();
     initMobileMenu();
-    
-    // Initialize Cal.com widget
     initCalWidget();
-    
-    // Initialize scroll behavior
     initScrollBehavior();
-    
-    // Initialize FAQ dropdowns
     initFAQ();
+    initScrollProgress();
 });
 
-// Typing effect initialization
-function initTypingEffect() {
-    // Check if Typed.js is loaded
-    if (typeof Typed === 'undefined') {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/typed.js@2.0.12';
-        script.onload = setupTyped;
-        document.head.appendChild(script);
-    } else {
-        setupTyped();
-    }
-    
-    function setupTyped() {
-        const typingElement = document.getElementById('typing-text');
-        if (typingElement) {
-            new Typed('#typing-text', {
-                strings: [
-                    ' smart',
-                    ' to scale',
-                    ' personalized',
-                    ' for growth',
-                    ' for connection'
-                ],
-                typeSpeed: 80,
-                backSpeed: 50,
-                backDelay: 2000,
-                startDelay: 500,
-                loop: true,
-                showCursor: true,
-                cursorChar: '|'
-            });
-        }
-    }
-}
+// Scroll reveal with IntersectionObserver
+function initScrollReveal() {
+    var reveals = document.querySelectorAll('.reveal');
 
-// Animation observer for scroll-triggered animations
-function initAnimationObserver() {
-    const observerOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    if (!reveals.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
-
-    // Apply animation classes to elements
-    const heroElements = document.querySelectorAll('.hero-content > *');
-    heroElements.forEach((el, index) => {
-        el.classList.add('animate', 'slide-up', `delay-${index + 1}`);
-        observer.observe(el);
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
     });
 
-    // Metrics animations
-    const metrics = document.querySelectorAll('.metric');
-    metrics.forEach((el, index) => {
-        el.classList.add('animate', 'fade-in', `delay-${index + 1}`);
-        observer.observe(el);
-    });
-
-    // Tool stack animations
-    const toolItems = document.querySelectorAll('.tool-item');
-    toolItems.forEach((el) => {
-        el.classList.add('animate', 'fade-in');
+    reveals.forEach(function (el) {
         observer.observe(el);
     });
 }
 
-// Mobile menu toggle functionality
+// Mobile menu toggle
 function initMobileMenu() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    
-    if (mobileMenuToggle && mainNav) {
-        mobileMenuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mainNav.classList.toggle('active');
-            this.classList.toggle('active');
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mobileMenuToggle.contains(event.target) && !mainNav.contains(event.target)) {
-                mainNav.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            }
-        });
-        
-        // Close menu when clicking a link
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            });
-        });
-    }
-}
+    var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    var mainNav = document.querySelector('.main-nav');
 
-// Cal.com widget initialization
-function initCalWidget() {
-    if (typeof Cal !== 'undefined') {
-        // Initialize Cal.com UI
-        Cal.ns["25min"]("ui", {
-            "hideEventTypeDetails": false,
-            "layout": "month_view"
-        });
+    if (!mobileMenuToggle || !mainNav) return;
 
-        // Add click handler to all CTA buttons
-        const ctaButtons = document.querySelectorAll('[data-cal-link]');
-        ctaButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                Cal.ns["25min"]("showModal");
-            });
-        });
-    }
-}
+    mobileMenuToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        mainNav.classList.toggle('active');
+        this.classList.toggle('active');
+    });
 
-// Scroll behavior
-function initScrollBehavior() {
-    // Header background change on scroll
-    const header = document.querySelector('.header');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-        } else {
-            header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    document.addEventListener('click', function (event) {
+        if (!mobileMenuToggle.contains(event.target) && !mainNav.contains(event.target)) {
+            mainNav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
         }
     });
-    
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    mainNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            mainNav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        });
+    });
+}
+
+// Cal.com widget
+function initCalWidget() {
+    if (typeof Cal === 'undefined') return;
+
+    Cal.ns["25min"]("ui", {
+        "hideEventTypeDetails": false,
+        "layout": "month_view"
+    });
+
+    var ctaButtons = document.querySelectorAll('[data-cal-link]');
+    ctaButtons.forEach(function (button) {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            Cal.ns["25min"]("showModal");
+        });
+    });
+}
+
+// Scroll behavior: header state + smooth scroll
+function initScrollBehavior() {
+    var header = document.querySelector('.header');
+
+    if (header) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
             if (this.getAttribute('href') !== '#' && !this.hasAttribute('data-cal-link')) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
+                var targetId = this.getAttribute('href');
+                var targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         });
     });
 }
 
-// Scroll reveal functionality
-function handleReveal() {
-    const reveals = document.querySelectorAll('.reveal');
-    
-    reveals.forEach(reveal => {
-        const elementTop = reveal.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            reveal.classList.add('active');
-        }
+// FAQ Dropdowns
+function initFAQ() {
+    var faqItems = document.querySelectorAll('.faq-item.dark');
+
+    faqItems.forEach(function (item) {
+        var title = item.querySelector('.faq-item-title');
+        var content = item.querySelector('.faq-item-content');
+
+        if (!title || !content) return;
+
+        title.addEventListener('click', function () {
+            var isActive = item.classList.contains('active');
+
+            // Close all others
+            faqItems.forEach(function (otherItem) {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    var otherTitle = otherItem.querySelector('.faq-item-title');
+                    if (otherTitle) otherTitle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current
+            if (!isActive) {
+                item.classList.add('active');
+                title.setAttribute('aria-expanded', 'true');
+            } else {
+                item.classList.remove('active');
+                title.setAttribute('aria-expanded', 'false');
+            }
+        });
     });
 }
 
-// Add scroll event listener
-window.addEventListener('scroll', handleReveal);
-// Initial check for elements in view
-document.addEventListener('DOMContentLoaded', handleReveal);
+// Scroll progress bar
+function initScrollProgress() {
+    var progressBar = document.querySelector('.scroll-progress');
+    if (!progressBar) return;
 
-// FAQ Dropdowns
-function initFAQ() {
-    const faqToggles = document.querySelectorAll('.faq-item-title.dark');
-    
-    faqToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            
-            // Close all other dropdowns
-            faqToggles.forEach(otherToggle => {
-                if (otherToggle !== toggle) {
-                    otherToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-            
-            // Toggle current dropdown
-            this.setAttribute('aria-expanded', !isExpanded);
-        });
+    window.addEventListener('scroll', function () {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = scrollPercent + '%';
     });
 }
