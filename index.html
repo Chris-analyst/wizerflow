@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wizerflow | Premier B2B Growth Partner</title>
-    <link rel="icon" type="image/png" href="images/flavicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_32x32.png">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sections.css">
     <link rel="stylesheet" href="css/demo.css">
@@ -12,44 +12,6 @@
     <style>
       html { scroll-behavior: smooth; }
 
-      .b2c-banner {
-        background-color: #FF6B00;
-        overflow: hidden;
-        width: 100%;
-        padding: 12px 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-
-      .b2c-content {
-        white-space: nowrap;
-        display: inline-block;
-        animation: scroll-left 30s linear infinite;
-        color: white;
-        font-weight: 600;
-        font-size: 1.1em;
-        padding: 0 20px;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-      }
-
-      .b2c-link {
-        color: white;
-        text-decoration: underline;
-        font-weight: 700;
-      }
-
-      .b2c-link:hover {
-        color: #FFD700; /* Gold color on hover */
-        text-decoration: underline;
-      }
-
-      @keyframes scroll-left {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-      }
     </style>
     <!-- Cal element-click embed code begins -->
     <script type="text/javascript">
@@ -66,15 +28,22 @@
     <!-- Cal element-click embed code ends -->
 </head>
 <body>
-    <!-- B2C Banner -->
-    <div class="b2c-banner">
-        <div class="b2c-content">
-            🚀 Looking for a B2C solutions? Or have you been selected to try our new automated B2C lead gen platform? - Visit <a href="https://wizerscale.com" class="b2c-link">wizerscale.com</a> for consumer-focused growth tools 🚀
-        </div>
-    </div>
+    <!-- Particle Network Background -->
+    <canvas id="particle-canvas"></canvas>
+    <style>
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
 
     <!-- Header/Navigation -->
-    <header class="header" style="margin-top: 45px;">
+    <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
@@ -86,18 +55,17 @@
                 
                 <nav class="main-nav">
                     <ul class="nav-group-left">
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="#faq-section">FAQs</a></li>
                     </ul>
                     <ul class="nav-group-right">
                         <li><a href="#how-it-works">How we work</a></li>
+                        <li><a href="#faq-section">FAQs</a></li>
                         <li>
                             <a href="#"
                                class="btn btn-primary"
                                data-cal-link="chrisnjonjo/25min"
                                data-cal-namespace="25min"
                                data-cal-config='{"layout":"month_view"}'>
-                               Book more meetings
+                               Book alignment call
                             </a>
                         </li>
                     </ul>
@@ -505,16 +473,9 @@
             </div>
 
             <div class="footer-legal">
-                <div class="row">
-                    <div class="footer-copyright">
-                        <div class="text-grey text-extra-small">
-                            © Wizerflow Inc. All Rights Reserved. Created with <span class="text-white heart">❤</span>
-                        </div>
-                    </div>
-                    <div class="footer-bottom-right">
-                        <div class="footer-bottom-right-container">
-                            <img src="images/white-removebg.png" width="13" alt="Wizerflow" class="footer-icon">
-                        </div>
+                <div style="text-align: center;">
+                    <div class="text-grey text-extra-small">
+                        Created with <span class="text-white heart">❤</span> © Wizerflow Inc. All Rights Reserved.
                     </div>
                 </div>
             </div>
@@ -530,5 +491,6 @@
     <script src="js/menu.js"></script>
     <script src="js/demo-scroll.js"></script>
     <script src="js/faq-dropdown.js"></script>
+    <script src="js/particles.js"></script>
 </body>
 </html>

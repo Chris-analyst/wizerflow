@@ -1,4 +1,22 @@
 /* Demo Page Styles */
+
+/* Dark header nav contrast fix */
+.header .main-nav a {
+    color: #f1f1f1;
+}
+
+.header .main-nav a:hover {
+    color: #ffffff;
+}
+
+.header .logo span {
+    color: #f1f1f1;
+}
+
+.header .mobile-menu-toggle span {
+    background-color: #f1f1f1;
+}
+
 :root {
     --dark-bg: #0e0e0e;
     --darker-bg: #111111;
