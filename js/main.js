@@ -5,7 +5,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     initScrollReveal();
     initMobileMenu();
-    initCalWidget();
     initScrollBehavior();
     initFAQ();
     initScrollProgress();
@@ -58,24 +57,6 @@ function initMobileMenu() {
         link.addEventListener('click', function () {
             mainNav.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
-        });
-    });
-}
-
-// Cal.com widget
-function initCalWidget() {
-    if (typeof Cal === 'undefined') return;
-
-    Cal.ns["25min"]("ui", {
-        "hideEventTypeDetails": false,
-        "layout": "month_view"
-    });
-
-    var ctaButtons = document.querySelectorAll('[data-cal-link]');
-    ctaButtons.forEach(function (button) {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            Cal.ns["25min"]("showModal");
         });
     });
 }
