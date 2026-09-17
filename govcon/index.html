@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizerflow | Government Demand, Routed to the Right Performer</title>
+    <meta name="description" content="Government demand moves every day. Wizerflow tracks it, qualifies it, and routes each opportunity to the right performer across facilities, property and lodging, and staffing and supplies.">
+    <meta property="og:title" content="Wizerflow | Government Demand, Routed to the Right Performer">
+    <meta property="og:description" content="Government demand moves every day. Wizerflow tracks it, qualifies it, and routes each opportunity to the right performer across facilities, property and lodging, and staffing and supplies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wizerflow.com/govcon/">
+    <meta property="og:image" content="https://wizerflow.com/images/purple-removebg.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_32x32.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sections.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/govcon.css">
+    <style>
+      html { scroll-behavior: smooth; }
+      #particle-canvas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 0;
+      }
+    </style>
+</head>
+<body>
+    <!-- Particle Network Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/purple-removebg.png" alt="Wizerflow">
+                    </a>
+                    <span>Wizerflow</span>
+                </div>
+
+                <nav class="main-nav">
+                    <ul class="nav-group-left">
+                    </ul>
+                    <ul class="nav-group-right">
+                        <li><a href="#lanes">Lanes</a></li>
+                        <li><a href="#faq-section">FAQs</a></li>
+                        <li>
+                            <a href="https://cal.com/wizerflow/partner-alignment-call"
+                               class="btn btn-primary"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                               Book alignment call
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero: name, kicker, conveyor. The conveyor is the subhead. -->
+    <section class="demo-section hero dark gov-hero" id="top">
+        <div class="gov-hero-head">
+            <h1 class="tracking-in-expand">Wizerflow</h1>
+            <div class="gov-kicker" role="doc-subtitle">
+                <span class="gov-kicker-rule" aria-hidden="true"></span>
+                <span class="gov-kicker-text">Government Contractors</span>
+                <span class="gov-kicker-rule" aria-hidden="true"></span>
+            </div>
+        </div>
+
+        <div class="gov-conveyor">
+            <!-- Static frame: full conveyor, reduced-motion + poster. -->
+            <svg class="conv conv-static" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMid slice"
+                 role="img" aria-label="Packages in three colors arrive on an upstream belt, meet Wizerflow's circular belt, and leave on the lane that matches their color: facilities, property and lodging, staffing and supplies.">
+                <defs>
+                    <radialGradient id="hub-wash" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#5024B4" stop-opacity="0.08"/>
+                        <stop offset="55%" stop-color="#5024B4" stop-opacity="0.04"/>
+                        <stop offset="100%" stop-color="#5024B4" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+
+                <!-- Hub wash -->
+                <circle cx="880" cy="210" r="180" fill="url(#hub-wash)"/>
+
+                <!-- Upstream rail -->
+                <line x1="-30" y1="206" x2="778" y2="206" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+
+                <!-- Exit rails -->
+                <line x1="974" y1="166" x2="1470" y2="108" stroke="#4A9EFF" stroke-opacity="0.35" stroke-width="2"/>
+                <line x1="984" y1="212" x2="1470" y2="214" stroke="#2ABC9B" stroke-opacity="0.35" stroke-width="2"/>
+                <line x1="974" y1="254" x2="1470" y2="322" stroke="#8B5CF6" stroke-opacity="0.35" stroke-width="2"/>
+
+                <!-- Ring -->
+                <circle cx="880" cy="210" r="104" fill="none" stroke="#6C63FF" stroke-opacity="0.6" stroke-width="2.5"/>
+
+                <!-- Hub logo -->
+                <image href="../images/purple-removebg.png" x="836" y="166" width="88" height="88"/>
+
+                <!-- Exit labels -->
+                <g font-family="'Red Hat Display', sans-serif" font-size="10" font-weight="500" letter-spacing="1.5" text-anchor="end">
+                    <text x="1424" y="100" fill="#4A9EFF" fill-opacity="0.7">FACILITIES</text>
+                    <text x="1424" y="206" fill="#2ABC9B" fill-opacity="0.7">PROPERTY &amp; LODGING</text>
+                    <text x="1424" y="314" fill="#8B5CF6" fill-opacity="0.7">STAFFING &amp; SUPPLIES</text>
+                </g>
+
+                <!-- Inbound packages: mixed colors, varied gaps -->
+                <g>
+                    <rect x="-19.5" y="192.5" width="17" height="16" rx="5" fill="#4A9EFF" opacity="0.15"/>
+                    <rect x="-16" y="196" width="10" height="9" rx="3" fill="#4A9EFF"/>
+                    <rect x="90.5" y="190.5" width="19" height="18" rx="5" fill="#2ABC9B" opacity="0.15"/>
+                    <rect x="94" y="194" width="12" height="11" rx="3" fill="#2ABC9B"/>
+                    <rect x="182.5" y="192.5" width="16" height="16" rx="5" fill="#8B5CF6" opacity="0.15"/>
+                    <rect x="186" y="196" width="9" height="9" rx="3" fill="#8B5CF6"/>
+                    <rect x="348.5" y="191.5" width="18" height="17" rx="5" fill="#4A9EFF" opacity="0.15"/>
+                    <rect x="352" y="195" width="11" height="10" rx="3" fill="#4A9EFF"/>
+                    <rect x="470.5" y="192.5" width="16" height="16" rx="5" fill="#2ABC9B" opacity="0.15"/>
+                    <rect x="474" y="196" width="9" height="9" rx="3" fill="#2ABC9B"/>
+                    <rect x="576.5" y="190.5" width="19" height="18" rx="5" fill="#8B5CF6" opacity="0.15"/>
+                    <rect x="580" y="194" width="12" height="11" rx="3" fill="#8B5CF6"/>
+                    <rect x="684.5" y="191.5" width="17" height="17" rx="5" fill="#4A9EFF" opacity="0.15"/>
+                    <rect x="688" y="195" width="10" height="10" rx="3" fill="#4A9EFF"/>
+                </g>
+
+                <!-- Exit packages: lane-colored only -->
+                <g>
+                    <rect x="1156.5" y="129.5" width="17" height="17" rx="5" fill="#4A9EFF" opacity="0.15"/>
+                    <rect x="1160" y="133" width="10" height="10" rx="3" fill="#4A9EFF"/>
+                    <rect x="1341.5" y="109.5" width="16" height="16" rx="5" fill="#4A9EFF" opacity="0.15"/>
+                    <rect x="1345" y="113" width="9" height="9" rx="3" fill="#4A9EFF"/>
+                    <rect x="1241.5" y="199.5" width="17" height="16" rx="5" fill="#2ABC9B" opacity="0.15"/>
+                    <rect x="1245" y="203" width="10" height="9" rx="3" fill="#2ABC9B"/>
+                    <rect x="1166.5" y="266.5" width="18" height="17" rx="5" fill="#8B5CF6" opacity="0.15"/>
+                    <rect x="1170" y="270" width="11" height="10" rx="3" fill="#8B5CF6"/>
+                    <rect x="1351.5" y="292.5" width="16" height="16" rx="5" fill="#8B5CF6" opacity="0.15"/>
+                    <rect x="1355" y="296" width="9" height="9" rx="3" fill="#8B5CF6"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="gov-hero-cta">
+            <a href="https://cal.com/wizerflow/partner-alignment-call"
+               target="_blank"
+               rel="noopener noreferrer">
+                Start with an alignment call
+                <span aria-hidden="true"> &rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Trust bar: quiet footnote strip -->
+    <section class="gov-trust" aria-label="Credentials">
+        <div class="container">
+            <ul class="gov-trust-list">
+                <li>SAM-registered entity</li>
+                <li>Delaware corporation</li>
+                <li>UEI + CAGE on file</li>
+                <li>3 lane families / 7 service lanes</li>
+                <li>daily SAM.gov scanning</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 01-04 number strip: names the process the conveyor already taught -->
+    <section class="gov-steps" aria-label="How it works">
+        <div class="container">
+            <ol class="gov-steps-row">
+                <li><span class="gov-step-num">01</span><span class="gov-step-name">Track</span></li>
+                <li class="gov-step-line" aria-hidden="true"></li>
+                <li><span class="gov-step-num">02</span><span class="gov-step-name">Qualify</span></li>
+                <li class="gov-step-line" aria-hidden="true"></li>
+                <li><span class="gov-step-num">03</span><span class="gov-step-name">Route</span></li>
+                <li class="gov-step-line" aria-hidden="true"></li>
+                <li><span class="gov-step-num">04</span><span class="gov-step-name">Introduce</span></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Lane cards -->
+    <section class="demo-section dark gov-lanes-section" id="lanes">
+        <div class="container">
+            <div class="center-block mb-60 reveal">
+                <h2>Three lanes. Seven services.</h2>
+                <p class="text-light-grey text-medium">Demand arrives in many shapes. It leaves on one of three lanes.</p>
+            </div>
+
+            <div class="gov-lanes">
+                <article class="gov-lane reveal reveal-delay-1" style="--lane: #4A9EFF;">
+                    <div class="gov-lane-rule" aria-hidden="true"></div>
+                    <h3><span class="gov-lane-dot" aria-hidden="true"></span>Facilities &amp; Maintenance</h3>
+                    <p class="gov-lane-line">Buildings and grounds, kept working.</p>
+                    <p class="gov-lane-services">Janitorial &middot; Landscaping &middot; Roofing &middot; Plumbing + HVAC &middot; Light maintenance</p>
+                </article>
+
+                <article class="gov-lane reveal reveal-delay-2" style="--lane: #2ABC9B;">
+                    <div class="gov-lane-rule" aria-hidden="true"></div>
+                    <h3><span class="gov-lane-dot" aria-hidden="true"></span>Property &amp; Lodging</h3>
+                    <p class="gov-lane-line">Space, where and when the work needs it.</p>
+                    <p class="gov-lane-services">Leasing &middot; Lodging</p>
+                </article>
+
+                <article class="gov-lane reveal reveal-delay-3" style="--lane: #8B5CF6;">
+                    <div class="gov-lane-rule" aria-hidden="true"></div>
+                    <h3><span class="gov-lane-dot" aria-hidden="true"></span>Staffing &amp; Supplies</h3>
+                    <p class="gov-lane-line">People and parts for the job at hand.</p>
+                    <p class="gov-lane-services">Staffing &middot; Tools &amp; parts</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- We see both sides: pure typography, most air -->
+    <section class="gov-both" aria-label="Both sides of the market">
+        <div class="container">
+            <div class="reveal">
+                <h2>We see both sides.</h2>
+                <div class="gov-both-pair">
+                    <p>Government buyers get matched vendors with real capacity.</p>
+                    <p>Contractors get qualified opportunities, not noise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiator: asymmetric columns -->
+    <section class="demo-section dark gov-diff-section" id="approach">
+        <div class="container">
+            <div class="gov-diff">
+                <div class="gov-diff-sam reveal">
+                    <h3>SAM.gov is free.<br>You're alone with it.</h3>
+                    <p>Thousands of listings land every day. Every agency, every deadline, every attachment &mdash; public, and mostly unread. The demand is all there. Finding the piece that fits you is the job.</p>
+                </div>
+                <div class="gov-diff-wf reveal reveal-delay-1">
+                    <div class="gov-diff-label">Wizerflow</div>
+                    <p class="gov-diff-big">We read the attachments. We check the wage determination. We know the incumbent.</p>
+                    <p class="gov-diff-accent">Before any introduction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="inner-section white" id="faq-section">
+        <div class="container">
+            <div class="faq-row">
+                <div class="faq-col-left">
+                    <img src="../updates/faq.svg" alt="FAQ" class="faq-title-icon">
+                    <h4 class="mb-40">Commonly<br>Asked<br>Questions</h4>
+                </div>
+
+                <div class="faq-col-middle"></div>
+
+                <div class="faq-col-right">
+                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
+                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-icon dark"></div>
+                            <div class="text-medium text-semi">What does Wizerflow actually do?</div>
+                        </div>
+                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
+                            <p class="text-light-grey text-medium mb-0">We watch SAM.gov every day. When demand shows up that fits a lane we know, we qualify it and route it to the right performer. You meet the opportunity &mdash; not a listings page.</p>
+                        </div>
+                    </div>
+                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
+                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-icon dark"></div>
+                            <div class="text-medium text-semi">Who is this for?</div>
+                        </div>
+                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
+                            <p class="text-light-grey text-medium mb-0">Two sides. Government buyers who need a vendor with real capacity. And contractors who want qualified opportunities instead of noise. We stand between the two and make the introduction.</p>
+                        </div>
+                    </div>
+                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
+                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-icon dark"></div>
+                            <div class="text-medium text-semi">Which services do you cover?</div>
+                        </div>
+                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
+                            <p class="text-light-grey text-medium mb-0">Three lane families, seven services. Facilities and maintenance: janitorial, landscaping, roofing, plumbing + HVAC, light maintenance. Property and lodging: leasing, lodging. Staffing and supplies: staffing, tools and parts.</p>
+                        </div>
+                    </div>
+                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
+                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-icon dark"></div>
+                            <div class="text-medium text-semi">Are you a staffing agency or a broker?</div>
+                        </div>
+                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
+                            <p class="text-light-grey text-medium mb-0">Neither. We're a concierge. We don't sign the contract and we don't do the work. We track the demand, qualify it, and introduce the people who should be talking.</p>
+                        </div>
+                    </div>
+                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
+                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-icon dark"></div>
+                            <div class="text-medium text-semi">What does it cost?</div>
+                        </div>
+                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
+                            <p class="text-light-grey text-medium mb-0">We agree on scope and cost on the alignment call, before anything starts. No hidden fees, no per-listing charges.</p>
+                        </div>
+                    </div>
+                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
+                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+                            <div class="faq-icon dark"></div>
+                            <div class="text-medium text-semi">How do we start?</div>
+                        </div>
+                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
+                            <p class="text-light-grey text-medium mb-0">Book an alignment call. Tell us your lane. We'll tell you what we're seeing move through it &mdash; and where you fit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA band + policy link -->
+    <section class="gov-cta" aria-label="Get started">
+        <div class="container">
+            <h2>Demand is moving. Know where it lands.</h2>
+            <p>Tell us your lane. We'll tell you what we see in it.</p>
+            <a href="https://cal.com/wizerflow/partner-alignment-call"
+               class="gov-cta-btn"
+               target="_blank"
+               rel="noopener noreferrer">
+                Book alignment call
+            </a>
+        </div>
+        <div class="gov-legal">
+            <div class="container">
+                <span>&copy; Wizerflow Inc.</span>
+                <a href="../policy.html">Terms and policy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/faq-dropdown.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/particles.js"></script>
+</body>
+</html>
