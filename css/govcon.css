@@ -11,6 +11,8 @@
     justify-content: flex-start;
     align-items: stretch;
     background: #0e0e0e; /* opaque: keeps the fixed particle canvas out of the hero */
+    position: relative;
+    z-index: 1; /* stacks the opaque hero above the fixed particle canvas (z-index: 0) — no particles in the hero region */
 }
 
 .gov-hero-head {
@@ -486,4 +488,39 @@
         justify-content: center;
         text-align: center;
     }
+}
+
+/* ── G2: conveyor motion ──
+   Three frames, exactly one visible at a time:
+   .conv-static  — G1 frozen frame; shown only under prefers-reduced-motion
+   .conv-motion  — desktop motion frame (packages via SMIL animateMotion in the HTML)
+   .conv-compact — <640px variant: one inbound, hub, three stacked diagonal exits, no labels
+   Rails stay static; packages and the ring belt dash carry all motion. */
+
+.conv-static { display: none; }
+.conv-compact { display: none; }
+
+/* Rotating belt dash on the hub ring: 26s/rev, linear, clockwise */
+.conv-ring-dash {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: conv-ring-spin 26s linear infinite;
+}
+
+@keyframes conv-ring-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile: swap in the compact conveyor below 640px */
+@media (max-width: 639px) {
+    .conv-motion { display: none; }
+    .conv-compact { display: block; }
+}
+
+/* Reduced motion: everything frozen, G1 static frame only */
+@media (prefers-reduced-motion: reduce) {
+    .conv-motion,
+    .conv-compact { display: none !important; }
+    .conv-static { display: block !important; }
+    .conv-ring-dash { animation: none; }
 }
