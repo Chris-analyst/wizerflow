@@ -91,12 +91,12 @@
             <video class="gov-conveyor-video" muted autoplay loop playsinline
                    poster="../images/govcon-hero-poster.png"
                    aria-label="Packages in three colors arrive on an upstream belt, meet Wizerflow's circular belt, and leave on the lane that matches their color: facilities, property and lodging, staffing and supplies.">
-                <source src="../images/govcon-hero.mp4" type="video/mp4">
+                <source src="../images/govcon-hero-reframed-mid.mp4" type="video/mp4">
             </video>
             <script>
                 const v = document.currentScript.previousElementSibling;
-                // Slow the conveyor to 0.8× so the belt loop reads calmly.
-                v.playbackRate = 0.8;
+                // Slow the conveyor to 0.6× so the belt loop reads calmly.
+                v.playbackRate = 0.6;
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     // Reduced motion: never autoplay — the poster (G1 static frame) is the hero.
                     v.removeAttribute('autoplay');
