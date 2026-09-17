@@ -274,12 +274,13 @@
     margin-bottom: 20px;
 }
 
+/* Wizerflow-side sentences: same typography as the SAM.gov paragraph
+   (.gov-diff-sam p) — the accent line below carries the emphasis. */
 .gov-diff-big {
-    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    line-height: 1.5;
-    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--text-muted);
     margin: 0 0 16px;
 }
 
