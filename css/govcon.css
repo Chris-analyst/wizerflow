@@ -82,6 +82,20 @@
     object-position: 50% 36%;
 }
 
+/* G8: at ≥641px the strip is wider than 16:9, so cover is width-limited
+   (object-position X is inert) and the ring sits right of center — measured
+   x 292–553 of a 736px source, center 422.5 (r = 0.574). translateX(-9%)
+   scale(1.22) puts it on the strip centerline with equal belt run both sides;
+   1.22 is near the least zoom that keeps the right edge covered (min 1.174),
+   so the downstream lanes stay in frame (right edge has ~29px spare at 1440).
+   Scoped to .is-playing (set by the inline script on first playback) so the
+   poster — a different, already-centered frame — never shifts. */
+@media (min-width: 641px) {
+    .gov-conveyor-video.is-playing {
+        transform: translateX(-9%) scale(1.22);
+    }
+}
+
 /* ── Trust bar: quiet footnote strip ── */
 
 .gov-trust {
@@ -401,10 +415,11 @@
 
 @media (max-width: 640px) {
     /* At phone widths the strip is taller than 16:9, so cover crops
-       horizontally instead of vertically: Y goes inert and the belt drifts
-       right of center. 79% X re-centers it (source x-center 447). */
+       horizontally instead of vertically: Y goes inert and the ring drifts
+       right of center. 70% X puts the ring center (source x 422.5 of 736)
+       on the strip centerline. */
     .gov-conveyor-video {
-        object-position: 79% 50%;
+        object-position: 70% 50%;
     }
 
     .gov-trust {

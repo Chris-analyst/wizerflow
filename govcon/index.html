@@ -94,11 +94,16 @@
                 <source src="../images/govcon-hero.mp4" type="video/mp4">
             </video>
             <script>
+                const v = document.currentScript.previousElementSibling;
                 // Slow the conveyor to 0.8× so the belt loop reads calmly.
-                document.currentScript.previousElementSibling.playbackRate = 0.8;
-                // Reduced motion: never autoplay — the poster (G1 static frame) is the hero.
+                v.playbackRate = 0.8;
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                    document.currentScript.previousElementSibling.removeAttribute('autoplay');
+                    // Reduced motion: never autoplay — the poster (G1 static frame) is the hero.
+                    v.removeAttribute('autoplay');
+                } else {
+                    // G8: mark playback so the ring-centering transform applies to the
+                    // video only — the poster (a different, already-centered frame) never shifts.
+                    v.addEventListener('playing', function () { v.classList.add('is-playing'); }, { once: true });
                 }
             </script>
         </div>
