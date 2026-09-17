@@ -1,0 +1,457 @@
+/* ================================
+   Wizerflow — Government Contracting page
+   Loads after main.css / sections.css / demo.css.
+   Lane hues: blue #4A9EFF · teal #2ABC9B · violet #8B5CF6
+   ================================ */
+
+/* ── Hero: stacked name, kicker, conveyor ── */
+
+.gov-hero {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    position: relative;
+    z-index: 1; /* stacks the opaque hero above the fixed particle canvas (z-index: 0) — no particles in the hero region */
+}
+
+/* .demo-section.dark (demo.css) sets rgba(14,14,14,0.75) at 0,2,0; this rule
+   matches that specificity and wins by cascade order (govcon.css loads last). */
+.demo-section.gov-hero {
+    background: #0e0e0e; /* opaque: keeps the fixed particle canvas out of the hero */
+}
+
+.gov-hero-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    margin-top: clamp(56px, 10vh, 112px);
+}
+
+.gov-hero-head h1 {
+    font-size: clamp(3rem, 7vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #fff; /* never accented */
+    margin: 0;
+}
+
+/* Kicker */
+.gov-kicker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.gov-kicker-rule {
+    width: 32px;
+    height: 1px;
+    background: rgba(74, 158, 255, 0.4); /* rule may tint blue; text never does */
+    flex-shrink: 0;
+}
+
+.gov-kicker-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    padding-left: 0.28em; /* optical centering against trailing tracking */
+    color: rgba(255, 255, 255, 0.55);
+    white-space: nowrap;
+}
+
+/* Conveyor strip: full-bleed horizontally, contained vertically */
+.gov-conveyor {
+    width: 100%;
+    margin-top: 40px; /* the 40px kicker-to-strip gap */
+    overflow: hidden;
+}
+
+/* Generated hero video: same slot the SVG conveyor held */
+.gov-conveyor-video {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 42vh, 480px);
+    object-fit: cover;
+    /* Center the belt ellipse in the crop: cover trims ~207px of source
+       height; the belt (source rows 106–235, center 170.5) lands mid-strip
+       when the window opens at 36% from the top. */
+    object-position: 50% 36%;
+}
+
+/* G8: at ≥641px the strip is wider than 16:9, so cover is width-limited
+   (object-position X is inert) and the ring sits right of center — measured
+   x 292–553 of a 736px source, center 422.5 (r = 0.574). translateX(-9%)
+   scale(1.22) puts it on the strip centerline with equal belt run both sides;
+   1.22 is near the least zoom that keeps the right edge covered (min 1.174),
+   so the downstream lanes stay in frame (right edge has ~29px spare at 1440).
+   Scoped to .is-playing (set by the inline script on first playback) so the
+   poster — a different, already-centered frame — never shifts. */
+@media (min-width: 641px) {
+    .gov-conveyor-video.is-playing {
+        transform: translateX(-9%) scale(1.22);
+    }
+}
+
+/* ── Trust bar: quiet footnote strip ── */
+
+.gov-trust {
+    padding: 48px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--dark-bg);
+}
+
+.gov-trust-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px 0;
+    margin: 0;
+    padding: 0;
+}
+
+.gov-trust-list li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.gov-trust-list li + li::before {
+    content: '\00B7';
+    margin: 0 14px;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+/* ── Lane cards ── */
+
+.gov-lanes-section {
+    min-height: auto;
+    padding: var(--section-padding) 0;
+}
+
+.gov-lanes-section .center-block {
+    text-align: center;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 96px; /* air between the saying and the cards (beats .mb-60) */
+}
+
+.gov-lanes-section h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.gov-lanes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.gov-lane {
+    position: relative;
+    background: var(--surface-bg);
+    border: 1px solid var(--border-subtle);
+    border-top: 2px solid var(--lane); /* the one structural hue: a 2px rule */
+    border-radius: var(--border-radius);
+    padding: 32px 28px 30px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.gov-lane:hover {
+    background: var(--surface-bg-hover);
+    border-color: var(--border-medium);
+    border-top-color: var(--lane);
+}
+
+.gov-lane h3 {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary); /* heading stays white, never the hue */
+    margin-bottom: 12px;
+}
+
+.gov-lane-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lane);
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.gov-lane-line {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+/* Services: vertical list inside each lane card */
+.gov-lane-services {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gov-lane-services li {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+}
+
+/* ── "We see both sides" band: pure typography, most air ── */
+
+.gov-both {
+    padding: 140px 0;
+    background: var(--dark-bg);
+    text-align: center;
+}
+
+.gov-both h2 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+}
+
+.gov-both-pair {
+    max-width: 620px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.gov-both-pair p {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── Differentiator: asymmetric columns ── */
+
+.gov-diff-section {
+    min-height: auto;
+    padding: var(--section-padding) 0;
+}
+
+.gov-diff {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 72px;
+    align-items: start;
+}
+
+/* SAM.gov side: fully grayscale */
+.gov-diff-sam h3 {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.gov-diff-sam p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* Wizerflow side: one accent only */
+.gov-diff-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* Wizerflow-side sentences: same typography as the SAM.gov paragraph
+   (.gov-diff-sam p) — the accent line below carries the emphasis. */
+.gov-diff-big {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+}
+
+.gov-diff-accent {
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+    color: var(--blue); /* the single accent */
+    margin: 0;
+}
+
+/* ── CTA band + legal strip ── */
+
+.gov-cta {
+    background: var(--gradient-primary); /* blue→purple only */
+    padding: 96px 0 0;
+    text-align: center;
+}
+
+.gov-cta h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 14px;
+}
+
+.gov-cta > .container > p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.gov-cta-btn {
+    display: inline-block;
+    margin-top: 36px;
+    background: #fff;
+    color: #0e0e0e;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 34px;
+    border-radius: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gov-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    color: #0e0e0e;
+}
+
+.gov-legal {
+    margin-top: 88px;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 22px 0;
+}
+
+.gov-legal .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.gov-legal span,
+.gov-legal a {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.gov-legal a:hover {
+    color: #fff;
+}
+
+/* ── Scroll reveals: fade + 8px rise, once, 450ms, ≤80ms stagger ──
+   Overrides the site defaults (30px / 700ms / 100ms) for this page only. */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+    .gov-lanes {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .gov-diff {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .gov-both {
+        padding: 100px 0;
+    }
+
+    .gov-conveyor-video {
+        height: clamp(260px, 40vh, 360px);
+    }
+}
+
+@media (max-width: 640px) {
+    /* At phone widths the strip is taller than 16:9, so cover crops
+       horizontally instead of vertically: Y goes inert and the ring drifts
+       right of center. 70% X puts the ring center (source x 422.5 of 736)
+       on the strip centerline. */
+    .gov-conveyor-video {
+        object-position: 70% 50%;
+    }
+
+    .gov-trust {
+        padding: 32px 0;
+    }
+
+    .gov-trust-list {
+        gap: 10px 0;
+    }
+
+    .gov-trust-list li {
+        white-space: normal;
+    }
+
+    .gov-trust-list li + li::before {
+        margin: 0 10px;
+    }
+
+    .gov-hero-head {
+        margin-top: 40px;
+    }
+
+    .gov-cta {
+        padding-top: 72px;
+    }
+
+    .gov-legal .container {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* ── G6: the generated hero video replaced the SVG conveyor ──
+   Poster (the G1 static frame) covers load-in and prefers-reduced-motion;
+   the inline script after the <video> strips autoplay under reduced motion. */
