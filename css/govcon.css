@@ -10,9 +10,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    background: #0e0e0e; /* opaque: keeps the fixed particle canvas out of the hero */
     position: relative;
     z-index: 1; /* stacks the opaque hero above the fixed particle canvas (z-index: 0) — no particles in the hero region */
+}
+
+/* .demo-section.dark (demo.css) sets rgba(14,14,14,0.75) at 0,2,0; this rule
+   matches that specificity and wins by cascade order (govcon.css loads last). */
+.demo-section.gov-hero {
+    background: #0e0e0e; /* opaque: keeps the fixed particle canvas out of the hero */
 }
 
 .gov-hero-head {
@@ -497,8 +502,9 @@
    .conv-compact — <640px variant: one inbound, hub, three stacked diagonal exits, no labels
    Rails stay static; packages and the ring belt dash carry all motion. */
 
-.conv-static { display: none; }
-.conv-compact { display: none; }
+/* .gov-conveyor svg sets display:block at 0,1,1 — frame toggles need 0,2,0 to win. */
+.gov-conveyor .conv-static { display: none; }
+.gov-conveyor .conv-compact { display: none; }
 
 /* Rotating belt dash on the hub ring: 26s/rev, linear, clockwise */
 .conv-ring-dash {
@@ -513,8 +519,8 @@
 
 /* Mobile: swap in the compact conveyor below 640px */
 @media (max-width: 639px) {
-    .conv-motion { display: none; }
-    .conv-compact { display: block; }
+    .gov-conveyor .conv-motion { display: none; }
+    .gov-conveyor .conv-compact { display: block; }
 }
 
 /* Reduced motion: everything frozen, G1 static frame only */
