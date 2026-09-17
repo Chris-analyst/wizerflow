@@ -70,30 +70,12 @@
     overflow: hidden;
 }
 
-.gov-conveyor svg {
+/* Generated hero video: same slot the SVG conveyor held */
+.gov-conveyor-video {
     display: block;
     width: 100%;
     height: clamp(300px, 42vh, 480px);
-}
-
-/* Quiet hero CTA */
-.gov-hero-cta {
-    margin: 24px 0 44px;
-    text-align: center;
-}
-
-.gov-hero-cta a {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    border-bottom: 1px solid transparent;
-    transition: color var(--transition-speed) ease, border-color var(--transition-speed) ease;
-}
-
-.gov-hero-cta a:hover {
-    color: var(--text-primary);
-    border-bottom-color: var(--border-strong);
+    object-fit: cover;
 }
 
 /* ── Trust bar: quiet footnote strip ── */
@@ -407,7 +389,7 @@
         padding: 100px 0;
     }
 
-    .gov-conveyor svg {
+    .gov-conveyor-video {
         height: clamp(260px, 40vh, 360px);
     }
 }
@@ -443,38 +425,6 @@
     }
 }
 
-/* ── G2: conveyor motion ──
-   Three frames, exactly one visible at a time:
-   .conv-static  — G1 frozen frame; shown only under prefers-reduced-motion
-   .conv-motion  — desktop motion frame (packages via SMIL animateMotion in the HTML)
-   .conv-compact — <640px variant: one inbound, hub, three stacked diagonal exits, no labels
-   Rails stay static; packages and the ring belt dash carry all motion. */
-
-/* .gov-conveyor svg sets display:block at 0,1,1 — frame toggles need 0,2,0 to win. */
-.gov-conveyor .conv-static { display: none; }
-.gov-conveyor .conv-compact { display: none; }
-
-/* Rotating belt dash on the hub ring: 26s/rev, linear, clockwise */
-.conv-ring-dash {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: conv-ring-spin 26s linear infinite;
-}
-
-@keyframes conv-ring-spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Mobile: swap in the compact conveyor below 640px */
-@media (max-width: 639px) {
-    .gov-conveyor .conv-motion { display: none; }
-    .gov-conveyor .conv-compact { display: block; }
-}
-
-/* Reduced motion: everything frozen, G1 static frame only */
-@media (prefers-reduced-motion: reduce) {
-    .conv-motion,
-    .conv-compact { display: none !important; }
-    .conv-static { display: block !important; }
-    .conv-ring-dash { animation: none; }
-}
+/* ── G6: the generated hero video replaced the SVG conveyor ──
+   Poster (the G1 static frame) covers load-in and prefers-reduced-motion;
+   the inline script after the <video> strips autoplay under reduced motion. */
