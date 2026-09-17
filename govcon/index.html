@@ -94,6 +94,8 @@
                 <source src="../images/govcon-hero.mp4" type="video/mp4">
             </video>
             <script>
+                // Slow the conveyor to 0.8× so the belt loop reads calmly.
+                document.currentScript.previousElementSibling.playbackRate = 0.8;
                 // Reduced motion: never autoplay — the poster (G1 static frame) is the hero.
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     document.currentScript.previousElementSibling.removeAttribute('autoplay');

@@ -76,6 +76,10 @@
     width: 100%;
     height: clamp(300px, 42vh, 480px);
     object-fit: cover;
+    /* Center the belt ellipse in the crop: cover trims ~207px of source
+       height; the belt (source rows 106–235, center 170.5) lands mid-strip
+       when the window opens at 36% from the top. */
+    object-position: 50% 36%;
 }
 
 /* ── Trust bar: quiet footnote strip ── */
@@ -395,6 +399,13 @@
 }
 
 @media (max-width: 640px) {
+    /* At phone widths the strip is taller than 16:9, so cover crops
+       horizontally instead of vertically: Y goes inert and the belt drifts
+       right of center. 79% X re-centers it (source x-center 447). */
+    .gov-conveyor-video {
+        object-position: 79% 50%;
+    }
+
     .gov-trust {
         padding: 32px 0;
     }
