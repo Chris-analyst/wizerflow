@@ -130,51 +130,6 @@
     opacity: 0.6;
 }
 
-/* ── 01–04 number strip ── */
-
-.gov-steps {
-    padding: 36px 0;
-    background: var(--dark-bg);
-}
-
-.gov-steps-row {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    min-height: 48px;
-    margin: 0;
-    padding: 0;
-}
-
-.gov-steps-row li {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    white-space: nowrap;
-}
-
-.gov-step-num {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-}
-
-.gov-step-name {
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    color: var(--text-secondary);
-}
-
-.gov-step-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border-medium);
-    min-width: 24px;
-}
-
 /* ── Lane cards ── */
 
 .gov-lanes-section {
@@ -187,6 +142,7 @@
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 96px; /* air between the saying and the cards (beats .mb-60) */
 }
 
 .gov-lanes-section h2 {
@@ -246,12 +202,18 @@
     margin-bottom: 18px;
 }
 
+/* Services: vertical list inside each lane card */
 .gov-lane-services {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gov-lane-services li {
     color: var(--text-muted);
     font-size: 0.85rem;
     line-height: 1.9;
     letter-spacing: 0.02em;
-    margin: 0;
 }
 
 /* ── "We see both sides" band: pure typography, most air ── */
@@ -465,20 +427,6 @@
 
     .gov-trust-list li + li::before {
         margin: 0 10px;
-    }
-
-    .gov-steps {
-        padding: 28px 0;
-    }
-
-    .gov-steps-row {
-        flex-wrap: wrap;
-        gap: 14px 24px;
-        min-height: 0;
-    }
-
-    .gov-step-line {
-        display: none;
     }
 
     .gov-hero-head {
