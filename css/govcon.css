@@ -296,11 +296,11 @@
     margin: 0;
 }
 
-/* ── CTA band + legal strip ── */
+/* ── CTA band (dark .footer follows) ── */
 
 .gov-cta {
     background: var(--gradient-primary); /* blue→purple only */
-    padding: 96px 0 0;
+    padding: 96px 0 88px;
     text-align: center;
 }
 
@@ -335,30 +335,6 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
     color: #0e0e0e;
-}
-
-.gov-legal {
-    margin-top: 88px;
-    border-top: 1px solid rgba(255, 255, 255, 0.22);
-    padding: 22px 0;
-}
-
-.gov-legal .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.gov-legal span,
-.gov-legal a {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.gov-legal a:hover {
-    color: #fff;
 }
 
 /* ── Scroll reveals: fade + 8px rise, once, 450ms, ≤80ms stagger ──
@@ -424,12 +400,7 @@
     }
 
     .gov-cta {
-        padding-top: 72px;
-    }
-
-    .gov-legal .container {
-        justify-content: center;
-        text-align: center;
+        padding: 72px 0 64px;
     }
 }
 
