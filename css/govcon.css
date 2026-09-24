@@ -236,6 +236,11 @@
     margin: 0;
 }
 
+/* Button inside a .gov-both band (consultation + education teaser) */
+.gov-both .btn {
+    margin-top: 40px;
+}
+
 /* ── Differentiator: asymmetric columns ── */
 
 .gov-diff-section {
