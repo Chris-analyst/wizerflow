@@ -459,9 +459,10 @@ em { font-style: italic; }
 /* cards on a continuous track: every card always holds a real slot,
    so navigation glides the whole fan instead of swapping discretely */
 .wf-faqcar__card {
-  position: absolute; bottom: calc(24% - var(--dy, 0%)); left: 50%;
+  position: absolute; bottom: calc(24% - var(--dy, 0%));
+  left: calc(50% + var(--lx, 0%));
   width: min(620px, 88vw); z-index: 10;
-  transform: translateX(calc(-50% + var(--tx, 0%))) scale(var(--sc, 1));
+  transform: translateX(-50%) scale(var(--sc, 1));
   opacity: var(--op, 1);
   filter: blur(var(--bl, 0px));
   background: var(--sc-surface);
@@ -470,6 +471,7 @@ em { font-style: italic; }
   padding: clamp(1.6rem, 3vw, 2.4rem);
   transition:
     transform 720ms cubic-bezier(0.3, 0.06, 0.18, 1),
+    left 720ms cubic-bezier(0.3, 0.06, 0.18, 1),
     opacity 720ms cubic-bezier(0.3, 0.06, 0.18, 1),
     filter 720ms cubic-bezier(0.3, 0.06, 0.18, 1),
     width 720ms cubic-bezier(0.3, 0.06, 0.18, 1),
@@ -519,7 +521,7 @@ em { font-style: italic; }
 /* no-JS fallback: a plain readable stack instead of absolute positions */
 .wf-faqcar:not(.wf-faqcar--ready) .wf-faqcar__card {
   position: static; width: min(680px, 92vw); margin: 0 auto var(--sc-4);
-  transform: none; opacity: 1; filter: none; bottom: auto;
+  transform: none; opacity: 1; filter: none; bottom: auto; left: auto;
 }
 .wf-faqcar:not(.wf-faqcar--ready) .wf-faqcar__card p { max-height: none; opacity: 1; }
 .wf-faqcar:not(.wf-faqcar--ready) .wf-faqcar__stage {

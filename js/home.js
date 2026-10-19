@@ -80,10 +80,10 @@
 
         var op = rel === 0 ? 1 : Math.max(0, 0.72 - (ax - 1) * 0.3);
         if (narrow.matches && rel !== 0) op = 0;
-        card.style.setProperty("--tx", (rel * 30) + "%");
+        card.style.setProperty("--lx", (rel * 30) + "%");
         card.style.setProperty("--sc", Math.max(0.82, 1 - ax * 0.09).toFixed(3));
         card.style.setProperty("--op", op.toFixed(3));
-        card.style.setProperty("--bl", Math.min(6, ax * 2).toFixed(1) + "px");
+        card.style.setProperty("--bl", Math.min(7, ax * 2.5).toFixed(1) + "px");
         card.style.setProperty("--dy", (ax === 0 ? 0 : Math.min(10, 4 + ax * 2)) + "%");
         card.classList.toggle("is-center", rel === 0);
         /* neighbours are decorative echoes of real content, not separate tabs */
