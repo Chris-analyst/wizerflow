@@ -122,4 +122,19 @@
     faqSec.classList.add("wf-faqcar--ready");
     apply(false);
   }
+
+  /* -- legal nav scrollspy --------------------------------------------------- */
+  var legalNavLinks = Array.prototype.slice.call(document.querySelectorAll(".wf-legal__nav a"));
+  if (legalNavLinks.length && "IntersectionObserver" in window) {
+    var byId = {};
+    legalNavLinks.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        legalNavLinks.forEach(function (a) { a.classList.remove("is-active"); });
+        if (byId[en.target.id]) byId[en.target.id].classList.add("is-active");
+      });
+    }, { rootMargin: "-15% 0px -70% 0px" });
+    document.querySelectorAll(".wf-legal__doc").forEach(function (doc) { spy.observe(doc); });
+  }
 })();

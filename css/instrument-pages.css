@@ -1,0 +1,146 @@
+/* ============================================================================
+   WIZERFLOW — secondary pages in the Instrument world
+   Shared page shell + legal (policy.html) + case studies (case-studies.html).
+   Loads after css/vendor/scrollcraft.css and css/instrument.css.
+   ========================================================================== */
+
+/* ---------------------------------------------------------- page shell ---- */
+.wf-page { padding-top: 4.75rem; }
+.wf-page-hero { padding: calc(var(--sc-section) * 0.72) var(--sc-gutter) calc(var(--sc-section) * 0.4); }
+.wf-page-hero__inner { max-width: var(--sc-maxw); margin-inline: auto; }
+.wf-page-hero h1 {
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 111%;
+  font-size: clamp(2.4rem, 1.6rem + 3.6vw, 4.4rem); letter-spacing: -0.028em;
+  line-height: var(--sc-leading-none); margin: 0; color: var(--sc-ink);
+  max-width: 22ch; text-wrap: balance;
+}
+.wf-page-hero h1 .wf-accent { color: var(--sc-accent); }
+.wf-page-hero__deck {
+  margin: var(--sc-5) 0 0; max-width: 54ch; font-size: var(--sc-t-lg);
+  line-height: 1.55; color: var(--sc-ink-soft); text-wrap: pretty;
+}
+.wf-page-hero .wf-hallmark { margin-top: var(--sc-5); }
+
+/* ---------------------------------------------------------------- legal ---- */
+.wf-legal {
+  display: grid; grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--sc-9);
+  max-width: var(--sc-maxw); margin-inline: auto;
+  padding: 0 var(--sc-gutter) var(--sc-section);
+}
+.wf-legal__nav {
+  position: sticky; top: 6.5rem; align-self: start;
+  display: grid; gap: var(--sc-1);
+}
+.wf-legal__nav a {
+  font-family: var(--wf-mono); font-size: 0.72rem; letter-spacing: 0.12em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--sc-ink-soft);
+  padding: var(--sc-2) 0 var(--sc-2) var(--sc-3);
+  border-left: 2px solid transparent;
+  transition: color var(--sc-d-base) var(--sc-ease-out), border-color var(--sc-d-base) var(--sc-ease-out);
+}
+.wf-legal__nav a:hover, .wf-legal__nav a.is-active {
+  color: var(--sc-ink); border-left-color: var(--sc-accent);
+}
+.wf-legal__doc { scroll-margin-top: 6rem; }
+.wf-legal__doc + .wf-legal__doc { margin-top: var(--sc-9); }
+.wf-legal__doc > h2 {
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 108%;
+  font-size: clamp(1.6rem, 1.3rem + 1.6vw, 2.4rem); letter-spacing: -0.02em;
+  margin: 0 0 var(--sc-2); color: var(--sc-ink);
+}
+.wf-legal__date { margin: 0 0 var(--sc-5); }
+.wf-legal__body h3 {
+  font-family: var(--sc-font-display); font-weight: 620; font-stretch: 106%;
+  font-size: 1.18rem; letter-spacing: -0.01em; color: var(--sc-ink);
+  margin: var(--sc-6) 0 var(--sc-3);
+}
+.wf-legal__body h4 {
+  font-weight: 600; font-size: 0.98rem; color: var(--sc-ink);
+  margin: var(--sc-5) 0 var(--sc-2);
+}
+.wf-legal__body p { margin: 0 0 0.95em; max-width: 70ch; color: var(--sc-ink-soft); line-height: 1.68; }
+.wf-legal__body ul { margin: 0 0 1em; padding-left: 1.15em; max-width: 68ch; }
+.wf-legal__body li { margin-bottom: 0.5em; color: var(--sc-ink-soft); line-height: 1.6; }
+.wf-legal__body li::marker { color: var(--sc-accent); }
+.wf-legal__body strong { color: var(--sc-ink); font-weight: 600; }
+.wf-legal__body a { color: var(--sc-accent); }
+
+/* --------------------------------------------------------- case studies --- */
+.wf-cs-section { padding: 0 var(--sc-gutter) var(--sc-section); }
+.wf-cs-section__inner { max-width: var(--sc-maxw); margin-inline: auto; }
+
+/* the review as an inspection plate (reuses the cert grammar) */
+.wf-cs-review {
+  max-width: 56rem; margin-inline: auto; text-align: center;
+  background: var(--sc-surface);
+  border: var(--wf-rule);
+  outline: 1px solid var(--wf-hairline); outline-offset: 6px;
+  border-radius: var(--wf-r-sm);
+  box-shadow: var(--sc-e2), var(--sc-edge);
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+.wf-cs-review blockquote { margin: 0; }
+.wf-cs-review .wf-quote {
+  font-family: var(--sc-font-display); font-weight: 560; font-stretch: 104%;
+  font-size: clamp(1.25rem, 1rem + 1.6vw, 1.9rem); letter-spacing: -0.015em;
+  line-height: 1.3; color: var(--sc-ink); max-width: 26ch; margin-inline: auto;
+  text-wrap: balance;
+}
+.wf-cs-review figcaption { margin-top: var(--sc-5); }
+
+/* logo band */
+.wf-cs-logos { border-block: var(--wf-rule); padding: var(--sc-5) var(--sc-gutter); }
+.wf-cs-logos__inner {
+  max-width: var(--sc-maxw); margin-inline: auto; text-align: center;
+}
+.wf-cs-logos img {
+  display: inline-block; width: 104px; margin: var(--sc-3) var(--sc-4);
+  /* source artwork is white (legacy dark theme); stamp it to uniform ink */
+  filter: brightness(0);
+  opacity: 0.55;
+}
+
+/* case study plates with ruled stat tables */
+.wf-study {
+  background: var(--sc-surface);
+  border: var(--wf-rule); border-radius: var(--wf-r-sm);
+  box-shadow: var(--sc-e2), var(--sc-edge);
+  padding: clamp(1.8rem, 3.4vw, 3rem);
+  max-width: 56rem; margin-inline: auto;
+}
+.wf-study + .wf-study { margin-top: var(--sc-6); }
+.wf-study > h2 {
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 108%;
+  font-size: clamp(1.5rem, 1.2rem + 1.8vw, 2.3rem); letter-spacing: -0.02em;
+  line-height: 1.1; margin: 0 0 var(--sc-4); color: var(--sc-ink);
+  max-width: 24ch;
+}
+.wf-study > p { margin: 0 0 var(--sc-5); max-width: 62ch; color: var(--sc-ink-soft); }
+.wf-stat {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--sc-4);
+  padding: var(--sc-3) 0; border-top: var(--wf-rule);
+}
+.wf-stat dt { font-family: var(--wf-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sc-ink-soft); }
+.wf-stat dd {
+  margin: 0; font-family: var(--sc-font-display); font-weight: 640; font-stretch: 108%;
+  font-size: 1.25rem; letter-spacing: -0.02em; color: var(--sc-ink);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+
+/* ---------------------------------------------------------- responsive ---- */
+@media (max-width: 991px) {
+  .wf-legal { grid-template-columns: 1fr; gap: var(--sc-5); }
+  .wf-legal__nav {
+    position: static; grid-auto-flow: column; grid-auto-columns: max-content;
+    overflow-x: auto; gap: var(--sc-4); padding-bottom: var(--sc-2);
+    border-bottom: var(--wf-rule);
+  }
+  .wf-legal__nav a { border-left: none; border-bottom: 2px solid transparent; padding: 0 0 var(--sc-2); }
+  .wf-legal__nav a:hover, .wf-legal__nav a.is-active { border-bottom-color: var(--sc-accent); }
+}
+@media (max-width: 640px) {
+  .wf-stat dd { font-size: 1.05rem; }
+  .wf-cs-logos img { width: 84px; margin: var(--sc-2) var(--sc-3); }
+}
