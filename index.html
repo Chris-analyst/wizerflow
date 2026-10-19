@@ -4,449 +4,524 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wizerflow | Precision Introductions Backed by Research</title>
+    <meta name="description" content="Wizerflow stands between two worlds. We research both sides of your market, vet every actor, and make the right introduction — not a pitch, not a cold email.">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_32x32.png">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/sections.css">
-    <link rel="stylesheet" href="css/demo.css">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-      html { scroll-behavior: smooth; }
-      #particle-canvas {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="css/vendor/scrollcraft.css">
+    <link rel="stylesheet" href="css/instrument.css">
 </head>
 <body>
-    <!-- Particle Network Background -->
-    <canvas id="particle-canvas"></canvas>
 
-    <!-- Header/Navigation -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/purple-removebg.png" alt="Wizerflow">
-                    </a>
-                    <span>Wizerflow</span>
-                </div>
-
-                <nav class="main-nav">
-                    <ul class="nav-group-left">
-                    </ul>
-                    <ul class="nav-group-right">
-                        <li><a href="#how-it-works">How we work</a></li>
-                        <li><a href="#faq-section">FAQs</a></li>
-                        <li>
-                            <a href="https://cal.com/wizerflow/partner-alignment-call"
-                               class="btn btn-primary"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                               Book alignment call
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div class="mobile-menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+    <!-- Header / navigation, closed by a calibrated rule -->
+    <header class="wf-header">
+        <div class="wf-header__inner">
+            <a class="wf-brand" href="index.html">
+                <img src="images/purple-removebg.png" alt="">
+                <span>Wizerflow</span>
+            </a>
+            <nav class="wf-nav" aria-label="Primary">
+                <a href="#how-it-works">How we work</a>
+                <a href="#faq-section">FAQs</a>
+                <a href="https://cal.com/wizerflow/partner-alignment-call"
+                   class="wf-btn wf-btn--primary wf-btn--nav"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-sc-magnet="0.14">
+                   Book alignment call
+                </a>
+            </nav>
+            <button class="wf-menu-btn" aria-expanded="false" aria-controls="wf-mobile-nav" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+        <div class="wf-rule-scale" aria-hidden="true"></div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="demo-section hero dark" id="demo-intro">
-        <div class="container">
-            <div class="content">
-                <h1 class="tracking-in-expand">Wizerflow</h1>
-                <p class="tracking-in-expand">We See Both Sides. We Make the Introduction.</p>
+    <div class="wf-progress" data-sc-progress aria-hidden="true"></div>
+
+    <div class="wf-mobile-nav" id="wf-mobile-nav">
+        <a href="#how-it-works">How we work</a>
+        <a href="#faq-section">FAQs</a>
+        <a href="https://cal.com/wizerflow/partner-alignment-call"
+           target="_blank" rel="noopener noreferrer">Book alignment call</a>
+    </div>
+
+    <!-- Hero: the instrument seen for the first time -->
+    <section class="wf-hero" id="demo-intro" data-sc-act="flow">
+        <div class="wf-hero__ground" aria-hidden="true">
+            <div class="wf-hero__guilloche" data-sc-parallax="-0.05"></div>
+            <div class="wf-hero__grain"></div>
+            <div class="wf-hero__mech" data-sc-parallax="-0.16">
+                <!-- the movement, drawn: base plate, gear train, balance, bridge -->
+                <svg viewBox="0 0 620 540" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" role="img" aria-hidden="true">
+                    <!-- registry marks -->
+                    <g stroke-width="1.4" opacity="0.7">
+                        <path data-draw style="--d:0" pathLength="1" d="M28 20v16M20 28h16"/>
+                        <path data-draw style="--d:0" pathLength="1" d="M592 20v16M584 28h16"/>
+                        <path data-draw style="--d:0" pathLength="1" d="M28 474v16M20 482h16"/>
+                    </g>
+                    <!-- base plate opening -->
+                    <circle data-draw style="--d:.05" pathLength="1" cx="330" cy="280" r="228" stroke-width="1.8" opacity="0.7"/>
+                    <circle data-draw style="--d:.1" pathLength="1" cx="330" cy="280" r="204" stroke-width="1.4" opacity="0.5"/>
+                    <!-- main gear -->
+                    <g>
+                        <circle cx="286" cy="300" r="96" stroke-width="15" stroke-dasharray="4.5 9" opacity="0.65"/>
+                        <circle cx="286" cy="300" r="82" stroke-width="2"/>
+                        <circle cx="286" cy="300" r="15" stroke-width="2"/>
+                        <path d="M286 218v67M204 300h67M286 382v-67M368 300h-67" stroke-width="1.6" opacity="0.75"/>
+                    </g>
+                    <!-- second gear -->
+                    <g>
+                        <circle cx="446" cy="212" r="56" stroke-width="11" stroke-dasharray="4 8.6" opacity="0.65"/>
+                        <circle cx="446" cy="212" r="44" stroke-width="2"/>
+                        <circle cx="446" cy="212" r="10" stroke-width="2"/>
+                        <path d="M446 168v34M402 212h34M446 256v-34M490 212h-34" stroke-width="1.6" opacity="0.75"/>
+                    </g>
+                    <!-- balance wheel and hairspring -->
+                    <g>
+                        <circle cx="470" cy="368" r="58" stroke-width="2"/>
+                        <path d="M470 310v116M412 368h116" stroke-width="1.6" opacity="0.7"/>
+                        <path d="M470 368c0-8 10-10 14-4s-2 14-10 14-16-6-14-16 14-16 24-10 12 20 2 26-24 4-30-8-2-26 12-30 26 2 30 16" stroke-width="1.7"/>
+                    </g>
+                    <!-- bridge over the train, with screws -->
+                    <g>
+                        <path data-draw style="--d:.2" pathLength="1" d="M168 258c40-52 150-84 246-76 56 5 96 26 108 56" stroke-width="2"/>
+                        <path data-draw style="--d:.3" pathLength="1" d="M168 258c-6 40 18 78 62 104" stroke-width="2" opacity="0.8"/>
+                        <circle cx="196" cy="252" r="7" stroke-width="2"/>
+                        <path d="M191 252h10" stroke-width="2"/>
+                        <circle cx="452" cy="200" r="7" stroke-width="2"/>
+                        <path d="M447 200h10" stroke-width="2"/>
+                    </g>
+                    <!-- jewel bearings -->
+                    <g fill="#c22b45" stroke="none">
+                        <circle cx="286" cy="300" r="4.5"/>
+                        <circle cx="446" cy="212" r="4"/>
+                        <circle cx="470" cy="368" r="4"/>
+                    </g>
+                </svg>
             </div>
         </div>
+
+        <div class="wf-hero__inner">
+            <h1 class="wf-display wf-hero__title">
+                <span data-sc-kinetic="lines" data-sc-cue="0 0.9 0.12">We See Both Sides.</span>
+                <span class="wf-line2" data-sc-kinetic="lines" data-sc-cue="0.05 0.9 0.22">We Make the Introduction.</span>
+            </h1>
+            <p class="wf-hero__deck" data-sc-cue="0.08 1 0.28">
+                Precision introductions backed by research. You're not buying activity.
+                You're buying access to people who have already found and vetted the right people.
+            </p>
+            <div class="wf-hero__actions" data-sc-cue="0.14 1 0.34">
+                <a href="https://cal.com/wizerflow/partner-alignment-call"
+                   class="wf-btn wf-btn--primary wf-btn--large"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-sc-magnet="0.2">
+                   Book alignment call
+                </a>
+                <a class="wf-link-quiet" href="#how-it-works">How we work</a>
+            </div>
+        </div>
+        <div class="wf-hero__scale" aria-hidden="true"></div>
     </section>
 
-    <!-- Meeting Guarantee Section -->
-    <section class="demo-section dark" id="guarantee">
-        <div class="container">
-            <div class="content">
-                <span class="calendar-bubble">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M8 2v4"></path>
-                        <path d="M16 2v4"></path>
-                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-                        <path d="M3 10h18"></path>
-                    </svg>
-                </span>
-                <h2>Aligned Conversations From Research Acumen</h2>
-                <p class="subtitle">Not Volume. Not Guesswork. Matched Conversations.</p>
-                <p class="text-medium">We filter out the noise. We identify the actors who provide exactly what you desire before a single name ever reaches you.<br>Every conversation flows from deep alignment and relevance — not a numbers game.</p>
+    <!-- Meeting Guarantee: the inspection plate -->
+    <section class="wf-section wf-guarantee" id="guarantee" data-sc-act="flow" data-sc-drift="#edeef0">
+        <div class="wf-section__inner" data-sc-in data-sc-stagger="70">
+            <div class="wf-cert">
+                <h2 class="wf-display wf-cert__h">Aligned Conversations From Research Acumen</h2>
+                <p class="wf-mono wf-cert__sub">Not Volume. Not Guesswork. Matched Conversations.</p>
+                <p class="wf-cert__body">
+                    We filter out the noise. We identify the actors who provide exactly what you desire
+                    before a single name ever reaches you. Every conversation flows from deep alignment
+                    and relevance — not a numbers game.
+                </p>
                 <a href="https://cal.com/wizerflow/partner-alignment-call"
-                   class="btn btn-primary btn-large"
+                   class="wf-btn wf-btn--primary wf-btn--large"
                    target="_blank"
                    rel="noopener noreferrer">
                    Start With an Alignment Call
                 </a>
-                <p class="guarantee-text">Quality over quantity. Always.</p>
+                <br>
+                <span class="wf-mono wf-hallmark">Quality over quantity. Always.</span>
             </div>
         </div>
     </section>
 
-    <!-- How it Works Section (Timeline Pipeline) -->
-    <section class="demo-section dark" id="how-it-works">
-        <div class="container">
-            <div class="center-block reveal">
-                <div class="subtitle text-primary mb-20">How it works</div>
-                <h2>Research. Vet. Connect.</h2>
-                <p class="text-light-grey mb-60"><em>We stand between two worlds. We see what buyers need and who can deliver it. Our job is to make the right introduction — not to sell either side.</em></p>
-            </div>
-            <div class="max-900">
-                <div class="row flex">
-                    <div class="w-col reveal reveal-delay-1">
-                        <div class="how-it-works-links">
-                            <div class="step-number mb-10">01</div>
-                            <div class="align-center mb-20">
-                                <div class="step-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                </div>
-                            </div>
+    <!-- How it works: The Escapement — the mechanism checked tick by tick -->
+    <section class="wf-escape" id="how-it-works" data-sc-act="pin" data-sc-span="3" data-sc-dwell="0.3" data-sc-drift="#e4e7ef">
+        <div class="sc-stage wf-escape__stage">
+            <div class="wf-escape__grid">
+                <div class="wf-escape__copy">
+                    <h2 class="wf-display" style="font-size:clamp(2rem,1.5rem+2.6vw,3.6rem)" data-sc-cue="0 0.9 0.2">Research. Vet. Connect.</h2>
+                    <p class="wf-lede" data-sc-cue="0.04 0.9 0.3">
+                        <em>We stand between two worlds. We see what buyers need and who can deliver it.
+                        Our job is to make the right introduction — not to sell either side.</em>
+                    </p>
+                    <ol class="wf-steps" data-sc-in data-sc-stagger="90">
+                        <li>
+                            <span class="wf-step__no">01</span>
                             <h3>Understand Need</h3>
-                            <p class="text-light-grey text-medium mb-20"><em>We probe and track market participants to uncover buyer needs with precision — including emerging demands not yet fully recognized.</em></p>
-                        </div>
-                    </div>
-                    <div class="w-col reveal reveal-delay-2">
-                        <div class="how-it-works-links">
-                            <div class="step-number mb-10">02</div>
-                            <div class="align-center mb-20">
-                                <div class="step-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-                                </div>
-                            </div>
+                            <p><em>We probe and track market participants to uncover buyer needs with
+                            precision — including emerging demands not yet fully recognized.</em></p>
+                        </li>
+                        <li>
+                            <span class="wf-step__no">02</span>
                             <h3>Deep Vet</h3>
-                            <p class="text-light-grey text-medium mb-20"><em>Every buyer is verified for genuine need, authority, and timing. We don't pass along random names. We provide relevance and clarity.</em></p>
-                        </div>
-                    </div>
-                    <div class="w-col reveal reveal-delay-3">
-                        <div class="how-it-works-links">
-                            <div class="step-number mb-10">03</div>
-                            <div class="align-center mb-20">
-                                <div class="step-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                                </div>
-                            </div>
+                            <p><em>Every buyer is verified for genuine need, authority, and timing.
+                            We don't pass along random names. We provide relevance and clarity.</em></p>
+                        </li>
+                        <li>
+                            <span class="wf-step__no">03</span>
                             <h3>The Introduction</h3>
-                            <p class="text-light-grey text-medium mb-20"><em>A warm introduction — not a pitch, not a cold email. Both sides know why they're talking. The conversation starts from trust.</em></p>
-                        </div>
+                            <p><em>A warm introduction — not a pitch, not a cold email. Both sides know
+                            why they're talking. The conversation starts from trust.</em></p>
+                        </li>
+                        <li>
+                            <span class="wf-step__no">04</span>
+                            <h3>The Win&#8209;Win</h3>
+                            <p><em>Revenue and success flow naturally from the core alignment between
+                            need and capacity.</em></p>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="wf-escape__mech" aria-hidden="true">
+                    <svg class="wf-mech-drawing" viewBox="0 0 560 440" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- train bridge outline -->
+                        <path data-draw style="--d:.05" pathLength="1" d="M60 96c120-36 300-36 420 0" stroke-width="2"/>
+                        <path data-draw style="--d:.12" pathLength="1" d="M60 96c-8 60 20 116 72 152M480 96c8 60-20 116-72 152" stroke-width="2" opacity="0.8"/>
+                        <!-- mainspring barrel -->
+                        <g>
+                            <circle cx="140" cy="236" r="58" stroke-width="2"/>
+                            <path d="M140 236c0-10 12-12 17-5s-3 17-13 17-20-8-17-20 18-19 30-12 14 24 2 31-30 5-37-10-2-31 15-36 31 3 36 20" stroke-width="1.6"/>
+                        </g>
+                        <!-- center wheel -->
+                        <g>
+                            <circle cx="288" cy="252" r="74" stroke-width="12" stroke-dasharray="4 9.2" opacity="0.55"/>
+                            <circle cx="288" cy="252" r="62" stroke-width="2"/>
+                            <path d="M288 190v124M226 252h124" stroke-width="1.5" opacity="0.7"/>
+                        </g>
+                        <!-- escapement wheel + anchor -->
+                        <g>
+                            <circle cx="424" cy="212" r="46" stroke-width="9" stroke-dasharray="3.4 7.6" opacity="0.55"/>
+                            <path d="M382 148c22 10 62 10 84 0l-10 34-16-12-16 12-16-12-16 12z" stroke-width="2"/>
+                            <path d="M424 170v14" stroke-width="2"/>
+                        </g>
+                        <!-- the one jewel: struck forward -->
+                        <g>
+                            <circle data-draw style="--d:.3" pathLength="1" cx="288" cy="252" r="26" stroke-width="2" stroke="#2447c9"/>
+                            <circle cx="288" cy="252" r="6.5" fill="#c22b45" stroke="none"/>
+                        </g>
+                        <!-- screws -->
+                        <g>
+                            <circle cx="96" cy="120" r="6.5" stroke-width="1.8"/><path d="M90 120h12" stroke-width="1.8"/>
+                            <circle cx="472" cy="126" r="6.5" stroke-width="1.8"/><path d="M466 126h12" stroke-width="1.8"/>
+                        </g>
+                    </svg>
+
+                    <!-- the candidate rail: many present, most declined, one struck forward -->
+                    <div class="wf-rail">
+                        <div class="wf-rail__tick wf-rail__tick--pass" style="--i:0"></div>
+                        <div class="wf-rail__tick wf-rail__tick--pass" style="--i:1"></div>
+                        <div class="wf-rail__tick wf-rail__tick--pass" style="--i:2"></div>
+                        <div class="wf-rail__tick" style="--i:3"></div>
+                        <div class="wf-rail__tick wf-rail__tick--chosen" style="--i:4"></div>
+                        <div class="wf-rail__tick" style="--i:5"></div>
+                        <div class="wf-rail__tick" style="--i:6"></div>
+                        <div class="wf-rail__tick" style="--i:7"></div>
+                        <div class="wf-rail__tick" style="--i:8"></div>
                     </div>
-                    <div class="w-col reveal reveal-delay-4">
-                        <div class="how-it-works-links">
-                            <div class="step-number mb-10">04</div>
-                            <div class="align-center mb-20">
-                                <div class="step-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                                </div>
-                            </div>
-                            <h3>The Win - Win</h3>
-                            <p class="text-light-grey text-medium mb-20"><em>Revenue and success flow naturally from the core alignment between need and capacity.</em></p>
-                        </div>
+                    <div class="wf-rail-cap wf-mono">
+                        <span>Researched</span><span>Vetted</span><span>Introduced</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Email Comparison Section -->
-    <section class="demo-section dark" id="advantage">
-        <div class="container">
-            <div class="center-block mb-60 reveal">
-                <h2>The Wizerflow Advantage</h2>
+    <!-- The Advantage: the two faces of outreach -->
+    <section class="wf-section" id="advantage" data-sc-act="flow" data-sc-drift="#edebe8">
+        <div class="wf-section__inner">
+            <div class="wf-section__head" data-sc-in>
+                <h2 class="wf-display" style="font-size:clamp(2rem,1.5rem+2.4vw,3.4rem)">The Wizerflow Advantage</h2>
             </div>
-            <div class="email-comparison">
-                <div class="email-card reveal reveal-delay-1">
-                    <div class="email-header generic">
-                        <h3 class="text-black">Generic Agency Email</h3>
-                        <p class="text-grey">(The Volume Approach)</p>
+            <div class="wf-emails">
+                <article class="wf-email wf-email--generic" data-sc-in>
+                    <div class="wf-email__tag">
+                        <h3 class="wf-email__title">Generic Agency Email</h3>
+                        <span class="wf-email__note">(The Volume Approach)</span>
                     </div>
-                    <div class="email-content">
-                        <div class="mb-20">
-                            <p class="text-black mb-10">Subject: Demo request for your team at {{{Company}}}</p>
-                            <div class="text-grey">
-                                <p>Hi {{{First_Name}}},</p>
-                                <p>I hope this email finds you well. I'm reaching out because I noticed {{{Company}}} might benefit from our cloud security solution that helps companies like yours prevent data breaches.</p>
-                                <p>Our platform has been trusted by over 500 companies to secure their cloud infrastructure and comply with regulations.</p>
-                                <p>Would you be interested in a quick 30-minute demo to see how we could help {{{Company}}} improve your security posture?</p>
-                                <p>Let me know what works best for your calendar.</p>
-                                <p>Best regards,<br>{{{Sales_Rep}}}</p>
-                            </div>
-                        </div>
-                        <div class="email-features">
-                            <div class="feature-item">
-                                <svg class="feature-icon icon-error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-                                <p class="text-grey">Generic template with merge fields</p>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="feature-icon icon-error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-                                <p class="text-grey">No specific pain points identified</p>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="feature-icon icon-error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-                                <p class="text-grey">Could be sent to anyone</p>
-                            </div>
-                        </div>
+                    <dl class="wf-email__meta">
+                        <dt>From</dt><dd>{{{Sales_Rep}}}</dd>
+                        <dt>To</dt><dd>{{{First_Name}}}</dd>
+                        <dt>Subject</dt><dd>Demo request for your team at {{{Company}}}</dd>
+                    </dl>
+                    <div class="wf-email__body">
+                        <p>Hi {{{First_Name}}},</p>
+                        <p>I hope this email finds you well. I'm reaching out because I noticed
+                        {{{Company}}} might benefit from our cloud security solution that helps
+                        companies like yours prevent data breaches.</p>
+                        <p>Our platform has been trusted by over 500 companies to secure their cloud
+                        infrastructure and comply with regulations.</p>
+                        <p>Would you be interested in a quick 30-minute demo to see how we could help
+                        {{{Company}}} improve your security posture?</p>
+                        <p>Let me know what works best for your calendar.</p>
+                        <p>Best regards,<br>{{{Sales_Rep}}}</p>
                     </div>
+                    <ul class="wf-verdicts">
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c22b45" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <span>Generic template with merge fields</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c22b45" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <span>No specific pain points identified</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c22b45" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <span>Could be sent to anyone</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="wf-email wf-email--featured" data-sc-in>
+                    <div class="wf-email__tag">
+                        <h3 class="wf-email__title">Wizerflow Email</h3>
+                        <span class="wf-email__note">(Research-Driven, Buyer-Specific)</span>
+                    </div>
+                    <dl class="wf-email__meta">
+                        <dt>From</dt><dd>David</dd>
+                        <dt>To</dt><dd>Sarah</dd>
+                        <dt>Subject</dt><dd>The AWS security gap in your recent Kubernetes migration</dd>
+                    </dl>
+                    <div class="wf-email__body">
+                        <p>Hi Sarah,</p>
+                        <p>Your engineering team's GitHub commits show you've migrated 40% of your
+                        infrastructure to Kubernetes on AWS in the last 6 weeks – right when AWS is
+                        deprecating their legacy security certificates.</p>
+                        <p>I noticed your COO Tyler mentioned challenges with SOC 2 compliance timelines
+                        in his AWS re:Invent panel last month, particularly around container security.</p>
+                        <p>3 similar fintech companies we work with solved this exact migration security
+                        gap without delaying their SOC 2 timelines.</p>
+                        <p>Would it be valuable to discuss how they maintained compliance during this
+                        exact transition? I can share their specific approach.</p>
+                        <p>Available Thursday at 2pm if that works for you?</p>
+                        <p>Best,<br>David</p>
+                    </div>
+                    <ul class="wf-verdicts">
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span>Specific pain point identified from real data</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span>Evidence of research (GitHub + Panel)</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span>Clear next step with specific time</span>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values: bridges on the base plate -->
+    <section class="wf-section" id="values" data-sc-act="flow" data-sc-drift="#eaecef">
+        <div class="wf-section__inner">
+            <div class="wf-section__head" data-sc-in>
+                <h2 class="wf-display" style="font-size:clamp(2rem,1.5rem+2.4vw,3.4rem)">What We Stand For</h2>
+                <p class="wf-body" style="margin:var(--sc-4) 0 0">
+                    We operate from the center — not on your side, not on the buyer's side.
+                    We research both, understand both, and introduce the right parties with precision.
+                </p>
+            </div>
+            <div class="wf-bridges" data-sc-in data-sc-stagger="60">
+                <div class="wf-bridge wf-bridge--w4">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+                    </svg>
+                    <h3>Research First</h3>
+                    <p>Every introduction starts with research, not outreach. We study the market,
+                    the buyers, and the fit before a single name changes hands.</p>
                 </div>
-                <div class="email-card featured reveal reveal-delay-2">
-                    <div class="email-header featured">
-                        <h3 class="text-black">Wizerflow Email</h3>
-                        <p class="text-grey">(Research-Driven, Buyer-Specific)</p>
-                    </div>
-                    <div class="email-content">
-                        <div class="mb-20">
-                            <p class="text-black mb-10">Subject: The AWS security gap in your recent Kubernetes migration</p>
-                            <div class="text-grey">
-                                <p>Hi Sarah,</p>
-                                <p>Your engineering team's GitHub commits show you've migrated 40% of your infrastructure to Kubernetes on AWS in the last 6 weeks – right when AWS is deprecating their legacy security certificates.</p>
-                                <p>I noticed your COO Tyler mentioned challenges with SOC 2 compliance timelines in his AWS re:Invent panel last month, particularly around container security.</p>
-                                <p>3 similar fintech companies we work with solved this exact migration security gap without delaying their SOC 2 timelines.</p>
-                                <p>Would it be valuable to discuss how they maintained compliance during this exact transition? I can share their specific approach.</p>
-                                <p>Available Thursday at 2pm if that works for you?</p>
-                                <p>Best,<br>David</p>
-                            </div>
-                        </div>
-                        <div class="email-features">
-                            <div class="feature-item">
-                                <svg class="feature-icon icon-success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <p class="text-grey">Specific pain point identified from real data</p>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="feature-icon icon-success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <p class="text-grey">Evidence of research (GitHub + Panel)</p>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="feature-icon icon-success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <p class="text-grey">Clear next step with specific time</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="wf-bridge wf-bridge--w2">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 20V10a5 5 0 0 1 10 0v10"/><path d="M4 20h16"/><path d="M12 5V3"/>
+                    </svg>
+                    <h3>Earned Trust</h3>
+                    <p>Trust isn't promised. It's demonstrated through the quality of every
+                    introduction. You see the research behind each match.</p>
+                </div>
+                <div class="wf-bridge wf-bridge--w2">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 18l3-3" opacity=".3"/><path d="M9 18l4-4" opacity=".3"/><path d="M14 18l6-6"/><path d="M3 21h18" opacity=".5"/>
+                    </svg>
+                    <h3>Precision Over Volume</h3>
+                    <p>We'd rather make one perfect introduction than ten passable ones.
+                    Quality is the metric that matters.</p>
+                </div>
+                <div class="wf-bridge wf-bridge--w4">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/>
+                    </svg>
+                    <h3>Dual Perspective</h3>
+                    <p>We see the buyer's world and the provider's world. That bi-vision is
+                    what makes the match precise.</p>
+                </div>
+                <div class="wf-bridge wf-bridge--w3">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <path d="M9 12a5 5 0 1 1 5-5"/><path d="M15 12a5 5 0 1 1-5 5"/>
+                    </svg>
+                    <h3>No Cold Outreach</h3>
+                    <p>Every introduction is warm, researched, and expected. Both parties know
+                    why the conversation is happening.</p>
+                </div>
+                <div class="wf-bridge wf-bridge--w3">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M12 12c0-2 2.5-2.6 3.6-1s-.5 3.6-2.6 3.6-4.1-1.5-3.6-4S13 6.7 16 8.3s3.4 6 1 8.7-8.6 2.6-11-1-.9-8.7 3-10.7"/>
+                    </svg>
+                    <h3>Deepening Knowledge</h3>
+                    <p>Every market studied, every buyer researched, every introduction made deepens
+                    our understanding. The next match is always sharper than the last.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="demo-section dark" id="values">
-        <div class="container">
-            <div class="center-block mb-60 reveal">
-                <h2 class="text-black mb-20">What We Stand For</h2>
-                <p class="text-grey text-medium">We operate from the center — not on your side, not on the buyer's side. We research both, understand both, and introduce the right parties with precision.<br></p>
+    <!-- FAQ -->
+    <section class="wf-section" id="faq-section" data-sc-act="flow" data-sc-drift="#e9eaec">
+        <div class="wf-faq">
+            <div class="wf-faq__aside" data-sc-in>
+                <span class="wf-hallmark wf-mono" style="margin-top:0">Wizerflow</span>
+                <h2 class="wf-display">Commonly Asked Questions</h2>
             </div>
-
-            <div class="values-grid">
-                <div class="value-card reveal reveal-delay-1">
-                    <div class="value-content">
-                        <img src="images/Tool Stack/buit_transparency.svg" width="50" alt="" class="mb-30">
-                        <h3>Research First</h3>
-                        <p>Every introduction starts with research, not outreach. We study the market, the buyers, and the fit before a single name changes hands.</p>
-                    </div>
+            <div class="wf-faq__list" data-sc-in data-sc-stagger="40">
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">Why choose Wizerflow over an SDR or lead gen agency?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a1" role="region" aria-labelledby="faq-q1"><div>
+                        <p>An SDR sells. An agency runs volume. We research. We study your market,
+                        understand the buyer landscape, and make precise introductions based on that work.
+                        You're not buying activity. You're buying access to people who have already found
+                        and vetted the right people.</p>
+                    </div></div>
                 </div>
-
-                <div class="value-card reveal reveal-delay-2">
-                    <div class="value-content">
-                        <img src="images/Tool Stack/solutions.svg" width="50" alt="" class="mb-30">
-                        <h3>Earned Trust</h3>
-                        <p>Trust isn't promised. It's demonstrated through the quality of every introduction. You see the research behind each match.</p>
-                    </div>
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">How many introductions do you make per month?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a2" role="region" aria-labelledby="faq-q2"><div>
+                        <p>It depends on what the research supports. We don't force volume. If the market
+                        yields three precise matches this month, that's what you get. If it yields eight,
+                        you get eight. The constraint is quality, not an arbitrary number.</p>
+                    </div></div>
                 </div>
-
-                <div class="value-card reveal reveal-delay-3">
-                    <div class="value-content">
-                        <img src="images/Tool Stack/aligned.svg" width="50" alt="" class="mb-30">
-                        <h3>Precision Over Volume</h3>
-                        <p>We'd rather make one perfect introduction than ten passable ones. Quality is the metric that matters.</p>
-                    </div>
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">How is this different from hiring an agency?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a3" role="region" aria-labelledby="faq-q3"><div>
+                        <p>Agencies sell capacity. We deliver precision. An agency runs your outbound.
+                        We research both sides of your market and introduce you to the people who need you.
+                        Different model, different relationship, different outcome.</p>
+                    </div></div>
                 </div>
-            </div>
-
-            <div class="values-grid mt-40">
-                <div class="value-card reveal reveal-delay-1">
-                    <div class="value-content">
-                        <img src="images/Tool Stack/radical_transparency.svg" width="50" alt="" class="mb-30">
-                        <h3>Dual Perspective</h3>
-                        <p>We see the buyer's world and the provider's world. That bi-vision is what makes the match precise.</p>
-                    </div>
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">How does payment work?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a4" role="region" aria-labelledby="faq-q4"><div>
+                        <p>We agree on scope and investment during an alignment call. You're paying for
+                        the research, the vetting, and the introductions. Pricing reflects the depth of
+                        work, not the number of meetings.</p>
+                    </div></div>
                 </div>
-
-                <div class="value-card reveal reveal-delay-2">
-                    <div class="value-content">
-                        <img src="images/Tool Stack/growing.svg" width="50" alt="" class="mb-30">
-                        <h3>No Cold Outreach</h3>
-                        <p>Every introduction is warm, researched, and expected. Both parties know why the conversation is happening.</p>
-                    </div>
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">How quickly do we see results?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a5" role="region" aria-labelledby="faq-q5"><div>
+                        <p>The first introduction typically happens within 3-4 weeks. That time is spent
+                        on research — understanding your market, identifying the right buyers, and
+                        preparing the ground. Rushed introductions are cold introductions.</p>
+                    </div></div>
                 </div>
-
-                <div class="value-card reveal reveal-delay-3">
-                    <div class="value-content">
-                        <img src="images/Tool Stack/transparency.svg" width="50" alt="" class="mb-30">
-                        <h3>Deepening Knowledge</h3>
-                        <p>Every market studied, every buyer researched, every introduction made deepens our understanding. The next match is always sharper than the last.</p>
-                    </div>
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">What if an introduction doesn't lead anywhere?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a6" role="region" aria-labelledby="faq-q6"><div>
+                        <p>Not every introduction converts. That's the nature of business. What we deliver
+                        is the research and vetting behind every introduction. If the quality of the match
+                        is off, we talk about it and recalibrate. But we don't refund for outcomes we
+                        don't control.</p>
+                    </div></div>
+                </div>
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">How do you define a qualified introduction?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a7" role="region" aria-labelledby="faq-q7"><div>
+                        <p>A qualified introduction is a buyer who has a genuine, verifiable need for what
+                        you do, the authority to act, and awareness of why we're connecting them with you.
+                        We vet all three before the introduction happens. What happens after that
+                        conversation starts is between you and the buyer.</p>
+                    </div></div>
+                </div>
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a8" id="faq-q8">How do you integrate with our existing CRM and sales process?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a8" role="region" aria-labelledby="faq-q8"><div>
+                        <p>We book directly into your team's calendar. CRM logging depends on your setup —
+                        HubSpot, Salesforce, or whatever you use. The goal is minimal friction.
+                        Introductions flow into your existing process.</p>
+                    </div></div>
+                </div>
+                <div class="wf-faq__item">
+                    <h3 class="wf-faq__q"><button type="button" class="wf-faq__toggle" aria-expanded="false" aria-controls="faq-a9" id="faq-q9">What happens after our alignment call?<span class="wf-faq__sign" aria-hidden="true"></span></button></h3>
+                    <div class="wf-faq__panel" id="faq-a9" role="region" aria-labelledby="faq-q9"><div>
+                        <p>If we're a fit, we begin the research phase immediately. We study your market,
+                        map the buyer landscape, and identify the first set of introduction targets.
+                        You'll hear from us with progress and initial match recommendations within the
+                        first two weeks.</p>
+                    </div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="inner-section white" id="faq-section">
-        <div class="container">
-            <div class="faq-row">
-                <div class="faq-col-left">
-                    <img src="updates/faq.svg" alt="FAQ" class="faq-title-icon">
-                    <h4 class="mb-40">Commonly<br>Asked<br>Questions</h4>
-                </div>
-
-                <div class="faq-col-middle"></div>
-
-                <div class="faq-col-right">
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">Why choose Wizerflow over an SDR or lead gen agency?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">An SDR sells. An agency runs volume. We research. We study your market, understand the buyer landscape, and make precise introductions based on that work. You're not buying activity. You're buying access to people who have already found and vetted the right people.</p>
-                        </div>
-                    </div>
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">How many introductions do you make per month?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">It depends on what the research supports. We don't force volume. If the market yields three precise matches this month, that's what you get. If it yields eight, you get eight. The constraint is quality, not an arbitrary number.</p>
-                        </div>
-                    </div>
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">How is this different from hiring an agency?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">Agencies sell capacity. We deliver precision. An agency runs your outbound. We research both sides of your market and introduce you to the people who need you. Different model, different relationship, different outcome.</p>
-                        </div>
-                    </div>
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">How does payment work?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">We agree on scope and investment during an alignment call. You're paying for the research, the vetting, and the introductions. Pricing reflects the depth of work, not the number of meetings.</p>
-                        </div>
-                    </div>
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">How quickly do we see results?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">The first introduction typically happens within 3-4 weeks. That time is spent on research — understanding your market, identifying the right buyers, and preparing the ground. Rushed introductions are cold introductions.</p>
-                        </div>
-                    </div>
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">What if an introduction doesn't lead anywhere?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">Not every introduction converts. That's the nature of business. What we deliver is the research and vetting behind every introduction. If the quality of the match is off, we talk about it and recalibrate. But we don't refund for outcomes we don't control.</p>
-                        </div>
-                    </div>
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">How do you define a qualified introduction?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">A qualified introduction is a buyer who has a genuine, verifiable need for what you do, the authority to act, and awareness of why we're connecting them with you. We vet all three before the introduction happens. What happens after that conversation starts is between you and the buyer.</p>
-                        </div>
-                    </div>
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">How do you integrate with our existing CRM and sales process?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">We book directly into your team's calendar. CRM logging depends on your setup — HubSpot, Salesforce, or whatever you use. The goal is minimal friction. Introductions flow into your existing process.</p>
-                        </div>
-                    </div>
-                    <div data-hover="false" data-delay="0" class="faq-item dark w-dropdown">
-                        <div class="faq-item-title dark w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-                            <div class="faq-icon dark"></div>
-                            <div class="text-medium text-semi">What happens after our alignment call?</div>
-                        </div>
-                        <div class="faq-item-content dark w-dropdown-list" style="max-height: 0; opacity: 0; transform: translateY(-10px)">
-                            <p class="text-light-grey text-medium mb-0">If we're a fit, we begin the research phase immediately. We study your market, map the buyer landscape, and identify the first set of introduction targets. You'll hear from us with progress and initial match recommendations within the first two weeks.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Close: every section leads here -->
+    <section class="wf-section wf-close" data-sc-act="flow" data-sc-drift="#e5e8f1">
+        <div class="wf-close__inner" data-sc-in data-sc-stagger="60">
+            <h2 class="wf-display">Start With an Alignment Call</h2>
+            <p>The first introduction typically happens within 3-4 weeks. That time is spent on
+            research — understanding your market, identifying the right buyers, and preparing
+            the ground.</p>
+            <a href="https://cal.com/wizerflow/partner-alignment-call"
+               class="wf-btn wf-btn--primary wf-btn--large"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-sc-magnet="0.18">
+               Book alignment call
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-left">
-                    <a href="index.html" class="mb-20">
-                        <img src="images/white-removebg.png" alt="Wizerflow Logo" width="105">
-                    </a>
-                    <div>
-                        <div class="mb-20 text-white text-medium">
-                            Strategic introductions that connect<br>need with capability.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-20-fixed footer-col-spacer"></div>
-
-                <div class="mb-20-fixed footer-nav">
-                    <a href="#how-it-works" class="footer-link text-small">How it Works</a>
-                    <a href="case-studies.html" class="footer-link text-small">Case studies</a>
-                </div>
-
-                <div class="mb-20-fixed footer-nav">
-                    <div class="text-primary subtitle text-small mb-20">RESOURCES</div>
-                    <a href="policy.html" aria-current="page" class="footer-link text-small">Terms and policy</a>
-                </div>
-            </div>
-
-            <div class="footer-legal">
-                <div style="text-align: center;">
-                    <div class="text-white text-extra-small">
-                        Created with <span class="text-white heart">&#x2764;</span> &copy; Wizerflow Inc. All Rights Reserved.
-                    </div>
-                </div>
-            </div>
+    <footer class="wf-footer">
+        <div class="wf-footer__inner">
+            <a class="wf-footer__brand" href="index.html">
+                <img src="images/purple-removebg.png" alt="Wizerflow">
+                <span>Wizerflow</span>
+            </a>
+            <p class="wf-footer__tag">Strategic introductions that connect need with capability.</p>
+            <nav aria-label="Footer">
+                <a href="#how-it-works">How we work</a>
+                <a href="case-studies.html">Case studies</a>
+                <a href="policy.html">Terms and policy</a>
+            </nav>
+        </div>
+        <div class="wf-footer__legal">
+            <span class="wf-mono">Wizerflow Inc.</span>
+            <span class="wf-mono">© Wizerflow Inc. All Rights Reserved.</span>
         </div>
     </footer>
 
-    <!-- Scroll Progress -->
-    <div class="scroll-progress"></div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/demo-scroll.js"></script>
-    <script src="js/faq-dropdown.js"></script>
-    <script src="js/particles.js"></script>
+    <script src="js/vendor/scrollcraft.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>
