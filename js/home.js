@@ -50,13 +50,15 @@
   }
 
   /* -- FAQ answer carousel ---------------------------------------------------
-     Role-driven: one card in frame (center), neighbours blurred left/right,
-     the rest parked behind. Background tint morphs with the active card. */
+     A continuous track: every card always holds a real slot offset from the
+     active one, so navigating glides the whole fan like pages. Cards that
+     wrap around the ring snap invisibly at the far, faded edge. */
   var faqSec = document.querySelector(".wf-faqcar");
   if (faqSec) {
     var cards = Array.prototype.slice.call(faqSec.querySelectorAll(".wf-faqcar__card"));
     var arrows = faqSec.querySelectorAll(".wf-faqcar__arrow");
     var count = faqSec.querySelector(".wf-faqcar__count");
+    var narrow = window.matchMedia("(max-width: 991px)");
     var n = cards.length;
     /* rhodium drift tints, one per question */
     var tints = ["#e9eaec", "#e7e9ef", "#ecebe7", "#e6ebea", "#eae7ee",
@@ -64,16 +66,32 @@
     var active = 0;
     var locked = false;
 
-    var render = function () {
+    var apply = function (animate) {
       cards.forEach(function (card, i) {
-        var rel = (i - active + n) % n;
-        card.classList.remove("is-center", "is-left", "is-right", "is-back");
-        if (rel === 0) card.classList.add("is-center");
-        else if (rel === 1) card.classList.add("is-right");
-        else if (rel === n - 1) card.classList.add("is-left");
-        else card.classList.add("is-back");
+        var rel = i - active;
+        if (rel > n / 2) rel -= n;
+        if (rel < -n / 2) rel += n;
+        var prev = card.dataset.rel === undefined ? rel : parseInt(card.dataset.rel, 10);
+        var ax = Math.abs(rel);
+        /* a card that crossed the ring snaps while fully faded instead of
+           sweeping across the stage */
+        var crossed = prev !== rel && prev * rel < 0 && Math.abs(prev) > 1 && ax > 1;
+        card.classList.toggle("is-snap", !animate || crossed);
+
+        var op = rel === 0 ? 1 : Math.max(0, 0.72 - (ax - 1) * 0.3);
+        if (narrow.matches && rel !== 0) op = 0;
+        card.style.setProperty("--tx", (rel * 30) + "%");
+        card.style.setProperty("--sc", Math.max(0.82, 1 - ax * 0.09).toFixed(3));
+        card.style.setProperty("--op", op.toFixed(3));
+        card.style.setProperty("--bl", Math.min(6, ax * 2).toFixed(1) + "px");
+        card.style.setProperty("--dy", (ax === 0 ? 0 : Math.min(10, 4 + ax * 2)) + "%");
+        card.classList.toggle("is-center", rel === 0);
         /* neighbours are decorative echoes of real content, not separate tabs */
         card.setAttribute("aria-hidden", rel === 0 ? "false" : "true");
+        card.dataset.rel = rel;
+        if (card.classList.contains("is-snap")) {
+          requestAnimationFrame(function () { card.classList.remove("is-snap"); });
+        }
       });
       if (count) {
         count.textContent = String(active + 1).padStart(2, "0") + " / " + String(n).padStart(2, "0");
@@ -85,8 +103,8 @@
       if (locked) return;
       locked = true;
       active = (active + (dir === "next" ? 1 : n - 1)) % n;
-      render();
-      setTimeout(function () { locked = false; }, 650);
+      apply(true);
+      setTimeout(function () { locked = false; }, 720);
     };
 
     if (arrows.length === 2) {
@@ -102,6 +120,6 @@
     });
 
     faqSec.classList.add("wf-faqcar--ready");
-    render();
+    apply(false);
   }
 })();
