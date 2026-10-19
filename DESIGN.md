@@ -225,7 +225,7 @@ Near-sharp, milled corners: one radius scale of 3px (default, `--wf-r-sm`), 4px,
 - **Hallmark:** a mono label preceded by a 6px ruby dot with an 18% ruby ring — a maker's stamp, used at cert foot and FAQ aside.
 
 ### Inputs / Fields
-No text inputs exist in this world (sole conversion path is the cal.com link). Keyboard interaction is limited to buttons, accordion toggles, and the menu — all carry the 2px accent focus ring.
+No text inputs exist in this world (sole conversion path is the cal.com link). Keyboard interaction is limited to buttons, carousel arrows (plus left/right arrow keys while the FAQ is on screen), and the menu — all carry the 2px accent focus ring.
 
 ### Navigation
 Fixed header on an 86% canvas mix with a 10px backdrop blur; scrolled state adds E1. The header closes with a calibrated tick rule (two repeating-linear-gradient scales — coarse ticks every 12.5%, fine every 2.5% — masked at both ends) rather than a border. Links are ink text with a 1px underline that draws in from the left on hover; the nav CTA is the primary button at nav size. Below 991px the nav collapses to a three-line menu button (1.5px ink strokes animating to an X) opening a full-screen canvas overlay. Scroll progress is a fixed 2px accent bar at the very top.
@@ -233,8 +233,8 @@ Fixed header on an 86% canvas mix with a 10px backdrop blur; scrolled state adds
 ### The Escapement (signature)
 The pipeline as a movement: a pinned three-span stage. Left, four numbered steps (mono indices, accent nodes on an accent-fading spine). Right, an authored stroke drawing of the train (mainspring, center wheel, escapement, anchor) whose strokes draw via `data-draw` dashoffset choreography driven by scroll progress, with one accent circle struck around the chosen jewel. Beneath it, the candidate rail: nine ticks whose opacity is driven by a per-tick `--hit` CSS variable computed from scroll progress — candidates present but backgrounded, declined ticks taking a rotated ruby strike, the chosen tick struck forward as a 5px accent bar with an 18% accent ring and a slight scale. Mono captions read Researched / Vetted / Introduced. Under reduced motion, `--hit` is forced to 1 and every stroke is drawn; the stage degrades to flow on short viewports.
 
-### FAQ accordion
-Hairline-separated items; toggle is an unset full-width button (ink, 500) whose plus sign (two 1.5px bars) rotates to a minus. Panels open via `grid-template-rows: 0fr → 1fr` driven by `:has(.wf-faq__toggle[aria-expanded="true"])`, 420ms engine ease-out.
+### FAQ answer carousel
+A full-viewport card carousel replaces the accordion. One question card in frame at center (raised plate, mono accent index, question at display scale, answer below); neighbours sit smaller at left (20%) and right (80%), blurred 2px at 70% opacity with answers hidden; remaining cards are parked off-stage (`display:none`). All motion — transform, left, opacity, filter, box-shadow — runs on one 650ms `cubic-bezier(0.4,0,0.2,1)` curve with a 650ms click lock; the section ground morphs between per-question rhodium drift tints on the same curve. A giant ghost word "ANSWERS" (Archivo 800 / 118%, ink at 7%) sits behind the cards. Chrome: top-left mono label, bottom-left counter (01 / 09) plus two circular 2px-ink arrow buttons (hover scale 1.08 + 8% ink wash), bottom-right display-size "Book alignment call" link. Arrow keys drive it while on screen; side cards are `aria-hidden`; without JS the cards fall back to a static readable stack.
 
 ## Do's and Don'ts
 

@@ -433,47 +433,125 @@ em { font-style: italic; }
 }
 .wf-bridge p { grid-column: 2; margin: 0; color: var(--sc-ink-soft); font-size: 0.95rem; max-width: 52ch; }
 
-/* ------------------------------------------------------------------ faq --- */
-.wf-faq {
-  display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: var(--sc-9);
-  max-width: var(--sc-maxw); margin-inline: auto;
+/* ------------------------------------------------- faq: the answer carousel */
+.wf-faqcar {
+  position: relative; height: 100svh; min-height: 620px;
+  overflow: clip;
+  background: #e9eaec;
+  transition: background-color 650ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.wf-faq__aside { position: sticky; top: 6.5rem; align-self: start; padding-top: var(--sc-4); }
-.wf-faq__aside h2 { margin: var(--sc-3) 0 0; font-size: clamp(1.8rem, 1.4rem + 1.8vw, 2.6rem); }
-.wf-faq__list { padding-top: var(--sc-4); }
-.wf-faq__item { border-bottom: var(--wf-rule); }
-.wf-faq__item:first-child { border-top: var(--wf-rule); }
-.wf-faq__toggle {
-  all: unset; cursor: pointer; width: 100%;
-  display: flex; align-items: baseline; justify-content: space-between; gap: var(--sc-4);
-  padding: var(--sc-4) 0;
-  font-weight: 500; font-size: 1.02rem; color: var(--sc-ink);
-  transition: color var(--sc-d-base) var(--sc-ease-out);
+/* giant ghost heading behind the cards */
+.wf-faqcar__ghost {
+  position: absolute; inset-inline: 0; top: 15%;
+  display: flex; justify-content: center; align-items: center;
+  pointer-events: none; user-select: none; z-index: 2;
+  font-family: var(--sc-font-display); font-weight: 800; font-stretch: 118%;
+  font-size: clamp(72px, 17vw, 235px); line-height: 1; letter-spacing: -0.02em;
+  text-transform: uppercase; white-space: nowrap;
+  color: color-mix(in oklab, var(--sc-ink) 7%, transparent);
 }
-.wf-faq__toggle:hover { color: var(--sc-accent); }
-.wf-faq__toggle:focus-visible, .wf-menu-btn:focus-visible {
-  outline: 2px solid var(--sc-accent);
-  outline-offset: 3px;
-  border-radius: var(--wf-r-sm);
+.wf-faqcar__label {
+  position: absolute; top: 8rem; left: var(--sc-gutter); z-index: 60;
+  margin: 0; max-width: 14rem; line-height: 1.7;
 }
-.wf-faq__sign {
-  flex: none; position: relative; width: 14px; height: 14px; align-self: center;
+.wf-faqcar__stage { position: absolute; inset: 0; z-index: 3; }
+
+/* cards: role-driven, one in frame at a time */
+.wf-faqcar__card {
+  position: absolute; bottom: 24%;
+  width: min(620px, 88vw);
+  background: var(--sc-surface);
+  border: var(--wf-rule); border-radius: var(--wf-r-sm);
+  box-shadow: var(--sc-e2), var(--sc-edge);
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  transition:
+    transform 650ms cubic-bezier(0.4, 0, 0.2, 1),
+    left 650ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 650ms cubic-bezier(0.4, 0, 0.2, 1),
+    filter 650ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 650ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, filter, opacity;
 }
-.wf-faq__sign::before, .wf-faq__sign::after {
-  content: ""; position: absolute; inset: 50% 0 auto 0; height: 1.5px;
-  background: currentColor; translate: 0 -50%;
-  transition: rotate var(--sc-d-base) var(--sc-ease-out);
+.wf-faqcar__card .wf-faqcar__no { display: block; margin-bottom: var(--sc-3); color: var(--sc-accent); }
+.wf-faqcar__card h3 {
+  margin: 0 0 var(--sc-4);
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 108%;
+  font-size: clamp(1.25rem, 2vw, 1.7rem); letter-spacing: -0.02em; line-height: 1.15;
+  color: var(--sc-ink);
 }
-.wf-faq__sign::after { rotate: 90deg; }
-.wf-faq__toggle[aria-expanded="true"] .wf-faq__sign::after { rotate: 0deg; }
-.wf-faq__panel {
-  display: grid; grid-template-rows: 0fr;
-  transition: grid-template-rows var(--sc-d-slow) var(--sc-ease-out);
+.wf-faqcar__card p { margin: 0; color: var(--sc-ink-soft); font-size: 1rem; line-height: 1.65; }
+
+.wf-faqcar__card.is-center { left: 50%; transform: translateX(-50%) scale(1); opacity: 1; filter: none; z-index: 20; }
+.wf-faqcar__card.is-left   { left: 20%; bottom: 14%; width: 250px; transform: translateX(-50%) scale(0.92); opacity: 0.7; filter: blur(2px); z-index: 10; }
+.wf-faqcar__card.is-right  { left: 80%; bottom: 14%; width: 250px; transform: translateX(-50%) scale(0.92); opacity: 0.7; filter: blur(2px); z-index: 10; }
+.wf-faqcar__card.is-back   { display: none; }
+.wf-faqcar__card.is-left p,
+.wf-faqcar__card.is-right p,
+.wf-faqcar__card.is-back p { display: none; }
+.wf-faqcar__card.is-left h3,
+.wf-faqcar__card.is-right h3,
+.wf-faqcar__card.is-back h3 { font-size: 0.95rem; }
+.wf-faqcar__card.is-left .wf-faqcar__no,
+.wf-faqcar__card.is-right .wf-faqcar__no,
+.wf-faqcar__card.is-back .wf-faqcar__no { font-size: 0.6rem; margin-bottom: var(--sc-2); }
+
+/* nav: counter + circular arrows, bottom left */
+.wf-faqcar__nav {
+  position: absolute; left: var(--sc-gutter); bottom: 3.5rem; z-index: 60;
+  display: flex; align-items: center; gap: var(--sc-5);
 }
-.wf-faq__item:has(.wf-faq__toggle[aria-expanded="true"]) .wf-faq__panel { grid-template-rows: 1fr; }
-.wf-faq__panel > div { overflow: clip; }
-.wf-faq__panel p { margin: 0 0 var(--sc-4); padding-right: var(--sc-6); max-width: 62ch; color: var(--sc-ink-soft); }
+.wf-faqcar__count { font-size: 0.8rem; letter-spacing: 0.18em; }
+.wf-faqcar__arrows { display: flex; gap: var(--sc-3); }
+.wf-faqcar__arrow {
+  all: unset; cursor: pointer;
+  display: grid; place-items: center;
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 2px solid var(--sc-ink); color: var(--sc-ink);
+  transition: transform 150ms ease-out, background-color 150ms ease-out;
+}
+.wf-faqcar__arrow:hover { transform: scale(1.08); background: color-mix(in oklab, var(--sc-ink) 8%, transparent); }
+.wf-faqcar__arrow:focus-visible {
+  outline: 2px solid var(--sc-accent); outline-offset: 3px;
+}
+
+/* cta lockup, bottom right */
+.wf-faqcar__cta {
+  position: absolute; right: var(--sc-gutter); bottom: 3rem; z-index: 60;
+  display: flex; align-items: center; gap: 0.4em;
+  font-family: var(--sc-font-display); font-weight: 700; font-stretch: 112%;
+  font-size: clamp(20px, 3.4vw, 44px); letter-spacing: -0.02em; line-height: 1;
+  text-transform: uppercase; text-decoration: none; color: var(--sc-ink);
+  opacity: 0.95; transition: opacity 200ms ease-out, color 200ms ease-out;
+}
+.wf-faqcar__cta:hover { opacity: 1; color: var(--sc-accent); }
+
+/* no-JS fallback: a plain readable stack instead of absolute positions */
+.wf-faqcar:not(.wf-faqcar--ready) .wf-faqcar__card {
+  position: static; width: min(680px, 92vw); margin: 0 auto var(--sc-4);
+  opacity: 1; filter: none;
+}
+.wf-faqcar:not(.wf-faqcar--ready) .wf-faqcar__stage {
+  position: static; padding: 9rem var(--sc-gutter) 8rem;
+}
+
+@media (max-width: 991px) {
+  .wf-faqcar__card.is-left, .wf-faqcar__card.is-right, .wf-faqcar__card.is-back { display: none; }
+  .wf-faqcar__card.is-center { bottom: 22%; }
+  .wf-faqcar__label { top: 5.5rem; }
+}
+@media (max-width: 640px) {
+  .wf-faqcar { min-height: 640px; }
+  .wf-faqcar__ghost { top: 16%; font-size: clamp(64px, 26vw, 140px); }
+  .wf-faqcar__card.is-center { bottom: 27%; padding: 1.4rem; }
+  .wf-faqcar__nav { bottom: 2.2rem; left: 1.5rem; }
+  .wf-faqcar__label { left: 1.5rem; }
+  .wf-faqcar__arrow { width: 48px; height: 48px; }
+  .wf-faqcar__cta { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wf-faqcar { transition: none; }
+  .wf-faqcar__card { transition-duration: 1ms; filter: none; }
+}
 
 /* ---------------------------------------------------------------- close --- */
 .wf-close { text-align: center; }
@@ -512,6 +590,11 @@ em { font-style: italic; }
 .wf-menu-btn {
   all: unset; cursor: pointer; display: none;
   width: 38px; height: 38px; position: relative;
+}
+.wf-menu-btn:focus-visible {
+  outline: 2px solid var(--sc-accent);
+  outline-offset: 3px;
+  border-radius: var(--wf-r-sm);
 }
 .wf-menu-btn span {
   position: absolute; left: 8px; right: 8px; height: 1.5px;
