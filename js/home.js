@@ -5,6 +5,12 @@
   "use strict";
 
   /* -- scroll engine ------------------------------------------------------ */
+  /* short viewports (landscape phones) cannot hold a 3-span pinned stage:
+     degrade the escapement to normal flow before the engine reads it */
+  if (matchMedia("(max-height: 640px)").matches) {
+    var pin = document.querySelector('[data-sc-act="pin"]');
+    if (pin) pin.setAttribute("data-sc-act", "flow");
+  }
   if (window.ScrollCraft) {
     try {
       window.ScrollCraft.mount(document.body, { lerp: 0.18 });

@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T00:00:00Z",
+  "title": "Design System: Wizerflow",
+  "extensions": {
+    "colorMeta": {
+      "canvas":     { "role": "neutral", "displayName": "Rhodium Bench",      "canonical": "#e8e9ec", "tonalRamp": ["#3a3d47", "#5a5e6a", "#7c818d", "#a2a7b1", "#c6cad2", "#d5d8dd", "#e8e9ec", "#f2f3f6"] },
+      "surface":    { "role": "neutral", "displayName": "Raised Plate",        "canonical": "#f3f4f6", "tonalRamp": ["#3a3d47", "#5a5e6a", "#7c818d", "#a2a7b1", "#c6cad2", "#d5d8dd", "#e8e9ec", "#f3f4f6"] },
+      "well":       { "role": "neutral", "displayName": "Recessed Well",       "canonical": "#dcdee3", "tonalRamp": ["#383b45", "#575b66", "#787d89", "#9ba0ab", "#bcc0c9", "#cfd2d9", "#dcdee3", "#e9ebef"] },
+      "ink":        { "role": "neutral", "displayName": "Blued Steel Ink",     "canonical": "#1b1f2b", "tonalRamp": ["#10131c", "#1b1f2b", "#2b3040", "#454b5d", "#5f6678", "#8b92a2", "#b8bdca", "#dde0e7"] },
+      "ink-soft":   { "role": "neutral", "displayName": "Tinted Soft Ink",     "canonical": "#565e6e", "tonalRamp": ["#2a2f3c", "#3c4252", "#4c5364", "#565e6e", "#767d8c", "#979dad", "#bfc4d1", "#e2e5ec"] },
+      "accent":     { "role": "primary", "displayName": "Heat-Blued Steel",    "canonical": "#2447c9", "tonalRamp": ["#0d1f66", "#16307f", "#1c3d9c", "#2447c9", "#4a63d4", "#7684de", "#a3aee9", "#d0d6f4"] },
+      "accent-ink": { "role": "primary", "displayName": "Ink on Accent",       "canonical": "#f2f4fb", "tonalRamp": ["#1a2440", "#2c3a63", "#4a5c8f", "#7c8cc0", "#aeb9e2", "#cdd4f2", "#e4e8fa", "#f2f4fb"] },
+      "ruby":       { "role": "secondary", "displayName": "Jewel Ruby",        "canonical": "#c22b45", "tonalRamp": ["#5e1020", "#8a1a2f", "#a82239", "#c22b45", "#d05164", "#de7b89", "#eaa7b0", "#f6d3d8"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Applied Index Display", "purpose": "Hero and section headings; Archivo variable at weight 640 / width 111%, tracking −0.028em. Promotion is weight-and-width together." },
+      "lede":    { "displayName": "Lede", "purpose": "Section openers and hero deck; 34–44ch measure." },
+      "body":    { "displayName": "Body", "purpose": "Running prose, capped at 62ch." },
+      "label":   { "displayName": "Engraved Label", "purpose": "Fragment Mono uppercase, 0.14em tracking: labels, meta grids, hallmarks, legal. Never running prose." },
+      "button":  { "displayName": "Button", "purpose": "Archivo 600 at width 106%; the applied-index voice at control size." }
+    },
+    "shadows": [
+      { "name": "e1-plate-rest", "value": "0 1px 2px hsl(228 28% 22% / 0.10), 0 2px 6px -2px hsl(228 28% 22% / 0.07)", "purpose": "Resting bridge cards, scrolled header, primary button." },
+      { "name": "e2-lifted-plate", "value": "0 2px 4px hsl(228 28% 22% / 0.08), 0 10px 22px -6px hsl(228 28% 22% / 0.14)", "purpose": "Hover states and the cert plate." },
+      { "name": "e3-featured", "value": "0 4px 10px hsl(228 28% 22% / 0.09), 0 22px 48px -10px hsl(228 28% 22% / 0.20), 0 56px 110px -30px hsl(228 28% 22% / 0.16)", "purpose": "The featured Wizerflow email plate only." },
+      { "name": "edge-light", "value": "inset 0 1px 0 rgba(255,255,255,0.85)", "purpose": "1px top highlight paired with every shadow on a raised surface." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Engine easing for all state transitions and cue reveals." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Vendor-floor alternate; not used by the instrument layer." },
+      { "name": "ease-drawer", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Vendor-floor drawer easing; not used by the instrument layer." },
+      { "name": "duration-fast", "value": "160ms", "purpose": "Micro state changes." },
+      { "name": "duration-base", "value": "240ms", "purpose": "Default transition length (buttons, links, header)." },
+      { "name": "duration-slow", "value": "420ms", "purpose": "Accordion rows, mobile nav." },
+      { "name": "reveal-in", "value": "opacity 620ms ease-out, transform 620ms ease-out (entering from translate3d(0, 14px, 0))", "purpose": "Flow-entry reveal; staggered children at 40–90ms." },
+      { "name": "data-draw", "value": "stroke-dasharray: 1; stroke-dashoffset: calc(1 - clamp((var(--sc-p) - var(--d)) * 2.4, 0, 1)) with pathLength=1", "purpose": "Scroll-scrubbed stroke drawing for the authored movement SVGs." },
+      { "name": "hit-strike", "value": "--hit: clamp((var(--sc-p) - 0.08 - var(--i) * 0.075) * 9, 0, 1)", "purpose": "Per-tick strike progress on the candidate rail; forced to 1 under reduced motion." },
+      { "name": "magnet", "value": "data-sc-magnet 0.14–0.2", "purpose": "Subtle pointer lean on primary CTAs." },
+      { "name": "reduced-motion", "value": "fades only; parallax/kinetic transforms none; strokes drawn; --hit: 1; pin degrades to flow below 640px viewport height", "purpose": "Degradation contract — motion is never a gate." }
+    ],
+    "breakpoints": [
+      { "name": "xl", "value": "1180px" },
+      { "name": "lg", "value": "991px" },
+      { "name": "md", "value": "860px" },
+      { "name": "sm", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Applied Index)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The sole action: heat-blued metal set into the page, catching the light.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Book alignment call</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.55em; font-family: Archivo, system-ui, sans-serif; font-weight: 600; font-stretch: 106%; font-size: 0.95rem; letter-spacing: -0.01em; text-decoration: none; cursor: pointer; border-radius: 3px; padding: 0.72em 1.35em; background: var(--sc-accent, #2447c9); color: var(--sc-accent-ink, #f2f4fb); box-shadow: 0 1px 2px hsl(228 28% 22% / 0.10), 0 2px 6px -2px hsl(228 28% 22% / 0.07), inset 0 1px 0 rgba(255,255,255,0.28); transition: transform 240ms cubic-bezier(0.23,1,0.32,1), box-shadow 240ms cubic-bezier(0.23,1,0.32,1), background 240ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-primary:hover { background: color-mix(in oklab, #2447c9 88%, #1b1f2b); box-shadow: 0 2px 4px hsl(228 28% 22% / 0.08), 0 10px 22px -6px hsl(228 28% 22% / 0.14), inset 0 1px 0 rgba(255,255,255,0.28); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid #2447c9; outline-offset: 3px; border-radius: 3px; }"
+    },
+    {
+      "name": "Quiet Link",
+      "kind": "button",
+      "refersTo": "link-quiet",
+      "description": "The secondary path: ink text on a hairline underline that heats to accent.",
+      "html": "<a class=\"ds-link-quiet\" href=\"#\">How we work</a>",
+      "css": ".ds-link-quiet { color: #1b1f2b; text-decoration: none; font-weight: 500; border-bottom: 1px solid color-mix(in oklab, #1b1f2b 34%, transparent); padding-bottom: 2px; transition: border-color 240ms cubic-bezier(0.23,1,0.32,1); } .ds-link-quiet:hover { border-color: #2447c9; } .ds-link-quiet:focus-visible { outline: 2px solid #2447c9; outline-offset: 3px; border-radius: 3px; }"
+    },
+    {
+      "name": "Cert Plate (Inspection Plate)",
+      "kind": "card",
+      "refersTo": "cert-plate",
+      "description": "Double-keyline raised plate for the meeting guarantee, closed by a hallmark.",
+      "html": "<div class=\"ds-cert\"><h2 class=\"ds-cert__h\">Aligned Conversations From Research Acumen</h2><p class=\"ds-cert__sub\">Not Volume. Not Guesswork. Matched Conversations.</p><p class=\"ds-cert__body\">We filter out the noise. Every conversation flows from deep alignment and relevance — not a numbers game.</p><a class=\"ds-btn-primary\" href=\"#\">Book alignment call</a><br><span class=\"ds-hallmark\">Quality over quantity. Always.</span></div>",
+      "css": ".ds-cert { max-width: 56rem; margin-inline: auto; background: #f3f4f6; border: 1px solid color-mix(in oklab, #1b1f2b 18%, transparent); outline: 1px solid color-mix(in oklab, #1b1f2b 18%, transparent); outline-offset: 6px; border-radius: 3px; box-shadow: 0 2px 4px hsl(228 28% 22% / 0.08), 0 10px 22px -6px hsl(228 28% 22% / 0.14), inset 0 1px 0 rgba(255,255,255,0.85); padding: clamp(2.4rem, 5vw, 4.5rem) clamp(1.6rem, 5vw, 4rem); text-align: center; } .ds-cert__h { font-family: Archivo, system-ui, sans-serif; font-weight: 640; font-stretch: 111%; letter-spacing: -0.028em; line-height: 0.94; font-size: clamp(1.9rem, 1.3rem + 2.6vw, 3.3rem); color: #1b1f2b; margin: 0 auto; max-width: 20ch; } .ds-cert__sub { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 1.5rem 0 2rem; font-family: 'Fragment Mono', ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #565e6e; } .ds-cert__sub::before, .ds-cert__sub::after { content: \"\"; width: 3.5rem; height: 1px; background: color-mix(in oklab, #1b1f2b 34%, transparent); } .ds-cert__body { margin: 0 auto 3rem; max-width: 52ch; color: #565e6e; } .ds-hallmark { display: inline-flex; align-items: center; gap: 0.7em; margin-top: 2rem; font-family: 'Fragment Mono', ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #565e6e; } .ds-hallmark::before { content: \"\"; width: 6px; height: 6px; border-radius: 50%; background: #c22b45; box-shadow: 0 0 0 3px color-mix(in oklab, #c22b45 18%, transparent); }"
+    },
+    {
+      "name": "Email Plate — Generic (Recessed Well)",
+      "kind": "card",
+      "refersTo": "email-plate-generic",
+      "description": "The volume-approach artifact: sunk into the base plate, everything soft.",
+      "html": "<article class=\"ds-email ds-email--generic\"><div class=\"ds-email__tag\"><h3>Generic Agency Email</h3><span class=\"ds-email__note\">(The Volume Approach)</span></div><dl class=\"ds-email__meta\"><dt>From</dt><dd>{{{Sales_Rep}}}</dd><dt>To</dt><dd>{{{First_Name}}}</dd></dl><p class=\"ds-email__body\">Hi {{{First_Name}}}, I hope this email finds you well…</p></article>",
+      "css": ".ds-email { border-radius: 3px; padding: clamp(1.4rem, 2.6vw, 2.2rem); } .ds-email--generic { background: #dcdee3; border: 1px solid color-mix(in oklab, #1b1f2b 18%, transparent); color: #565e6e; } .ds-email__tag { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; } .ds-email__tag h3 { font-family: Archivo, system-ui, sans-serif; font-weight: 640; font-stretch: 108%; font-size: 1.2rem; letter-spacing: -0.015em; margin: 0; color: #1b1f2b; } .ds-email__note { font-style: italic; font-size: 0.85rem; color: #565e6e; } .ds-email__meta { display: grid; grid-template-columns: auto 1fr; gap: 0.2em 1rem; margin: 1rem 0; padding: 0.75rem 0; border-top: 1px solid color-mix(in oklab, #1b1f2b 18%, transparent); border-bottom: 1px solid color-mix(in oklab, #1b1f2b 18%, transparent); font-family: 'Fragment Mono', ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.06em; } .ds-email__meta dt { color: #565e6e; } .ds-email__meta dd { margin: 0; color: #1b1f2b; } .ds-email__body { font-size: 0.95rem; line-height: 1.6; margin: 0; }"
+    },
+    {
+      "name": "Email Plate — Featured (Raised Plate)",
+      "kind": "card",
+      "refersTo": "email-plate-featured",
+      "description": "The Wizerflow artifact: raised, edge-lit, keylined in accent at 42%.",
+      "html": "<article class=\"ds-email ds-email--featured\"><div class=\"ds-email__tag\"><h3>Wizerflow Email</h3><span class=\"ds-email__note\">(Research-Driven, Buyer-Specific)</span></div><dl class=\"ds-email__meta\"><dt>From</dt><dd>David</dd><dt>Subject</dt><dd>The AWS security gap in your recent Kubernetes migration</dd></dl><p class=\"ds-email__body\">Hi Sarah, your engineering team's GitHub commits show…</p><ul class=\"ds-verdicts\"><li><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#2447c9\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg><span>Specific pain point identified from real data</span></li></ul></article>",
+      "css": ".ds-email--featured { background: #f3f4f6; border: 1.5px solid color-mix(in oklab, #2447c9 42%, transparent); box-shadow: 0 4px 10px hsl(228 28% 22% / 0.09), 0 22px 48px -10px hsl(228 28% 22% / 0.20), 0 56px 110px -30px hsl(228 28% 22% / 0.16), inset 0 1px 0 rgba(255,255,255,0.85); } .ds-verdicts { list-style: none; margin: 1.5rem 0 0; padding: 1rem 0 0; border-top: 1px solid color-mix(in oklab, #1b1f2b 18%, transparent); } .ds-verdicts li { display: flex; gap: 0.7em; align-items: baseline; font-size: 0.9rem; color: #1b1f2b; } .ds-verdicts li + li { margin-top: 0.5rem; } .ds-verdicts svg { flex: none; translate: 0 0.15em; }"
+    },
+    {
+      "name": "Bridge Plate (Value Card)",
+      "kind": "card",
+      "refersTo": "bridge-card",
+      "description": "A bridge on the base plate: hairline edge, edge light, ruby jewel in the corner.",
+      "html": "<div class=\"ds-bridge\"><span class=\"ds-bridge__jewel\"></span><svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 2v4M12 18v4M2 12h4M18 12h4\"/><circle cx=\"12\" cy=\"12\" r=\"1.6\" fill=\"currentColor\" stroke=\"none\"/></svg><h3>Research First</h3><p>Every introduction starts with research, not outreach.</p></div>",
+      "css": ".ds-bridge { background: #f3f4f6; border: 1px solid color-mix(in oklab, #1b1f2b 18%, transparent); border-radius: 3px; box-shadow: 0 1px 2px hsl(228 28% 22% / 0.10), 0 2px 6px -2px hsl(228 28% 22% / 0.07), inset 0 1px 0 rgba(255,255,255,0.85); padding: 1.5rem 1.5rem 2rem; display: grid; grid-template-columns: auto 1fr; gap: 0 1rem; align-items: start; position: relative; color: #1b1f2b; transition: box-shadow 240ms cubic-bezier(0.23,1,0.32,1); } .ds-bridge:hover { box-shadow: 0 2px 4px hsl(228 28% 22% / 0.08), 0 10px 22px -6px hsl(228 28% 22% / 0.14), inset 0 1px 0 rgba(255,255,255,0.85); } .ds-bridge__jewel { position: absolute; top: calc(1.5rem + 4px); right: 1.5rem; width: 7px; height: 7px; border-radius: 50%; background: #c22b45; box-shadow: 0 0 0 3px color-mix(in oklab, #c22b45 20%, transparent); } .ds-bridge svg { grid-row: span 2; color: #1b1f2b; margin-top: 2px; } .ds-bridge h3 { font-family: Archivo, system-ui, sans-serif; font-weight: 640; font-stretch: 106%; font-size: 1.15rem; letter-spacing: -0.015em; margin: 0 0 0.4em; } .ds-bridge p { grid-column: 2; margin: 0; color: #565e6e; font-size: 0.95rem; max-width: 52ch; }"
+    },
+    {
+      "name": "FAQ Accordion Item",
+      "kind": "custom",
+      "refersTo": "hallmark-label",
+      "description": "Hairline-separated accordion; :has()-driven grid-rows open, plus rotates to minus.",
+      "html": "<div class=\"ds-faq-item\"><h3><button type=\"button\" class=\"ds-faq-toggle\" aria-expanded=\"false\">How is this different from hiring an agency?<span class=\"ds-faq-sign\"></span></button></h3><div class=\"ds-faq-panel\"><div><p>Agencies sell capacity. We deliver precision.</p></div></div></div>",
+      "css": ".ds-faq-item { border-bottom: 1px solid color-mix(in oklab, #1b1f2b 18%, transparent); } .ds-faq-toggle { all: unset; cursor: pointer; width: 100%; display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1rem 0; font-weight: 500; font-size: 1.02rem; color: #1b1f2b; transition: color 240ms cubic-bezier(0.23,1,0.32,1); } .ds-faq-toggle:hover { color: #2447c9; } .ds-faq-toggle:focus-visible { outline: 2px solid #2447c9; outline-offset: 3px; border-radius: 3px; } .ds-faq-sign { flex: none; position: relative; width: 14px; height: 14px; align-self: center; } .ds-faq-sign::before, .ds-faq-sign::after { content: \"\"; position: absolute; inset: 50% 0 auto 0; height: 1.5px; background: currentColor; translate: 0 -50%; transition: rotate 240ms cubic-bezier(0.23,1,0.32,1); } .ds-faq-sign::after { rotate: 90deg; } .ds-faq-toggle[aria-expanded=\"true\"] .ds-faq-sign::after { rotate: 0deg; } .ds-faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 420ms cubic-bezier(0.23,1,0.32,1); } .ds-faq-item:has(.ds-faq-toggle[aria-expanded=\"true\"]) .ds-faq-panel { grid-template-rows: 1fr; } .ds-faq-panel > div { overflow: clip; } .ds-faq-panel p { margin: 0 0 1rem; padding-right: 2rem; max-width: 62ch; color: #565e6e; }"
+    },
+    {
+      "name": "Calibrated Tick Rule",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The world's border: a two-scale measuring rule in hairline ink, masked at both ends.",
+      "html": "<div class=\"ds-rule-scale\"></div>",
+      "css": ".ds-rule-scale { height: 9px; width: 100%; background: repeating-linear-gradient(90deg, color-mix(in oklab, #1b1f2b 34%, transparent) 0 1px, transparent 1px 12.5%), repeating-linear-gradient(90deg, color-mix(in oklab, #1b1f2b 18%, transparent) 0 1px, transparent 1px 2.5%); -webkit-mask: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Opened Movement",
+    "overview": "Wizerflow's homepage is built like a watchmaker's movement opened under bright bench light: a pale rhodium ground, blued-steel ink, plates raised and recessed in a base metal, one heat-blued accent reserved for the promoted element, and ruby used only where a real movement uses jewels — as tiny functional bearings and hallmark marks. Structure comes from calibrated tick rules, hairlines, and registry marks rather than heavy borders or filled blocks. The page is light, exact, and quiet; density is low and every mark earns its place.\n\nThe signature interaction carries the product thesis: many candidates are present, most are checked and declined one tick at a time, and the single right introduction is struck forward in accent blue. Typography is applied-index Archivo (variable, cut at weight 640 / width 111% for display) with Fragment Mono as the engraving face for labels, meta grids, and hallmarks — uppercase with wide tracking, like stamping on a plate.\n\nMotion is scroll-scrubbed choreography, never looping: strokes draw themselves, ticks strike, sections drift subtly in ground color as the light moves. Reduced motion degrades to fades with all strokes drawn and every tick struck (--hit forced to 1); with JavaScript off, a guard reveals all cued content.",
+    "keyCharacteristics": [
+      "Pale bench-light ground (canvas #e8e9ec) with recessed wells and raised plates; no dark surfaces on this world's pages",
+      "One heat-blued accent (#2447c9) owning action and promotion; ruby (#c22b45) as functional micro-markers only",
+      "Near-sharp milled corners (3/4/6px), hairlines instead of opaque borders",
+      "Calibrated tick rules and registry marks as structural ornament",
+      "Self-hosted variable fonts (Archivo + Fragment Mono); no hosted font services",
+      "Scroll-scrubbed Escapement choreography with full reduced-motion and no-JS degradation"
+    ],
+    "rules": [
+      { "name": "The Jewel Bearing Rule", "body": "Ruby marks function, never decoration. A ruby dot must mean something — a jewel bearing, a decline, a hallmark. If it is filling space or adding color, it comes out.", "section": "colors" },
+      { "name": "The One Blued Voice Rule", "body": "Exactly one accent. Anything promoted, actionable, or struck forward is #2447c9; there is no second accent hue anywhere in the world.", "section": "colors" },
+      { "name": "The Bench-Light Rule", "body": "The ground is pale and even; depth is made by raising plates and sinking wells, not by darkening the canvas or adding colored washes.", "section": "colors" },
+      { "name": "The Engraved Label Rule", "body": "Anything stamped rather than spoken — labels, meta, hallmarks, step indices, legal — is Fragment Mono uppercase with wide tracking. It is a plate stamp, not a substitute for a heading, and never sets running prose.", "section": "typography" },
+      { "name": "The Applied Index Rule", "body": "Promoted text is Archivo at 640 / 111% with tight negative tracking. Weight-and-width moves together; a weight jump at default width is not this world's promotion.", "section": "typography" },
+      { "name": "The Edge-Light Rule", "body": "A raised plate always catches light on its lip: pair every shadow with the inset 1px top edge. A shadow without the edge reads as a sticker, not a plate.", "section": "elevation" },
+      { "name": "The No-Halo Rule", "body": "Shadows are offset and cool-tinted on the light ground. Zero-offset colored glows do not exist in this world.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do draw structure with hairlines (ink at 18% / 34% in color-mix) and calibrated tick rules; this world's borders are measuring scales, not boxes.",
+      "Do pair every raised surface with the inset white top edge (--sc-edge) alongside its shadow.",
+      "Do drift each section's ground a few points off canvas with data-sc-drift so the bench light moves across the page.",
+      "Do set promoted text as Archivo 640 / 111% with −0.028em tracking, and stamped text as Fragment Mono uppercase at 0.14em.",
+      "Do author movement art as inline SVG strokes with data-draw and a --d delay; animate by scroll progress with pathLength=\"1\".",
+      "Do degrade every motion device: reduced motion becomes fades with strokes drawn and --hit: 1; the no-JS guard (html:not(.sc-ready)) must reveal all cued content."
+    ],
+    "donts": [
+      "Don't introduce a second accent hue, a gradient wash, or dark hero surfaces — the category default this world refuses.",
+      "Don't fill any area with ruby or use it for text; ruby is a micro-marker (jewel dots, decline strikes, hallmarks).",
+      "Don't exceed 6px radius, use pill shapes, or use pure black (#000) or pure white (#fff) anywhere.",
+      "Don't load hosted font services; Archivo and Fragment Mono are self-hosted variable/woff2 files.",
+      "Don't ship looping or ambient auto-playing motion; everything scrubs from scroll or fires once on entry.",
+      "Don't add a second conversion action — the sole CTA is the primary \"Book alignment call\" button to cal.com."
+    ]
+  }
+}

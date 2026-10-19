@@ -27,7 +27,7 @@ Sales development for considered B2B services; buyers evaluate claims of "qualif
 - Static site (vanilla HTML/CSS/JS, no framework, no build step). Keep it static and dependency-light; Lenis smooth-scroll is the only runtime library in current use.
 - Sole conversion path: `https://cal.com/wizerflow/partner-alignment-call` — one goal, one button. No forms, no dead buttons.
 - Scope of this round: the main-site homepage (`index.html`) and its design world. `case-studies.html`, `policy.html`, `govcon/`, `gc-consultation/` keep existing behavior and links but are not redesigned this round.
-- Copy on index.html (guarantee, 4-step pipeline, the generic-vs-Wizerflow email comparison, 6 values, 10 FAQs) is confirmed product voice and reuses verbatim unless a redesign necessity forces an edit.
+- Copy on index.html (guarantee, 4-step pipeline, the generic-vs-Wizerflow email comparison, 6 values, 9 FAQs) is confirmed product voice and reuses verbatim unless a redesign necessity forces an edit.
 - No invented proof: do not fabricate stats, client names, reviews, or pricing. Legacy case-studies metrics are hotlinked/legacy and stay off the homepage.
 
 ## Brand Commitments

@@ -392,7 +392,7 @@ em { font-style: italic; }
   border-top: var(--wf-rule); border-bottom: var(--wf-rule);
   font-family: var(--wf-mono); font-size: 0.72rem; letter-spacing: 0.06em;
 }
-.wf-email__meta dt { color: color-mix(in oklab, var(--sc-ink-soft) 70%, transparent); }
+.wf-email__meta dt { color: var(--sc-ink-soft); }
 .wf-email__meta dd { margin: 0; color: var(--sc-ink); }
 .wf-email__body p { font-size: 0.95rem; line-height: 1.6; margin: 0 0 0.9em; }
 .wf-email__body p:last-child { margin-bottom: 0; }
@@ -452,6 +452,11 @@ em { font-style: italic; }
   transition: color var(--sc-d-base) var(--sc-ease-out);
 }
 .wf-faq__toggle:hover { color: var(--sc-accent); }
+.wf-faq__toggle:focus-visible, .wf-menu-btn:focus-visible {
+  outline: 2px solid var(--sc-accent);
+  outline-offset: 3px;
+  border-radius: var(--wf-r-sm);
+}
 .wf-faq__sign {
   flex: none; position: relative; width: 14px; height: 14px; align-self: center;
 }
@@ -466,6 +471,7 @@ em { font-style: italic; }
   display: grid; grid-template-rows: 0fr;
   transition: grid-template-rows var(--sc-d-slow) var(--sc-ease-out);
 }
+.wf-faq__item:has(.wf-faq__toggle[aria-expanded="true"]) .wf-faq__panel { grid-template-rows: 1fr; }
 .wf-faq__panel > div { overflow: clip; }
 .wf-faq__panel p { margin: 0 0 var(--sc-4); padding-right: var(--sc-6); max-width: 62ch; color: var(--sc-ink-soft); }
 
