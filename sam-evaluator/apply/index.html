@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizerflow | SAM Evaluator — Pilot Application</title>
+    <meta name="description" content="Apply for one of ten founding pilot spots for SAM Evaluator. About two minutes: the basics, the pilot deal, and your answers open in your own email app.">
+    <meta property="og:title" content="Wizerflow | SAM Evaluator — Pilot Application">
+    <meta property="og:description" content="Apply for one of ten founding pilot spots for SAM Evaluator. About two minutes, and your application opens in your own email app.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wizerflow.com/sam-evaluator/apply/">
+    <meta property="og:image" content="https://wizerflow.com/images/purple-removebg.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon_32x32.png">
+    <link rel="stylesheet" href="../../css/vendor/scrollcraft.css">
+    <link rel="stylesheet" href="../../css/instrument.css">
+    <link rel="stylesheet" href="../../css/instrument-pages.css">
+    <link rel="stylesheet" href="../../css/sam-evaluator.css">
+    <link rel="stylesheet" href="../../css/sam-evaluator-apply.css">
+</head>
+<body class="wf-page">
+
+    <!-- Header / navigation, closed by a calibrated rule -->
+    <header class="wf-header">
+        <div class="wf-header__inner">
+            <a class="wf-brand" href="../../index.html">
+                <img src="../../images/purple-removebg.png" alt="">
+                <span>Wizerflow</span>
+            </a>
+            <nav class="wf-nav" aria-label="Primary">
+                <a href="../index.html#how-it-works">How it works</a>
+                <a href="../index.html#report">The report</a>
+                <a href="../index.html#faq-section">FAQs</a>
+                <a href="#apply"
+                   class="wf-btn wf-btn--primary wf-btn--nav"
+                   data-sc-magnet="0.14">
+                   Apply for a pilot spot
+                </a>
+            </nav>
+            <button class="wf-menu-btn" aria-expanded="false" aria-controls="wf-mobile-nav" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="wf-rule-scale" aria-hidden="true"></div>
+    </header>
+
+    <div class="wf-progress" data-sc-progress aria-hidden="true"></div>
+
+    <div class="wf-mobile-nav" id="wf-mobile-nav">
+        <a href="../index.html#how-it-works">How it works</a>
+        <a href="../index.html#report">The report</a>
+        <a href="../index.html#faq-section">FAQs</a>
+        <a href="#apply">Apply for a pilot spot</a>
+    </div>
+
+    <!-- Page hero: short, plain, honest about what happens next -->
+    <section class="wf-page-hero sea-hero">
+        <div class="wf-page-hero__inner" data-sc-in>
+            <p class="wf-mono">SAM Evaluator · Founding pilot</p>
+            <h1 style="margin-top:var(--sc-4)">Apply for a pilot spot.</h1>
+            <p class="wf-page-hero__deck">
+                Ten spots, one application. It takes about two minutes.
+                When you press the button at the bottom, your answers open
+                as a ready-made email in your own mail app — you look it
+                over and press send. Nothing is stored on this page.
+            </p>
+            <a class="wf-link-quiet sea-hero__back" href="../index.html">Back to the SAM Evaluator page</a>
+        </div>
+    </section>
+
+    <!-- The application plate -->
+    <section class="sea-apply" id="apply" data-sc-drift="#e7e9ef">
+        <div class="sea-plate">
+            <span class="wf-mono">Application — SAM Evaluator founding pilot</span>
+
+            <form id="sea-form" novalidate
+                  action="mailto:chrisnjonjo@wizerflow.com?subject=SAM%20Evaluator%20pilot%20application"
+                  method="post" enctype="text/plain">
+
+                <!-- Section 1: eligibility -->
+                <fieldset class="sea-topic">
+                    <legend>
+                        <span class="sea-topic__no">01 — Eligibility</span>
+                        First, the basics
+                    </legend>
+
+                    <fieldset class="sea-q">
+                        <legend>Which computer will you run it on?</legend>
+                        <div class="sea-choices">
+                            <label class="sea-choice">
+                                <input type="radio" name="q-os" value="mac" required>
+                                <span>Mac</span>
+                            </label>
+                            <label class="sea-choice">
+                                <input type="radio" name="q-os" value="windows">
+                                <span>Windows</span>
+                            </label>
+                            <label class="sea-choice">
+                                <input type="radio" name="q-os" value="linux">
+                                <span>Linux</span>
+                            </label>
+                            <label class="sea-choice">
+                                <input type="radio" name="q-os" value="notsure">
+                                <span>Not sure</span>
+                            </label>
+                        </div>
+                        <p class="sea-note" id="sea-note-os" hidden aria-live="polite">
+                            Not on a Mac? No problem — apply anyway. Our install
+                            guides are Mac-first, but the system runs on Windows
+                            and Linux too. We'll confirm your setup on the call,
+                            before you pay anything.
+                        </p>
+                    </fieldset>
+
+                    <fieldset class="sea-q">
+                        <legend>Do you have a Claude subscription, or are you willing to start one?</legend>
+                        <div class="sea-choices">
+                            <label class="sea-choice">
+                                <input type="radio" name="q-claude" value="have" required>
+                                <span>I have one</span>
+                            </label>
+                            <label class="sea-choice">
+                                <input type="radio" name="q-claude" value="willing">
+                                <span>Willing to start one</span>
+                            </label>
+                            <label class="sea-choice">
+                                <input type="radio" name="q-claude" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                        <p class="sea-note sea-note--stop" id="sea-note-claude" hidden aria-live="polite">
+                            SAM Evaluator runs inside a Claude subscription — that's
+                            where the reading happens, on your account. Without one
+                            (or the willingness to start one), the system can't run.
+                            If that changes, come back — we'd love to have you.
+                        </p>
+                    </fieldset>
+
+                    <fieldset class="sea-q">
+                        <legend>Is your SAM.gov registration active right now?</legend>
+                        <div class="sea-choices">
+                            <label class="sea-choice">
+                                <input type="radio" name="q-sam" value="yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="sea-choice">
+                                <input type="radio" name="q-sam" value="no">
+                                <span>No</span>
+                            </label>
+                            <label class="sea-choice">
+                                <input type="radio" name="q-sam" value="notsure">
+                                <span>Not sure</span>
+                            </label>
+                        </div>
+                        <p class="sea-note" id="sea-note-sam" hidden aria-live="polite">
+                            No problem — apply anyway and tell us in your email.
+                            We'll point you in the right direction.
+                        </p>
+                    </fieldset>
+
+                    <fieldset class="sea-q">
+                        <legend>You — so we know who's applying</legend>
+                        <div class="sea-grid">
+                            <div class="sea-field">
+                                <label for="f-name">Your name</label>
+                                <input class="sea-input" type="text" id="f-name" name="f-name" autocomplete="name" required>
+                            </div>
+                            <div class="sea-field">
+                                <label for="f-company">Company name</label>
+                                <input class="sea-input" type="text" id="f-company" name="f-company" autocomplete="organization" required>
+                            </div>
+                            <div class="sea-field sea-field--full">
+                                <label for="f-email">Email</label>
+                                <input class="sea-input" type="email" id="f-email" name="f-email" autocomplete="email" required>
+                            </div>
+                            <div class="sea-field">
+                                <label for="f-uei">UEI <em>— optional, if you know it</em></label>
+                                <input class="sea-input" type="text" id="f-uei" name="f-uei" autocomplete="off">
+                            </div>
+                            <div class="sea-field">
+                                <label for="f-cage">CAGE code <em>— optional, if you know it</em></label>
+                                <input class="sea-input" type="text" id="f-cage" name="f-cage" autocomplete="off">
+                            </div>
+                        </div>
+                    </fieldset>
+                </fieldset>
+
+                <!-- Section 2: the deal -->
+                <fieldset class="sea-topic">
+                    <legend>
+                        <span class="sea-topic__no">02 — The terms</span>
+                        The pilot deal
+                    </legend>
+
+                    <p class="sea-deal__count wf-mono" id="sea-deal-count" aria-live="polite">0 of 4 agreed — all four are part of the deal.</p>
+
+                    <ul class="sea-deal">
+                        <li>
+                            <label>
+                                <input type="checkbox" name="deal-price" required>
+                                <span>I understand the pilot price is $247 one-time
+                                (standard setup: $1,500–3,000) and covers the install
+                                session, a live demo on a solicitation I choose, and
+                                5 business days of email support.</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="deal-key" required>
+                                <span>I'll get my own free SAM.gov API key before install
+                                day (we show you how — about 5 minutes).</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="deal-support" required>
+                                <span>Support covers making the system run on my computer.
+                                New features and updates are separate.</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="deal-story" required>
+                                <span>I agree to give a short testimonial, join a
+                                15-minute case-study call, and let my reports be
+                                featured anonymously. That's part of the pilot deal.</span>
+                            </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <!-- Submit -->
+                <p class="sea-error" id="sea-error" role="alert" hidden></p>
+                <div class="sea-submit">
+                    <button type="submit" class="wf-btn wf-btn--primary wf-btn--large" id="sea-submit">
+                        Open my application email
+                    </button>
+                    <span class="sea-submit__why wf-mono" id="sea-why" aria-live="polite"></span>
+                </div>
+            </form>
+
+            <!-- Confirmation state -->
+            <div class="sea-done" id="sea-done" hidden>
+                <h2>Your application is ready to send.</h2>
+                <p>
+                    Your email app just opened with everything filled in.
+                    Look it over, add anything you'd like us to know, and
+                    press <strong>send</strong> — that's what submits your
+                    application. We read every one and reply honestly,
+                    either way.
+                </p>
+                <p>
+                    Email not opening? Send your answers to
+                    <a href="mailto:chrisnjonjo@wizerflow.com?subject=SAM%20Evaluator%20pilot%20application">chrisnjonjo@wizerflow.com</a>.
+                </p>
+                <p class="se-fineprint">Reports are informational summaries. Verify everything on SAM.gov before acting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="wf-footer">
+        <div class="wf-footer__inner">
+            <a class="wf-footer__brand" href="../../index.html">
+                <img src="../../images/purple-removebg.png" alt="Wizerflow">
+                <span>Wizerflow</span>
+            </a>
+            <p class="wf-footer__tag">Government solicitations, read in minutes. On your machine.</p>
+            <nav aria-label="Footer">
+                <a href="../../index.html">Wizerflow</a>
+                <a href="../index.html">SAM Evaluator</a>
+                <a href="../../govcon/">Government contracting</a>
+                <a href="../../policy.html">Terms and policy</a>
+            </nav>
+        </div>
+        <div class="wf-footer__legal">
+            <span class="wf-mono">Wizerflow Inc.</span>
+            <span class="wf-mono">Reports are informational summaries. Verify everything on SAM.gov before acting.</span>
+            <span class="wf-mono">© Wizerflow Inc. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <script src="../../js/vendor/scrollcraft.js"></script>
+    <script src="../../js/home.js"></script>
+    <script src="../../js/sam-evaluator-apply.js"></script>
+</body>
+</html>

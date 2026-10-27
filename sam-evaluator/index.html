@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizerflow | SAM Evaluator — Know in Minutes Whether a Solicitation Is Worth Your Time</title>
+    <meta name="description" content="SAM Evaluator reads any SAM.gov solicitation and its documents on your own computer, then gives you a one-page plain-language report with a clear verdict: WORTH A LOOK, SKIP, or NEEDS INFO. Founding pilot: 10 spots, $247 one-time.">
+    <meta property="og:title" content="Wizerflow | SAM Evaluator">
+    <meta property="og:description" content="Know in minutes whether a government solicitation is worth your time. A one-page plain-language report with a clear verdict — from a system installed into your own Claude setup. Founding pilot: 10 spots.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wizerflow.com/sam-evaluator/">
+    <meta property="og:image" content="https://wizerflow.com/images/purple-removebg.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_32x32.png">
+    <link rel="stylesheet" href="../css/vendor/scrollcraft.css">
+    <link rel="stylesheet" href="../css/instrument.css">
+    <link rel="stylesheet" href="../css/sam-evaluator.css">
+</head>
+<body>
+
+    <!-- Header / navigation, closed by a calibrated rule -->
+    <header class="wf-header">
+        <div class="wf-header__inner">
+            <a class="wf-brand" href="../index.html">
+                <img src="../images/purple-removebg.png" alt="">
+                <span>Wizerflow</span>
+            </a>
+            <nav class="wf-nav" aria-label="Primary">
+                <a href="#how-it-works">How it works</a>
+                <a href="#report">The report</a>
+                <a href="#faq-section">FAQs</a>
+                <a href="apply/"
+                   class="wf-btn wf-btn--primary wf-btn--nav"
+                   data-sc-magnet="0.14">
+                   Apply for a pilot spot
+                </a>
+            </nav>
+            <button class="wf-menu-btn" aria-expanded="false" aria-controls="wf-mobile-nav" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="wf-rule-scale" aria-hidden="true"></div>
+    </header>
+
+    <div class="wf-progress" data-sc-progress aria-hidden="true"></div>
+
+    <div class="wf-mobile-nav" id="wf-mobile-nav">
+        <a href="#how-it-works">How it works</a>
+        <a href="#report">The report</a>
+        <a href="#faq-section">FAQs</a>
+        <a href="apply/">Apply for a pilot spot</a>
+    </div>
+
+    <!-- Hero: the product, stated plainly -->
+    <section class="wf-hero se-hero" id="top" data-sc-act="flow">
+        <div class="wf-hero__ground" aria-hidden="true">
+            <div class="wf-hero__guilloche" data-sc-parallax="-0.05"></div>
+            <div class="wf-hero__grain"></div>
+        </div>
+
+        <div class="wf-hero__inner">
+            <p class="wf-mono" data-sc-cue="0 0.9 0.06">A new tool from Wizerflow</p>
+            <h1 class="wf-display wf-hero__title" style="margin-top:var(--sc-4)">
+                <span data-sc-kinetic="lines" data-sc-cue="0 0.9 0.12">SAM Evaluator.</span>
+                <span class="wf-line2" data-sc-kinetic="lines" data-sc-cue="0.05 0.9 0.22">The verdict before the paperwork.</span>
+            </h1>
+            <p class="wf-hero__deck" data-sc-cue="0.08 1 0.28">
+                Know in minutes whether a government solicitation is worth your time.
+                You give it any SAM.gov notice ID or link. It reads the solicitation
+                and its documents on your own computer, and hands you a one-page report
+                with a clear verdict.
+            </p>
+            <div class="wf-hero__actions" data-sc-cue="0.14 1 0.34">
+                <a href="apply/"
+                   class="wf-btn wf-btn--primary wf-btn--large"
+                   data-sc-magnet="0.2">
+                   Apply for a pilot spot
+                </a>
+                <a class="wf-link-quiet" href="#how-it-works">How it works</a>
+            </div>
+            <ul class="wf-mono se-hero__meta" data-sc-cue="0.18 1 0.4">
+                <li>Runs on your machine</li>
+                <li>Your own Claude setup</li>
+                <li>Your free SAM.gov API key</li>
+            </ul>
+        </div>
+        <div class="wf-hero__scale" aria-hidden="true"></div>
+    </section>
+
+    <!-- How it works: three steps on the step spine -->
+    <section class="wf-section" id="how-it-works" data-sc-act="flow" data-sc-drift="#e4e7ef">
+        <div class="wf-section__inner" style="max-width:56rem">
+            <h2 class="wf-display" style="font-size:clamp(2rem,1.5rem+2.4vw,3.4rem)" data-sc-cue="0 0.9 0.2">Bring the notice. Get the verdict.</h2>
+            <p class="wf-lede" data-sc-in>
+                <em>Reading a full solicitation package by hand takes hours —
+                every attachment opened, every deadline checked, every
+                requirement read. The system does that reading and hands you
+                one page.</em>
+            </p>
+            <ol class="wf-steps" data-sc-in data-sc-stagger="90">
+                <li>
+                    <span class="wf-step__no">01</span>
+                    <h3>Bring a solicitation</h3>
+                    <p><em>Paste in any SAM.gov notice ID or link. The system
+                    downloads the solicitation and its attached documents, right
+                    on your machine.</em></p>
+                </li>
+                <li>
+                    <span class="wf-step__no">02</span>
+                    <h3>Get the report</h3>
+                    <p><em>It reads the whole package and writes a one-page report
+                    in plain language: the verdict, the deadlines, and what the
+                    government actually requires.</em></p>
+                </li>
+                <li>
+                    <span class="wf-step__no">03</span>
+                    <h3>Decide</h3>
+                    <p><em>WORTH A LOOK, SKIP, or NEEDS INFO — and if it's worth
+                    a look, the report tells you the next move, down to a
+                    question worth emailing the point of contact.</em></p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- The film: the steps above, running for real -->
+    <section class="wf-section se-film" id="film" data-sc-act="flow" data-sc-drift="#e8e9ec">
+        <div class="wf-section__inner">
+            <div class="se-film__head" data-sc-in>
+                <p class="wf-mono se-film__eyebrow">The film</p>
+                <h2 class="wf-display" style="font-size:clamp(2rem,1.5rem+2.4vw,3.4rem)">From notice to verdict.</h2>
+            </div>
+            <figure class="se-film__frame" data-sc-in style="margin:var(--sc-7) auto 0">
+                <video class="se-film__video"
+                       controls
+                       playsinline
+                       preload="none"
+                       poster="../videos/SAM-Evaluator-launch-poster.jpg"
+                       aria-label="Silent 38-second film: a SAM.gov solicitation is brought in, its documents are read, and a one-page report comes back with the verdict, the deadlines, and the next move.">
+                    <source src="../videos/SAM-Evaluator-launch.mp4" type="video/mp4">
+                    <p class="wf-mono">This film needs a browser that can play video. Everything it shows is described in the sections below.</p>
+                </video>
+            </figure>
+            <div class="se-film__scale" aria-hidden="true"></div>
+            <p class="wf-mono se-film__cap">The film loads only when you press play.</p>
+        </div>
+    </section>
+
+    <!-- What's in a report: the plate itself, plus the ledger beside it -->
+    <section class="wf-section" id="report" data-sc-act="flow" data-sc-drift="#edebe8">
+        <div class="wf-section__inner">
+            <div class="wf-section__head" data-sc-in>
+                <h2 class="wf-display" style="font-size:clamp(2rem,1.5rem+2.4vw,3.4rem)">What's in the report</h2>
+            </div>
+            <div class="se-report">
+                <article class="wf-email wf-email--featured" data-sc-in>
+                    <div class="wf-email__tag">
+                        <h3 class="wf-email__title">Evaluation report</h3>
+                        <span class="wf-email__note">(One page, plain language)</span>
+                    </div>
+                    <dl class="wf-email__meta">
+                        <dt>Input</dt><dd>Any SAM.gov notice ID or link</dd>
+                        <dt>Reads</dt><dd>The solicitation and its documents</dd>
+                        <dt>Output</dt><dd>Verdict, deadlines, next move</dd>
+                    </dl>
+                    <ul class="se-verdicts" aria-label="The three verdicts">
+                        <li class="se-verdict se-verdict--look">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span>Worth a look</span>
+                        </li>
+                        <li class="se-verdict se-verdict--skip">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c22b45" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <span>Skip</span>
+                        </li>
+                        <li class="se-verdict se-verdict--info">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#565e6e" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+                            <span>Needs info</span>
+                        </li>
+                    </ul>
+                    <ul class="wf-verdicts">
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span>Every deadline that matters — and how much runway is left</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span>Whether the set-aside fits your business</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span>The requirements that actually decide the award</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c22b45" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <span>Red flags — site visits, mandatory certs, windows too short to meet</span>
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span>What to do next — site visit dates, and a question worth emailing the point of contact</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <aside class="se-card" data-sc-in>
+                    <span class="se-card__jewel" aria-hidden="true"></span>
+                    <h3 class="se-card__title">A private ledger on your machine</h3>
+                    <p style="margin:0 0 var(--sc-4); color:var(--sc-ink-soft); font-size:0.95rem">
+                        Every evaluation is saved in a local history on your own
+                        machine. Look back at what you checked, what you skipped,
+                        and why — months later.
+                    </p>
+                    <dl class="wf-email__meta">
+                        <dt>Hosted</dt><dd>Nothing — it runs locally</dd>
+                        <dt>History</dt><dd>Saved on your computer</dd>
+                        <dt>Subscription to us</dt><dd>None</dd>
+                        <dt>Runs on</dt><dd>Your Claude account + your free SAM.gov key</dd>
+                    </dl>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who it's for: bridges on the base plate -->
+    <section class="wf-section" id="who" data-sc-act="flow" data-sc-drift="#eaecef">
+        <div class="wf-section__inner">
+            <div class="wf-section__head" data-sc-in>
+                <h2 class="wf-display" style="font-size:clamp(2rem,1.5rem+2.4vw,3.4rem)">Who it's for</h2>
+            </div>
+            <div class="wf-bridges" data-sc-in data-sc-stagger="60">
+                <div class="wf-bridge wf-bridge--w2">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/>
+                    </svg>
+                    <h3>Drowning in SAM alerts</h3>
+                    <p>New notices land every day. Most don't fit. The report tells
+                    you which ones deserve your evening — and which to clear with
+                    one word.</p>
+                </div>
+                <div class="wf-bridge wf-bridge--w2">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+                    </svg>
+                    <h3>Short on hours</h3>
+                    <p>Nobody on a small team has three spare hours to read a full
+                    solicitation package for a job you probably won't bid. Get the
+                    verdict first, read only what's worth reading.</p>
+                </div>
+                <div class="wf-bridge wf-bridge--w2">
+                    <span class="wf-bridge__jewel" aria-hidden="true"></span>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="4" y="5" width="16" height="12" rx="1"/><path d="M2 19h20"/>
+                    </svg>
+                    <h3>Protecting your data</h3>
+                    <p>Your evaluations live on your machine, under your control.
+                    Nothing is hosted with us, and there's no account to keep
+                    paying for.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The launch offer: the inspection plate -->
+    <section class="wf-section" id="pilot" data-sc-act="flow" data-sc-drift="#e5e8f1">
+        <div class="wf-section__inner">
+            <div class="wf-cert" data-sc-in>
+                <h2 class="wf-display wf-cert__h">Founding pilot: 10 spots</h2>
+                <p class="wf-mono wf-cert__sub">By application. We approve each business.</p>
+                <p class="wf-cert__body">
+                    This is a genuine launch offer. We're taking ten businesses,
+                    setting each one up personally, and working with every one
+                    directly. Not everyone is a fit — apply, and we'll tell you
+                    honestly either way.
+                </p>
+                <div class="se-price">
+                    <span class="se-price__now">$247</span>
+                    <span class="wf-mono">one-time, pilot</span>
+                </div>
+                <p class="wf-mono se-price__anchor">Standard setup price: $1,500–3,000</p>
+                <div class="se-offer__cols">
+                    <div>
+                        <h3 class="wf-mono">Included</h3>
+                        <ul>
+                            <li>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span>A personal install session — we set it up with you</span>
+                            </li>
+                            <li>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span>A live demo running a real solicitation you choose</span>
+                            </li>
+                            <li>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2447c9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span>5 business days of email support</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="wf-mono">To qualify, you need</h3>
+                        <ul>
+                            <li>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#565e6e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span>A computer — Mac, Windows, or Linux</span>
+                            </li>
+                            <li>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#565e6e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span>A Claude subscription</span>
+                            </li>
+                            <li>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#565e6e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span>An active SAM.gov registration</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="apply/"
+                   class="wf-btn wf-btn--primary wf-btn--large"
+                   data-sc-magnet="0.18">
+                   Apply for a pilot spot
+                </a>
+                <br>
+                <span class="wf-mono wf-hallmark">Apply to see if we can work together.</span>
+                <p class="se-fineprint">Reports are informational summaries. Verify everything on SAM.gov before acting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ: the answer carousel -->
+    <section class="wf-faqcar" id="faq-section" data-sc-act="flow">
+        <div class="wf-faqcar__ghost" aria-hidden="true">ANSWERS</div>
+        <p class="wf-faqcar__label wf-mono">Commonly Asked Questions</p>
+
+        <div class="wf-faqcar__stage" role="group" aria-roledescription="carousel" aria-label="Frequently asked questions">
+            <article class="wf-faqcar__card">
+                <span class="wf-mono wf-faqcar__no">01</span>
+                <h3>Do I need to be technical?</h3>
+                <p>No. We install it with you in one session. After that, running
+                an evaluation is one command — you paste in the notice, and the
+                report comes back to you.</p>
+            </article>
+            <article class="wf-faqcar__card">
+                <span class="wf-mono wf-faqcar__no">02</span>
+                <h3>Where does my data live?</h3>
+                <p>On your computer. The reports, the documents it downloads, and your
+                evaluation history all stay on your machine. Nothing is hosted
+                with us — outside the install session, we never see your
+                solicitations.</p>
+            </article>
+            <article class="wf-faqcar__card">
+                <span class="wf-mono wf-faqcar__no">03</span>
+                <h3>What does it cost after?</h3>
+                <p>Nothing monthly. You keep paying your own Claude subscription,
+                and you use your own free SAM.gov API key. There is no
+                subscription to us.</p>
+            </article>
+            <article class="wf-faqcar__card">
+                <span class="wf-mono wf-faqcar__no">04</span>
+                <h3>What if I need help?</h3>
+                <p>The pilot includes 5 business days of email support after your
+                install. That covers setup questions and your first evaluations.
+                If something is genuinely broken, tell us — that's what a pilot
+                is for.</p>
+            </article>
+        </div>
+
+        <div class="wf-faqcar__nav">
+            <span class="wf-mono wf-faqcar__count">01 / 04</span>
+            <div class="wf-faqcar__arrows">
+                <button type="button" class="wf-faqcar__arrow" aria-label="Previous question">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                </button>
+                <button type="button" class="wf-faqcar__arrow" aria-label="Next question">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Close: every section leads here -->
+    <section class="wf-section wf-close se-close" data-sc-act="flow" data-sc-drift="#e9ebec">
+        <div class="wf-close__inner" data-sc-in data-sc-stagger="60">
+            <h2 class="wf-display">Bring the next solicitation. Get the verdict.</h2>
+            <p>Ten pilot spots, one application. Tell us what your business does
+            and what you're chasing on SAM.gov — if we're a fit, we'll set up
+            your install.</p>
+            <a href="apply/"
+               class="wf-btn wf-btn--primary wf-btn--large"
+               data-sc-magnet="0.18">
+               Apply for a pilot spot
+            </a>
+            <p class="se-fineprint">Reports are informational summaries. Verify everything on SAM.gov before acting.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="wf-footer">
+        <div class="wf-footer__inner">
+            <a class="wf-footer__brand" href="../index.html">
+                <img src="../images/purple-removebg.png" alt="Wizerflow">
+                <span>Wizerflow</span>
+            </a>
+            <p class="wf-footer__tag">Government solicitations, read in minutes. On your machine.</p>
+            <nav aria-label="Footer">
+                <a href="../govcon/">Government contracting</a>
+                <a href="../policy.html">Terms and policy</a>
+            </nav>
+        </div>
+        <div class="wf-footer__legal">
+            <span class="wf-mono">Reports are informational summaries. Verify everything on SAM.gov before acting.</span>
+            <span class="wf-mono">© Wizerflow Inc. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <script src="../js/vendor/scrollcraft.js"></script>
+    <script src="../js/home.js"></script>
+</body>
+</html>

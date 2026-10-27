@@ -1,0 +1,171 @@
+/* ============================================================================
+   WIZERFLOW — SAM Evaluator page
+   Same instrument world as the homepage (css/instrument.css); this sheet only
+   adds the page-specific components: hero meta strip, report preview plate,
+   verdict stamps, and the pilot offer plate. Tokens come from instrument.css.
+   ========================================================================== */
+
+/* ------------------------------------------------------------------ hero --- */
+/* the product hero: same bench light, no drawn movement — the page's moving
+   parts are the report plate and the verdict stamps below */
+.se-hero { min-height: 88svh; }
+.se-hero .wf-hero__title { max-width: 16ch; }
+.se-hero__meta {
+  margin: var(--sc-7) 0 0;
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--sc-2) var(--sc-4);
+  line-height: 2;
+}
+.se-hero__meta li {
+  display: inline-flex; align-items: center; gap: var(--sc-3);
+}
+.se-hero__meta li + li::before {
+  content: ""; width: 1px; height: 0.9em;
+  background: var(--wf-hairline-strong);
+  margin-right: var(--sc-3);
+}
+.se-hero__meta li::after {
+  content: ""; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--wf-ruby);
+  box-shadow: 0 0 0 2.5px color-mix(in oklab, var(--wf-ruby) 18%, transparent);
+}
+
+/* ---------------------------------------------------------------- report --- */
+.se-report {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--sc-6); align-items: start;
+}
+/* the side plate: same recipe as a bridge plate */
+.se-card {
+  background: var(--sc-surface);
+  border: var(--wf-rule); border-radius: var(--wf-r-sm);
+  box-shadow: var(--sc-e1), var(--sc-edge);
+  padding: clamp(1.4rem, 2.6vw, 2.2rem);
+  position: relative;
+}
+.se-card:hover { box-shadow: var(--sc-e2), var(--sc-edge); }
+.se-card__jewel {
+  position: absolute; top: calc(clamp(1.4rem, 2.6vw, 2.2rem) + 5px); right: clamp(1.4rem, 2.6vw, 2.2rem);
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--wf-ruby);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--wf-ruby) 20%, transparent);
+}
+.se-card__title {
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 108%;
+  font-size: 1.2rem; letter-spacing: -0.015em; margin: 0 0 var(--sc-4);
+  color: var(--sc-ink);
+}
+/* the three verdicts, stamped not spoken: mono plates with functional marks */
+.se-verdicts {
+  display: flex; flex-wrap: wrap; gap: var(--sc-3);
+  margin: var(--sc-5) 0 0; padding-top: var(--sc-4);
+  border-top: var(--wf-rule);
+}
+.se-verdict {
+  display: inline-flex; align-items: center; gap: 0.65em;
+  font-family: var(--wf-mono); font-size: 0.72rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--sc-ink);
+  background: color-mix(in oklab, var(--sc-canvas) 70%, var(--sc-surface));
+  border: 1px solid var(--wf-hairline-strong);
+  border-radius: var(--wf-r-sm);
+  padding: 0.5em 0.9em;
+}
+.se-verdict--look { border-color: color-mix(in oklab, var(--sc-accent) 55%, transparent); }
+.se-verdict svg { flex: none; }
+
+/* ----------------------------------------------------------------- offer --- */
+/* the pilot offer sits on the inspection plate (wf-cert); these are its guts */
+.se-price {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center;
+  gap: var(--sc-3) var(--sc-4);
+  margin: var(--sc-5) 0 var(--sc-2);
+}
+.se-price__now {
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 111%;
+  letter-spacing: -0.028em;
+  font-size: clamp(2.4rem, 2rem + 2.4vw, 3.4rem);
+  color: var(--sc-ink);
+}
+.se-price__anchor { margin: 0 0 var(--sc-6); }
+.se-offer__cols {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sc-6);
+  max-width: 46rem; margin: 0 auto var(--sc-6);
+  text-align: left;
+}
+.se-offer__cols h3 { margin: 0 0 var(--sc-3); }
+.se-offer__cols ul { list-style: none; margin: 0; padding: 0; }
+.se-offer__cols li {
+  display: flex; gap: 0.7em; align-items: baseline; font-size: 0.95rem;
+  color: var(--sc-ink-soft);
+}
+.se-offer__cols li + li { margin-top: var(--sc-2); }
+.se-offer__cols svg { flex: none; translate: 0 0.15em; }
+
+/* the honest-print: legal lines are engraved, small, and quiet */
+.se-fineprint {
+  margin: var(--sc-6) auto 0; max-width: 52ch;
+  font-family: var(--wf-mono); font-size: 0.72rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--sc-ink-soft); line-height: 1.9;
+}
+.se-close .se-fineprint { margin-top: var(--sc-5); }
+
+/* ------------------------------------------------------------------ film -- */
+/* the launch film on a raised plate: the poster is the bench scene, so the
+   frame stays pale and the calibrated scale beneath closes it like the header */
+.se-film__head { text-align: center; max-width: 40rem; margin-inline: auto; }
+.se-film__head h2 { margin-top: var(--sc-4); }
+.se-film__eyebrow {
+  display: flex; align-items: center; justify-content: center;
+  gap: var(--sc-4); margin: 0;
+}
+.se-film__eyebrow::before, .se-film__eyebrow::after {
+  content: ""; width: 3.5rem; height: 1px; background: var(--wf-hairline-strong);
+}
+/* seamless: no plate — the film's own bench canvas IS the section background */
+.se-film__frame {
+  max-width: 56rem; margin-inline: auto;
+}
+.se-film__video {
+  display: block; width: 100%; aspect-ratio: 16 / 9;
+}
+.se-film__scale {
+  height: 9px; margin: var(--sc-5) auto 0;
+  width: min(100%, 56rem);
+  background:
+    repeating-linear-gradient(90deg,
+      var(--wf-hairline-strong) 0 1px, transparent 1px 12.5%),
+    repeating-linear-gradient(90deg,
+      var(--wf-hairline) 0 1px, transparent 1px 2.5%);
+  -webkit-mask: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+.se-film__cap { text-align: center; margin: var(--sc-4) 0 0; }
+
+/* how-it-works: a stronger reveal than the default 14px rise — the lede
+   lifts higher and slower; the steps slide in along their own spine.
+   Scoped to no-preference so reduced-motion keeps the vendor's settled state. */
+@media (prefers-reduced-motion: no-preference) {
+  #how-it-works .wf-lede[data-sc-in] {
+    transform: translate3d(0, 26px, 0);
+    transition-duration: 700ms;
+  }
+  #how-it-works .wf-steps > li {
+    transform: translate3d(-38px, 0, 0);
+    transition-duration: 720ms;
+    transition-timing-function: var(--sc-ease-drawer);
+  }
+  #how-it-works .wf-lede[data-sc-in].sc-in,
+  #how-it-works .wf-steps > li.sc-in { transform: none; }
+}
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 991px) {
+  .se-report { grid-template-columns: 1fr; }
+  .se-offer__cols { grid-template-columns: 1fr; gap: var(--sc-4); }
+}
+@media (max-width: 640px) {
+  .se-hero { min-height: auto; }
+  .se-hero__meta { line-height: 2.2; }
+  .se-price { flex-direction: column; align-items: center; gap: var(--sc-2); }
+}

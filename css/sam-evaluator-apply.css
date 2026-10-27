@@ -1,0 +1,240 @@
+/* ============================================================================
+   WIZERFLOW — SAM Evaluator pilot application
+   Same instrument world as the product page (css/instrument.css +
+   css/sam-evaluator.css); this sheet only adds the application form:
+   question plates, choice stamps, milled inputs, the deal ledger, and the
+   sent-state plate. Tokens come from instrument.css. Prefix: .sea-
+   ========================================================================== */
+
+/* ------------------------------------------------------------- the hero --- */
+/* a compact page hero: the application is one plate, not a scroll journey */
+.sea-hero .wf-page-hero__inner { max-width: 46rem; }
+.sea-hero h1 { max-width: 16ch; }
+.sea-hero__back { margin-top: var(--sc-5); display: inline-block; }
+
+/* ------------------------------------------------------------ the plate --- */
+/* the form sits on one long raised plate, like an inspection card */
+.sea-apply {
+  padding: 0 var(--sc-gutter) var(--sc-section);
+  scroll-margin-top: 5rem;
+}
+.sea-plate {
+  max-width: 46rem; margin-inline: auto;
+  background: var(--sc-surface);
+  border: var(--wf-rule);
+  outline: 1px solid var(--wf-hairline);
+  outline-offset: 6px;
+  border-radius: var(--wf-r-sm);
+  box-shadow: var(--sc-e2), var(--sc-edge);
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+}
+/* the plate's own kicker, stamped not spoken */
+.sea-plate > .wf-mono {
+  display: block; margin: 0 0 var(--sc-6); padding-bottom: var(--sc-4);
+  border-bottom: var(--wf-rule);
+}
+
+/* --------------------------------------------------------------- topics --- */
+/* the two section fieldsets: display legends with engraved indices */
+.sea-topic { border: 0; padding: 0; margin: 0; min-inline-size: 0; }
+.sea-topic + .sea-topic { margin-top: var(--sc-6); padding-top: var(--sc-6); border-top: var(--wf-rule); }
+.sea-topic > legend {
+  padding: 0; margin: 0 0 var(--sc-5);
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 108%;
+  font-size: 1.45rem; letter-spacing: -0.02em; line-height: 1.15; color: var(--sc-ink);
+}
+.sea-topic > legend .sea-topic__no {
+  display: block; margin-bottom: var(--sc-2);
+  font-family: var(--wf-mono); font-weight: 400; font-size: 0.72rem;
+  letter-spacing: 0.14em; color: var(--sc-accent);
+}
+
+/* ------------------------------------------------------------ questions --- */
+.sea-q { border: 0; padding: 0; margin: 0; min-inline-size: 0; }
+.sea-q + .sea-q { margin-top: var(--sc-5); padding-top: var(--sc-5); border-top: var(--wf-rule); }
+.sea-q > legend {
+  padding: 0; margin: 0 0 var(--sc-3);
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 106%;
+  font-size: 1.02rem; letter-spacing: -0.01em; line-height: 1.35; color: var(--sc-ink);
+}
+
+/* choice stamps: the same milled plate as the verdict stamps on the
+   product page — a hairline box on a canvas-surface mix, struck in accent
+   when chosen */
+.sea-choices {
+  display: flex; flex-wrap: wrap; gap: var(--sc-2) var(--sc-3);
+}
+.sea-choice {
+  display: inline-flex; align-items: center; gap: 0.6em;
+  font-size: 0.95rem; color: var(--sc-ink);
+  background: color-mix(in oklab, var(--sc-canvas) 70%, var(--sc-surface));
+  border: 1px solid var(--wf-hairline-strong);
+  border-radius: var(--wf-r-sm);
+  padding: 0.55em 0.95em;
+  cursor: pointer;
+  transition: border-color var(--sc-d-base) var(--sc-ease-out),
+              background var(--sc-d-base) var(--sc-ease-out),
+              box-shadow var(--sc-d-base) var(--sc-ease-out);
+}
+.sea-choice:hover { border-color: color-mix(in oklab, var(--sc-accent) 55%, transparent); }
+.sea-choice:has(input:checked) {
+  border-color: var(--sc-accent);
+  background: color-mix(in oklab, var(--sc-accent) 9%, var(--sc-surface));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--sc-accent) 16%, transparent);
+}
+.sea-choice input:checked + span { color: var(--sc-ink); font-weight: 500; }
+
+/* the milled mark itself: a near-sharp square that fills heat-blued and
+   takes a struck check — radios and checkboxes share one vocabulary */
+.sea-choice input,
+.sea-deal input {
+  appearance: none; -webkit-appearance: none;
+  flex: none; width: 16px; height: 16px; margin: 0;
+  border: 1px solid var(--wf-hairline-strong);
+  border-radius: var(--wf-r-sm);
+  background-color: var(--sc-surface);
+  box-shadow: var(--sc-edge);
+  cursor: pointer; display: inline-grid; place-content: center;
+  transition: background-color var(--sc-d-base) var(--sc-ease-out),
+              border-color var(--sc-d-base) var(--sc-ease-out);
+}
+.sea-choice input:hover,
+.sea-deal input:hover { border-color: var(--sc-accent); }
+.sea-choice input:checked,
+.sea-deal input:checked {
+  background-color: var(--sc-accent);
+  border-color: var(--sc-accent);
+}
+.sea-choice input:checked::before,
+.sea-deal input:checked::before {
+  content: ""; width: 9px; height: 9px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f2f4fb' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* inline notes: recessed wells. the stop variant carries the ruby jewel —
+   a functional mark that this path is declined, per the jewel bearing rule */
+.sea-note {
+  margin: var(--sc-3) 0 0;
+  background: var(--wf-well);
+  border: var(--wf-rule);
+  border-radius: var(--wf-r-sm);
+  padding: 0.75em 1em;
+  font-size: 0.9rem; line-height: 1.55; color: var(--sc-ink-soft);
+}
+.sea-note strong { color: var(--sc-ink); font-weight: 600; }
+.sea-note--stop { color: var(--sc-ink); }
+.sea-note--stop::before {
+  content: ""; display: inline-block; width: 7px; height: 7px;
+  border-radius: 50%; background: var(--wf-ruby);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--wf-ruby) 18%, transparent);
+  margin-right: 0.7em; translate: 0 -0.06em;
+}
+
+/* --------------------------------------------------------------- fields --- */
+.sea-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sc-4) var(--sc-5);
+}
+.sea-field { display: grid; gap: var(--sc-2); align-content: start; }
+.sea-field--full { grid-column: 1 / -1; }
+.sea-field > label {
+  font-family: var(--wf-mono); font-size: 0.72rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--sc-ink-soft);
+}
+.sea-field > label em {
+  text-transform: none; letter-spacing: 0; font-size: 0.78rem;
+}
+.sea-input {
+  width: 100%; box-sizing: border-box;
+  font: inherit; font-size: 1rem; color: var(--sc-ink);
+  caret-color: var(--sc-accent);
+  background: color-mix(in oklab, var(--sc-canvas) 70%, var(--sc-surface));
+  border: 1px solid var(--wf-hairline-strong);
+  border-radius: var(--wf-r-sm);
+  padding: 0.65em 0.85em;
+  box-shadow: var(--sc-edge);
+  transition: border-color var(--sc-d-base) var(--sc-ease-out),
+              background var(--sc-d-base) var(--sc-ease-out);
+}
+.sea-input:hover { border-color: color-mix(in oklab, var(--sc-accent) 45%, transparent); }
+.sea-input:focus-visible { border-color: var(--sc-accent); }
+.sea-input::placeholder { color: color-mix(in oklab, var(--sc-ink-soft) 65%, transparent); }
+
+/* ------------------------------------------------------------ the deal ---- */
+/* the four terms read like the report's verdict list: hairline-separated
+   lines, each with its struck box */
+.sea-deal__count { margin: 0 0 var(--sc-4); }
+.sea-deal { list-style: none; margin: 0; padding: var(--sc-3) 0 0; border-top: var(--wf-rule); }
+.sea-deal li + li { margin-top: var(--sc-2); }
+.sea-deal label {
+  display: flex; gap: 0.8em; align-items: flex-start;
+  padding: 0.55em 0.25em; cursor: pointer;
+  font-size: 0.95rem; line-height: 1.55; color: var(--sc-ink-soft);
+  transition: color var(--sc-d-base) var(--sc-ease-out);
+}
+.sea-deal label:hover { color: var(--sc-ink); }
+.sea-deal label:has(input:checked) { color: var(--sc-ink); }
+.sea-deal input { margin-top: 0.2em; }
+
+/* --------------------------------------------------------------- submit --- */
+.sea-submit {
+  margin-top: var(--sc-6); padding-top: var(--sc-5); border-top: var(--wf-rule);
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-4) var(--sc-5);
+}
+.sea-submit .wf-btn:disabled,
+.sea-submit .wf-btn:disabled:hover {
+  background: var(--wf-well); color: var(--sc-ink-soft);
+  box-shadow: none; transform: none; cursor: not-allowed;
+}
+/* the friendly gate: what the disabled button still needs, engraved */
+.sea-submit__why { line-height: 1.9; }
+/* author display values must never defeat the hidden attribute */
+[hidden] { display: none !important; }
+/* the field-error line: a recessed well with the ruby mark */
+.sea-error {
+  display: flex; gap: 0.7em; align-items: baseline;
+  margin: 0 0 var(--sc-4);
+  background: var(--wf-well); border: var(--wf-rule);
+  border-radius: var(--wf-r-sm);
+  padding: 0.75em 1em;
+  font-size: 0.9rem; line-height: 1.55; color: var(--sc-ink);
+}
+.sea-error::before {
+  content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--wf-ruby);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--wf-ruby) 18%, transparent);
+  translate: 0 -0.1em;
+}
+
+/* ------------------------------------------------------- sent state ------- */
+/* after composing: the inspection plate again, centered and quiet */
+.sea-done {
+  max-width: 40rem; margin-inline: auto; text-align: center;
+  background: var(--sc-surface);
+  border: var(--wf-rule);
+  outline: 1px solid var(--wf-hairline);
+  outline-offset: 6px;
+  border-radius: var(--wf-r-sm);
+  box-shadow: var(--sc-e2), var(--sc-edge);
+  padding: clamp(2rem, 4vw, 3.2rem);
+}
+.sea-done h2 {
+  font-family: var(--sc-font-display); font-weight: 640; font-stretch: 111%;
+  font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.2rem); letter-spacing: -0.028em;
+  line-height: var(--sc-leading-none); margin: 0 0 var(--sc-4); color: var(--sc-ink);
+}
+.sea-done p { margin: 0 0 var(--sc-4); color: var(--sc-ink-soft); font-size: 0.98rem; }
+.sea-done p:last-of-type { margin-bottom: 0; }
+.sea-done a { color: var(--sc-accent); font-weight: 500; }
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 640px) {
+  .sea-grid { grid-template-columns: 1fr; }
+  .sea-plate { outline-offset: 4px; }
+}
+
+/* ------------------------------------------------------- reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .sea-choice, .sea-choice input, .sea-deal input, .sea-input,
+  .sea-deal label { transition: none; }
+}
