@@ -102,14 +102,12 @@
 .se-offer__cols li + li { margin-top: var(--sc-2); }
 .se-offer__cols svg { flex: none; translate: 0 0.15em; }
 
-/* the honest-print: legal lines are engraved, small, and quiet */
-.se-fineprint {
-  margin: var(--sc-6) auto 0; max-width: 52ch;
-  font-family: var(--wf-mono); font-size: 0.72rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--sc-ink-soft); line-height: 1.9;
+/* the quiet recommendation: the site's regular text, small, no caps */
+.se-legal-note {
+  font-family: var(--sc-font-text); font-size: 0.78rem;
+  letter-spacing: normal; text-transform: none;
+  color: var(--sc-ink-soft); line-height: 1.6;
 }
-.se-close .se-fineprint { margin-top: var(--sc-5); }
-
 /* ------------------------------------------------------------------ film -- */
 /* the launch film on a raised plate: the poster is the bench scene, so the
    frame stays pale and the calibrated scale beneath closes it like the header */
